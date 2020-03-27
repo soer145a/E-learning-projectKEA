@@ -14,11 +14,13 @@ $_SESSION['firstName'] = $uFirstName;
 $_SESSION['lastName'] = $uLastName;
 
 
+
 $sql = "INSERT INTO customers (firstname, lastname, email, username, password)
     VALUES ( '$uFirstName', '$uLastName', '$uEmail','$uUsername','$uPassword')";
     
     if ($conn->query($sql) === TRUE) {
         $last_id = $conn->insert_id;
+        $_SESSION['uID'] = $last_id;
         echo "New record created successfully. Last inserted ID is: " . $last_id;
         header('Location: index.php');
     } else {

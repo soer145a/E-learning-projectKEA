@@ -16,9 +16,11 @@ if(isset($_POST['uUsername'])&&isset($_POST['uPassword'])){
     $_SESSION['loginStatus'] = true;
     $_SESSION['firstName'] = $row['firstname'];
     $_SESSION['lastName'] = $row['lastname'];
+    $_SESSION['userID'] = $row['id'];
 
     echo $_SESSION['lastName'];
     header('Location: index.php');
+    exit();
     }
 } else{
 
