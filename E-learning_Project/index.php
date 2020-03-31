@@ -1,8 +1,6 @@
 <?php 
 include_once('components/compTop.php');
-
-
-
+include_once('DB_Connect/connection.php');
 ?>
     <main>
       <div id="mainContent"></div>

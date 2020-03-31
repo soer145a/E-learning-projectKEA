@@ -8,7 +8,7 @@ $uLastName = $_POST['uLastName'];
 $uUsername = $_POST['uUsername'];
 $uPassword= $_POST['uPassword'];
 
-session_start();
+
 $_SESSION['loginStatus'] = true;
 $_SESSION['firstName'] = $uFirstName;
 $_SESSION['lastName'] = $uLastName;
@@ -16,7 +16,7 @@ $_SESSION['lastName'] = $uLastName;
 
 
 $sql = "INSERT INTO customers (firstname, lastname, email, username, password)
-    VALUES ( '$uFirstName', '$uLastName', '$uEmail','$uUsername','$uPassword')";
+    VALUES ('$uFirstName','$uLastName','$uEmail','$uUsername','$uPassword')";
     
     if ($conn->query($sql) === TRUE) {
         $last_id = $conn->insert_id;
