@@ -1,50 +1,99 @@
 <?php
-if(isset($_POST['uFirstName'])){
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "myDB";
-
-    $uFirstName = $_POST['uFirstName'];
-    $uLastName = $_POST['uLastName'];
-    $uEmail = $_POST['uEmail'];
-    
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
+ 
+/**
+ * PHP MySQL Transaction Demo
+ */
+class TransactionDemo {
+ 
+    const DB_HOST = 'localhost';
+    const DB_NAME = 'myDB';
+    const DB_USER = 'root';
+    const DB_PASSWORD = '';
+ 
+    /**
+     * Open the database connection
+     */
+    public function __construct() {
+        // open database connection
+        $conStr = sprintf("mysql:host=%s;dbname=%s", self::DB_HOST, self::DB_NAME);
+        try {
+            $this->pdo = new PDO($conStr, self::DB_USER, self::DB_PASSWORD);
+        } catch (PDOException $e) {
+            die($e->getMessage());
+        }
     }
-    
-    $sql = "INSERT INTO customers (firstname, lastname, email)
-    VALUES ( '$uFirstName', '$uLastName', '$uEmail')";
-    
-    if ($conn->query($sql) === TRUE) {
-        $last_id = $conn->insert_id;
-        echo "New record created successfully. Last inserted ID is: " . $last_id;
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+ 
+    /**
+     * PDO instance
+     * @var PDO 
+     */
+    private $pdo = null;
+ 
+    /**
+     * Transfer money between two accounts
+     * @param int $from
+     * @param int $to
+     * @param float $amount
+     * @return true on success or false on failure.
+     */
+    public function transfer($from, $to, $amount) {
+ 
+        try {
+            $this->pdo->beginTransaction();
+ 
+            // get available amount of the transferer account
+            $sql = 'SELECT amount FROM accounts WHERE id=:from';
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute(array(":from" => $from));
+            $availableAmount = (int) $stmt->fetchColumn();
+            $stmt->closeCursor();
+ 
+            if ($availableAmount < $amount) {
+                echo 'Insufficient amount to transfer';
+                return false;
+            }
+            // deduct from the transferred account
+            $sql_update_from = 'UPDATE accounts
+                SET amount = amount - :amount
+                WHERE id = :from';
+            $stmt = $this->pdo->prepare($sql_update_from);
+            $stmt->execute(array(":from" => $from, ":amount" => $amount));
+            $stmt->closeCursor();
+ 
+            // add to the receiving account
+            $sql_update_to = 'UPDATE accounts
+                                SET amount = amount + :amount
+                                WHERE id = :to';
+            $stmt = $this->pdo->prepare($sql_update_to);
+            $stmt->execute(array(":to" => $to, ":amount" => $amount));
+ 
+            // commit the transaction
+            $this->pdo->commit();
+ 
+            echo 'The amount has been transferred successfully';
+ 
+            return true;
+        } catch (PDOException $e) {
+            $this->pdo->rollBack();
+            die($e->getMessage());
+        }
     }
-    
-    $conn->close();
-}else{
-    echo 'No entry yet';
+ 
+    /**
+     * close the database connection
+     */
+    public function __destruct() {
+        // close the database connection
+        $this->pdo = null;
+    }
+ 
 }
+ 
+// test the transfer method
+$obj = new TransactionDemo();
+ 
+// transfer 30K from from account 1 to 2
+$obj->transfer(1, 2, 70000);
+ 
+ 
 
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form action="index.php" method="post">
-        <input type="text" name="uFirstName">
-        <input type="text" name="uLastName">
-        <input type="email" name="uEmail">
-        <input type="submit" value="Submit to myDB">
-    </form>
-</body>
-</html>

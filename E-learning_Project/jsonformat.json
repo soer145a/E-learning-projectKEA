@@ -1,0 +1,9 @@
+{
+  "shortDescription": "How to querrie and CRUD",
+  "introduction": [
+    "For accessing databases and manipulating data, you need a different language than what your web service need. SQL (Structure Query Language), is what is used to ask for information or action from your database. The difference between whatever coding language that your web service is made with, and SQL, is that SQL is getting tasks based on it’s code, more than simply building with it.",
+    "For an example: If you simply store your users in a JSON file on the website itself, you simply fetch the data at hand with whatever tool you’re using. The data you now have locally is simply a big ol’ pile of data, of which the program now has to sift through, and look for what exactly you need.",
+    "With SQL however, you can simply ask more specifically for what data you want from your database. For an example, instead of getting everything from your database, you set some criteria for the data you want back from your request. So if you want every customer who purchased vanilla ice-cream in your store, who is older than 35 and lives in Oklahoma, with more than 2 children, if your database has the information, you can ask for that!",
+    "So how do you do that?"
+  ]
+}
