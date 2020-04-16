@@ -1,5 +1,5 @@
 <?php
-include_once('components/compTop.php');
+session_start();
 include_once('DB_Connect/connection.php');
 $uFirstName = $_SESSION['firstName'];
 $uLastName = $_SESSION['lastName'];
@@ -7,8 +7,8 @@ $uID = $_SESSION['userID'];
 if(isset($_POST['deleteUsername'])&&isset($_POST['deletePassword'])){
     $sql = "DELETE FROM customers WHERE id=$uID";
     $conn->query($sql);
-    echo 'Deleting ID '.$uID;
-    header('Location: Logout.php');
+    
+    header('Location: logout.php');
     exit();
 }
 if(isset($_POST['uFirstName'])){
@@ -24,6 +24,7 @@ if(isset($_POST['uFirstName'])){
 $sql = "SELECT * FROM customers WHERE id=$uID";
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
+include_once('components/compTop.php');
 ?>
 <main>
 <div id="deleteModalWindow" onclick="closeDeleteModal()">

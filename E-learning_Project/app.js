@@ -58,3 +58,28 @@ function closeDeleteModal() {
   document.querySelector("#deleteModalWindow").style.pointerEvents = "none";
   document.querySelector("#deleteModalContent").style.pointerEvents = "none";
 }
+function showOptions(stringDivName) {
+  let dropdowns = document.querySelectorAll(".dropdown-content");
+  dropdowns.forEach((item) => {
+    item.classList.remove("show");
+  });
+  if (
+    document.getElementById(stringDivName).classList.contains("show") == true
+  ) {
+    document.getElementById(stringDivName).classList.remove("show");
+  } else {
+    document.getElementById(stringDivName).classList.add("show");
+  }
+}
+function fetchIntroduction(ID) {
+  console.log("FETCH INTRODUCTION ON COURSE" + ID);
+}
+function fetchExample(ID) {
+  console.log("FETCH EXAMPLE ON COURSE" + ID);
+}
+function fetchSummery(ID) {
+  console.log("FETCH SUMMERY ON COURSE" + ID);
+}
+function fetchQuiz(ID) {
+  console.log("FETCH QUIZ ON COURSE" + ID);
+}

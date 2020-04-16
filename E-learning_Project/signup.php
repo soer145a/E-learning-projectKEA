@@ -1,5 +1,5 @@
 <?php 
-include_once('components/compTop.php');
+session_start();
 if(isset($_POST['uUsername'])&&isset($_POST['uPassword'])){
 include_once('DB_Connect/connection.php');
 $uEmail = $_POST['uEmail'];
@@ -20,9 +20,9 @@ $sql = "INSERT INTO customers (firstname, lastname, email, username, password)
     
     if ($conn->query($sql) === TRUE) {
         $last_id = $conn->insert_id;
-        $_SESSION['uID'] = $last_id;
-        echo "New record created successfully. Last inserted ID is: " . $last_id;
+        $_SESSION['userID'] = $last_id;
         header('Location: index.php');
+        exit();
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
@@ -30,6 +30,9 @@ $sql = "INSERT INTO customers (firstname, lastname, email, username, password)
     $conn->close();
 }
 
+?>
+<?php
+include_once('components/compTop.php');
 ?>
 <main>
 

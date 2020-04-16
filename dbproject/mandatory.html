@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="app.css">
+    <title>Opstilling</title>
+</head>
+
+<body>
+
+    <div id="divContentContainer">
+        <div id="divContent">
+            <div id="divInjectContentHere">
+
+                <div id="divContentTitle">
+                    <h1>What is a relational database?</h1>
+                </div>
+                <div id="divContentDescription">
+                    <p>A relational database is a database consisting of two or more tables that each are related to one
+                        or
+                        more of the other tables in the database. They create relationships between one another by
+                        referring
+                        to columns, also called attributes, in different tables.</p>
+                </div>
+                <div id="divContentImage">
+                    <img id="imgContent" src="">
+                </div>
+                <form id="divQuiz">
+                    <p id="pQuestion">Hvad er bla bla?</p>
+                    <label for="radioAnswer1"><input name="answer" type="radio" id="radioAnswer1"> Answer option 1</label>
+                    <label for="radioAnswer2"><input name="answer" type="radio" id="radioAnswer2"> Answer option 2</label>
+                    <label for="radioAnswer3"><input name="answer" type="radio" id="radioAnswer3"> Answer option 3</label>
+                    <label for="radioAnswer4"><input name="answer" type="radio" id="radioAnswer4"> Answer option 4</label>  
+                    <button id="buttonSubmit">Submit answer</button>                
+                </form>
+            </div>
+            <div id="divNavigationButtons">
+                <button id="buttonNext" onclick="">Next <i class="fa fa-chevron-right"
+                        style="font-size:16px"></i></button>
+                <button id="buttonBack" onclick=""><i class="fa fa-chevron-left" style="font-size:16px"></i>
+                    Back</i></button>
+
+            </div>
+        </div>
+        <div id="divNavigation">
+            <button onclick="showOptions('contentOptionsRelationalDatabase')" class="btnDropdown">What is a relational
+                database? <i class="fa fa-chevron-down" style="font-size:24px"></i></button>
+            <div id="contentOptionsRelationalDatabase" class="dropdown-content">
+                <a href="#" onclick="">What is a relational database?</a>
+                <a href="#" onclick="">Example</a>
+                <a href="#" onclick="">Summery</a>
+                <a href="#" onclick="">Quiz</a>
+            </div>
+            <button onclick="showOptions('contentOptionsNormalization')" class="btnDropdown">What is database
+                normalization? <i class="fa fa-chevron-down" style="font-size:24px"></i></button>
+            <div id="contentOptionsNormalization" class="dropdown-content">
+                <a href="#" onclick="">What is database normalization?</a>
+                <a href="#" onclick="">Example</a>
+                <a href="#" onclick="">Summery</a>
+                <a href="#" onclick="">Quiz</a>
+            </div>
+            <button onclick="showOptions('contentOptionsEntity')" class="btnDropdown">What is an enitity realtionship
+                diagram? <i class="fa fa-chevron-down" style="font-size:24px"></i></button>
+            <div id="contentOptionsEntity" class="dropdown-content">
+                <a href="#" onclick="">What is an enitity realtionship diagram?</a>
+                <a href="#" onclick="">Example</a>
+                <a href="#" onclick="">Summery</a>
+                <a href="#" onclick="">Quiz</a>
+            </div>
+            <button onclick="showOptions('contentOptionsSQL')" class="btnDropdown">What is SQL and how does it work to
+                CRUD? <i class="fa fa-chevron-down" style="font-size:24px"></i></button>
+            <div id="contentOptionsSQL" class="dropdown-content">
+                <a href="#" onclick="">What is SQL and how does it work to CRUD?</a>
+                <a href="#" onclick="">Example</a>
+                <a href="#" onclick="">Summery</a>
+                <a href="#" onclick="">Quiz</a>
+            </div>
+            <button onclick="showOptions('contentOptionsInstall')" class="btnDropdown">How do you install a realtional
+                database? <i class="fa fa-chevron-down" style="font-size:24px"></i></button>
+            <div id="contentOptionsInstall" class="dropdown-content">
+                <a href="#" onclick="">How do you install a realtional database?</a>
+                <a href="#" onclick="">Example</a>
+                <a href="#" onclick="">Summery</a>
+                <a href="#" onclick="">Quiz</a>
+            </div>
+            <button onclick="showOptions('contentOptionsConnect')" class="btnDropdown">How does a database connect to a
+                Web Front End? <i class="fa fa-chevron-down" style="font-size:24px"></i></button>
+            <div id="contentOptionsConnect" class="dropdown-content">
+                <a href="#" onclick="">How does a database connect to a Web Front End?</a>
+                <a href="#" onclick="">Example</a>
+                <a href="#" onclick="">Summery</a>
+                <a href="#" onclick="">Quiz</a>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        /* When the user clicks on the button, 
+        toggle between hiding and showing the dropdown content */
+        function showOptions(stringDivName) {
+            document.getElementById(stringDivName).classList.toggle("show");
+        }
+
+    </script>
+
+</body>
+
+</html>

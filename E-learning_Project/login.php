@@ -1,5 +1,5 @@
 <?php 
-include_once('components/compTop.php');
+session_start();
 if(isset($_POST['uUsername'])&&isset($_POST['uPassword'])){
     include_once('DB_Connect/connection.php');
     $username = $_POST['uUsername'];
@@ -10,24 +10,17 @@ if(isset($_POST['uUsername'])&&isset($_POST['uPassword'])){
     if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        print_r($row);
-       echo '<br>';
-       session_start();
     $_SESSION['loginStatus'] = true;
     $_SESSION['firstName'] = $row['firstname'];
     $_SESSION['lastName'] = $row['lastname'];
     $_SESSION['userID'] = $row['id'];
-
-    echo $_SESSION['lastName'];
     header('Location: index.php');
     exit();
     }
-} else{
-
-}
+} 
     $conn->close();
-    
 }
+include_once('components/compTop.php');
 ?>
 <main>
     <h1>Login here!</h1>
