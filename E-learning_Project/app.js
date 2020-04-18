@@ -1,10 +1,5 @@
 console.log("X");
 let mainArea = document.querySelector("#mainContent");
-function changeMainContent(e) {
-  console.log(e);
-  let courseID = e.dataset.courseid;
-  mainArea.innerHTML = courseID;
-}
 let infoHTMLBackup;
 function editProfile() {
   console.log("EDIT");
@@ -71,8 +66,19 @@ function showOptions(stringDivName) {
     document.getElementById(stringDivName).classList.add("show");
   }
 }
-function fetchIntroduction(ID) {
+async function fetchIntroduction(ID) {
   console.log("FETCH INTRODUCTION ON COURSE" + ID);
+  let connection = await fetch(
+    `APIs/API-fetch-introductions.php?courseID=${ID}`
+  );
+  let sData = await connection.json();
+  console.log(sData);
+  let htmlBluePrintIntroduction = await fetch(
+    `blueprints/IntroductionHTMLElement.html`
+  );
+  let introductionHtml = await htmlBluePrintIntroduction.text();
+  let htmlPrint = introductionHtml.replace("::insertp1::", sData);
+  mainArea.innerHTML = htmlPrint;
 }
 function fetchExample(ID) {
   console.log("FETCH EXAMPLE ON COURSE" + ID);
