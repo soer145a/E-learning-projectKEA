@@ -77,7 +77,10 @@ async function fetchIntroduction(ID) {
     `blueprints/IntroductionHTMLElement.html`
   );
   let introductionHtml = await htmlBluePrintIntroduction.text();
-  let htmlPrint = introductionHtml.replace("::insertp1::", sData);
+  let htmlPrint = introductionHtml.replace("::insertp1::", sData.para1);
+  htmlPrint = htmlPrint.replace("::insertp2::", sData.para2);
+  htmlPrint = htmlPrint.replace("::insertp3::", sData.para3);
+  htmlPrint = htmlPrint.replace("::insertp4::", sData.para4);
   mainArea.innerHTML = htmlPrint;
 }
 function fetchExample(ID) {
