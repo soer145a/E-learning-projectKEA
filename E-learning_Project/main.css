@@ -233,3 +233,24 @@ footer {
   transition: 0.3s;
   left: 25vw;
 }
+.questionBox {
+  border: solid 2px black;
+  margin: 2vw;
+}
+.questionBox > p {
+  margin: auto;
+}
+#questionContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 20vw;
+}
+.greyAnswer {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.correctAnswer {
+  background-color: lightgreen;
+}
+.wrongAnswer {
+  background-color: red;
+}

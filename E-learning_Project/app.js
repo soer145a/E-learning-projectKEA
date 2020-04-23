@@ -89,6 +89,48 @@ function fetchExample(ID) {
 function fetchSummery(ID) {
   console.log("FETCH SUMMERY ON COURSE" + ID);
 }
-function fetchQuiz(ID) {
+async function fetchQuiz(ID) {
   console.log("FETCH QUIZ ON COURSE" + ID);
+  let connection = await fetch(`APIs/API-fetch-quiz.php?courseID=${ID}`);
+  let sData = await connection.json();
+  let htmlBluePrintQuiz = await fetch(`blueprints/quizHTMLElement.html`);
+  let a = [sData.answer_1, sData.answer_2, sData.answer_3, sData.answer_4];
+  var j, x, i;
+  for (i = a.length - 1; i > 0; i--) {
+    j = Math.floor(Math.random() * (i + 1));
+    x = a[i];
+    a[i] = a[j];
+    a[j] = x;
+  }
+  let quizHtml = await htmlBluePrintQuiz.text();
+  let htmlPrint = quizHtml.replace("::answer_1::", a[0]);
+  htmlPrint = htmlPrint.replace("::answer_2::", a[1]);
+  htmlPrint = htmlPrint.replace("::answer_3::", a[2]);
+  htmlPrint = htmlPrint.replace("::answer_4::", a[3]);
+  a.forEach((item, index) => {
+    if (item == sData.answer_1) {
+      htmlPrint = htmlPrint.replace(`::truthCheck${index + 1}::`, "true");
+    } else {
+      htmlPrint = htmlPrint.replace(`::truthCheck${index + 1}::`, "false");
+    }
+  });
+  htmlPrint = htmlPrint.replace("::questionArea::", sData.question);
+  mainArea.innerHTML = htmlPrint;
+}
+function answerQuiz(e) {
+  let questionBoxes = document.querySelectorAll(".questionBox");
+  questionBoxes.forEach((div) => {
+    if (div == e) {
+      if (div.dataset.truthcheck == "true") {
+        div.classList.add("correctAnswer");
+      } else {
+        div.classList.add("wrongAnswer");
+      }
+    } else {
+      div.classList.add("greyAnswer");
+    }
+    if (div.dataset.truthcheck == "true") {
+      div.classList.add("correctAnswer");
+    }
+  });
 }
