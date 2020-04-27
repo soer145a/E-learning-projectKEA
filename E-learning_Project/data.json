@@ -13,6 +13,18 @@
       "answer_2": "With the COND syntax",
       "answer_3": "Altering the database",
       "answer_4": "With ID's in the database"
+    },
+    "example": {
+      "example_headline1": "Here's how you Crud!",
+      "example_image1": "example_image1",
+      "example_headline2": "Here's an example",
+      "example_image2": "example_image2",
+      "example_explanation": "INSERT AN EXPLANATION"
+    },
+    "summery": {
+      "information": "So what have you learned?",
+      "summery_image1": "summery_image1",
+      "explanation": "It's for querieng!"
     }
   }
 ]

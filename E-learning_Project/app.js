@@ -1,6 +1,7 @@
 console.log("X");
 let mainArea = document.querySelector("#mainContent");
 let infoHTMLBackup;
+let placement = 1;
 function editProfile() {
   console.log("EDIT");
   infoHTMLBackup = document.querySelector("#profileContent").innerHTML;
@@ -68,13 +69,15 @@ function showOptions(stringDivName) {
 }
 async function fetchIntroduction(ID) {
   console.log("FETCH INTRODUCTION ON COURSE" + ID);
+  placement = ID * 1 + 1;
+  console.log(placement);
   let connection = await fetch(
     `APIs/API-fetch-introductions.php?courseID=${ID}`
   );
   let sData = await connection.json();
   console.log(sData);
   let htmlBluePrintIntroduction = await fetch(
-    `blueprints/IntroductionHTMLElement.html`
+    `blueprints/IntroductionHTMLElement.php`
   );
   let introductionHtml = await htmlBluePrintIntroduction.text();
   let htmlPrint = introductionHtml.replace("::insertp1::", sData.para1);
@@ -83,17 +86,50 @@ async function fetchIntroduction(ID) {
   htmlPrint = htmlPrint.replace("::insertp4::", sData.para4);
   mainArea.innerHTML = htmlPrint;
 }
-function fetchExample(ID) {
+async function fetchExample(ID) {
   console.log("FETCH EXAMPLE ON COURSE" + ID);
+
+  let connection = await fetch(`APIs/API-fetch-examples.php?courseID=${ID}`);
+  let sData = await connection.json();
+  console.log(sData);
+  let htmlBluePrintExample = await fetch(`blueprints/exampleHTMLElement.php`);
+  let exampleHtml = await htmlBluePrintExample.text();
+  htmlPrint = exampleHtml.replace(
+    "::example_headline1::",
+    sData.example_headline1
+  );
+  htmlPrint = htmlPrint.replace(
+    "::example_headline2::",
+    sData.example_headline2
+  );
+  htmlPrint = htmlPrint.replace("::example_image1::", sData.example_image1);
+  htmlPrint = htmlPrint.replace("::example_image2::", sData.example_image2);
+  htmlPrint = htmlPrint.replace(
+    "::example_explanation::",
+    sData.example_explanation
+  );
+
+  mainArea.innerHTML = htmlPrint;
 }
-function fetchSummery(ID) {
+async function fetchSummery(ID) {
   console.log("FETCH SUMMERY ON COURSE" + ID);
+  placement = ID * 3 + 1;
+  let connection = await fetch(`APIs/API-fetch-summery.php?courseID=${ID}`);
+  let sData = await connection.json();
+  console.log(sData);
+  let htmlBluePrintSummery = await fetch(`blueprints/summeryHTMLElement.php`);
+  let summeryHtml = await htmlBluePrintSummery.text();
+  let htmlPrint = summeryHtml.replace("::information::", sData.information);
+  htmlPrint = htmlPrint.replace("::summery_image1::", sData.summery_image1);
+  htmlPrint = htmlPrint.replace("::explanation::", sData.explanation);
+  mainArea.innerHTML = htmlPrint;
 }
 async function fetchQuiz(ID) {
   console.log("FETCH QUIZ ON COURSE" + ID);
+  placement = ID * 4 + 1;
   let connection = await fetch(`APIs/API-fetch-quiz.php?courseID=${ID}`);
   let sData = await connection.json();
-  let htmlBluePrintQuiz = await fetch(`blueprints/quizHTMLElement.html`);
+  let htmlBluePrintQuiz = await fetch(`blueprints/quizHTMLElement.php`);
   let a = [sData.answer_1, sData.answer_2, sData.answer_3, sData.answer_4];
   var j, x, i;
   for (i = a.length - 1; i > 0; i--) {
@@ -134,3 +170,135 @@ function answerQuiz(e) {
     }
   });
 }
+<<<<<<< HEAD
+let firstPage = mainArea.innerHTML;
+function navMovementHandler(direction) {
+  placement = placement + direction;
+  if (placement == 0) {
+    placement = placement + 1;
+  }
+  if (placement == 1) {
+    mainArea.innerHTML = firstPage;
+  }
+  if (placement >= 2 && placement <= 5) {
+    let fakeID = 1;
+    switch (placement) {
+      case 2:
+        fetchIntroduction(fakeID);
+        break;
+      case 3:
+        fetchExample(fakeID);
+        break;
+      case 4:
+        fetchSummery(fakeID);
+        break;
+      case 5:
+        fetchQuiz(fakeID);
+        break;
+    }
+  }
+  if (placement >= 6 && placement <= 9) {
+    let fakeID = 2;
+    switch (placement) {
+      case 6:
+        fetchIntroduction(fakeID);
+        break;
+      case 7:
+        fetchExample(fakeID);
+        break;
+      case 8:
+        fetchSummery(fakeID);
+        break;
+      case 9:
+        fetchQuiz(fakeID);
+        break;
+    }
+  }
+  if (placement >= 10 && placement <= 13) {
+    let fakeID = 3;
+    switch (placement) {
+      case 10:
+        fetchIntroduction(fakeID);
+        break;
+      case 11:
+        fetchExample(fakeID);
+        break;
+      case 12:
+        fetchSummery(fakeID);
+        break;
+      case 13:
+        fetchQuiz(fakeID);
+        break;
+    }
+  }
+  if (placement >= 14 && placement <= 17) {
+    let fakeID = 4;
+    switch (placement) {
+      case 14:
+        fetchIntroduction(fakeID);
+        break;
+      case 15:
+        fetchExample(fakeID);
+        break;
+      case 16:
+        fetchSummery(fakeID);
+        break;
+      case 17:
+        fetchQuiz(fakeID);
+        break;
+    }
+  }
+  if (placement >= 18 && placement <= 21) {
+    let fakeID = 5;
+    switch (placement) {
+      case 18:
+        fetchIntroduction(fakeID);
+        break;
+      case 19:
+        fetchExample(fakeID);
+        break;
+      case 20:
+        fetchSummery(fakeID);
+        break;
+      case 21:
+        fetchQuiz(fakeID);
+        break;
+    }
+  }
+  if (placement >= 22 && placement <= 25) {
+    let fakeID = 6;
+    switch (placement) {
+      case 22:
+        fetchIntroduction(fakeID);
+        break;
+      case 23:
+        fetchExample(fakeID);
+        break;
+      case 24:
+        fetchSummery(fakeID);
+        break;
+      case 25:
+        fetchQuiz(fakeID);
+        break;
+    }
+  }
+}
+=======
+
+/* ---------------- 26-4-2020 Mikkel Start*/
+
+function toggleNav(e) {
+  //Get all elements within Nav element
+  let aChildElements = e.parentElement.children;
+
+  //Iterate through the array of child elements and reset class to empty
+  for (let i = 0; i < aChildElements.length; i++) {
+    aChildElements[i].classList = "";
+  }
+
+  //Add the class active to the clicked element
+  e.classList = "active";
+}
+
+/* ---------------- 26-4-2020 Mikkel Slut*/
+>>>>>>> c3c9a03d6b0f929cc0e83b63b913390618b353c4

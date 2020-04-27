@@ -13,13 +13,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet"> -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Teko:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>BUILDING 23-4-2020</title>
-    <link rel="stylesheet" href="main.css" />
+    <!-- <link rel="stylesheet" href="main.css" /> -->
+    <link rel="stylesheet" href="normalize.css" />
+    <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <header>
+  <header>
+      <img src="assets/logo.svg" alt="logo" />
+      <nav>
+        <a class="active" onclick="toggleNav(this)">HOME</a>
+        <a  onclick="toggleNav(this)">SYLLABUS</a>
+        <a  onclick="toggleNav(this)">COURSE</a>
+      </nav>
+      <div>
+        <button class="btn-primary">SIGN UP</button>
+        <button class="btn-tertiary">LOG IN</button>
+      </div>
+    </header>
+    <!-- <header>
       <div id="logo">
         <img src="" alt="" />
       </div>
@@ -36,4 +54,4 @@
         </div>
         </div>
       </nav>
-    </header>
+    </header> -->
