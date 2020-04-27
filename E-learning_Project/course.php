@@ -7,7 +7,7 @@ $result = $conn->query($sql);
 
 include_once('components/compTop.php');
 ?>
-    <main>
+    <main id="courseMain">
       <div id="mainContent">
     <h2>Welcom to Databases 101</h2>
     <br><br>
