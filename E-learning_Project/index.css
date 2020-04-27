@@ -31,15 +31,6 @@ p {
   font-weight: 400;
   font-size: 1.2em;
 }
-button {
-  font-family: var(--secondary-font);
-  font-weight: bold;
-  height: 42px;
-  width: 105px;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-}
 
 .btn-primary {
   background-color: var(--color-six);
@@ -65,9 +56,19 @@ header {
 
 a {
   font-family: var(--primary-font);
-  font-size: 2em;
   text-decoration: none;
   color: inherit;
+  cursor: pointer;
+}
+
+button {
+  font-family: var(--secondary-font);
+  font-weight: bold;
+  font-size: 1em;
+  height: 42px;
+  width: 105px;
+  border-radius: 5px;
+  border: none;
   cursor: pointer;
 }
 
@@ -81,6 +82,10 @@ nav {
   width: 250px;
   display: flex;
   justify-content: space-evenly;
+}
+
+nav a {
+  font-size: 2em;
 }
 
 header img {
@@ -106,6 +111,14 @@ header div:nth-child(3) {
   margin: 0;
 }
 
+#banner a:nth-of-type(1) {
+  justify-self: start;
+}
+#banner h1:nth-of-type(1)::after {
+  content: url(assets/Arrow-right.svg);
+  margin-left: 20px;
+}
+
 #background {
   height: 100%;
   width: 100%;
@@ -129,22 +142,30 @@ header div:nth-child(3) {
 
 main {
   margin: 0 10%;
+}
+
+#indexPage {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
-main h2,
-main h3 {
+#indexPage h2,
+#indexPage h3 {
   margin: 0;
 }
 
-main section {
+/* main h2,
+main h3 {
+  
+} */
+
+#indexPage section {
   flex-basis: 550px;
   height: 550px;
 }
 
-section .container {
+#indexPage section .container {
   border: 2px solid lightgray;
   background-color: white;
   border-radius: 10px;

@@ -23,14 +23,15 @@
     <!-- <link rel="stylesheet" href="main.css" /> -->
     <link rel="stylesheet" href="normalize.css" />
     <link rel="stylesheet" href="index.css" />
+    <!-- <link rel="stylesheet" href="course.css" /> -->
   </head>
   <body>
   <header>
       <img src="assets/logo.svg" alt="logo" />
       <nav>
-        <a class="active" onclick="toggleNav(this)">HOME</a>
+        <a href="index.php" class="active" onclick="toggleNav(this)">HOME</a>
         <a  onclick="toggleNav(this)">SYLLABUS</a>
-        <a  onclick="toggleNav(this)">COURSE</a>
+        <a  href="course.php" onclick="toggleNav(this)">COURSE</a>
       </nav>
       <div>
         <button class="btn-primary">SIGN UP</button>
