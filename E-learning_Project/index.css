@@ -1,0 +1,153 @@
+:root {
+  --primary-font: "Teko", sans-serif;
+  --secondary-font: "Open Sans", sans-serif;
+  --color-one: #b38bf0;
+  --color-two: #aa84e3;
+  --color-three: #9775c9;
+  --color-four: #7a5fa3;
+  --color-five: #4a3a63;
+  --color-six: #57b38d;
+}
+
+h1 {
+  font-family: var(--primary-font);
+  font-weight: 400;
+  font-size: 3em;
+}
+
+h2 {
+  font-family: var(--primary-font);
+  font-weight: 400;
+  font-size: 2.3em;
+}
+h3 {
+  font-family: var(--primary-font);
+  font-weight: 400;
+  font-size: 1.5em;
+}
+
+p {
+  font-family: var(--secondary-font);
+  font-weight: 400;
+  font-size: 1.2em;
+}
+button {
+  font-family: var(--secondary-font);
+  font-weight: bold;
+  height: 42px;
+  width: 105px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: var(--color-six);
+  color: white;
+}
+.btn-secondary {
+  background-color: var(--color-one);
+  width: 140px;
+  color: white;
+}
+.btn-tertiary {
+  border: 2px solid black;
+}
+
+header {
+  margin: 0 10%;
+  /* background-color: rgba(0, 0, 0, 0.3); */
+  display: grid;
+  grid-template-columns: auto 1fr 1fr;
+  height: 80px;
+  align-items: center;
+}
+
+a {
+  font-family: var(--primary-font);
+  font-size: 2em;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.active {
+  color: #57b38d;
+  text-decoration: underline;
+  text-decoration-color: #57b38d;
+}
+
+nav {
+  width: 250px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+header img {
+  width: 250px;
+}
+
+header div:nth-child(3) {
+  justify-self: end;
+}
+
+#banner {
+  padding: 0 10%;
+  background-color: var(--color-five);
+  height: 100px;
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  margin-bottom: 1%;
+}
+
+#banner h1 {
+  color: white;
+  margin: 0;
+}
+
+#background {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+#background > * {
+  position: absolute;
+  z-index: -1;
+}
+
+#background img:nth-child(1) {
+  top: -100px;
+  right: 0;
+  width: 50%;
+}
+#background img:nth-child(2) {
+  bottom: 15%;
+  left: 0;
+}
+
+main {
+  margin: 0 10%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+main h2,
+main h3 {
+  margin: 0;
+}
+
+main section {
+  flex-basis: 550px;
+  height: 550px;
+}
+
+section .container {
+  border: 2px solid lightgray;
+  background-color: white;
+  border-radius: 10px;
+  padding: 2%;
+  height: 500px;
+}

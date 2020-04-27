@@ -134,3 +134,20 @@ function answerQuiz(e) {
     }
   });
 }
+
+/* ---------------- 26-4-2020 Mikkel Start*/
+
+function toggleNav(e) {
+  //Get all elements within Nav element
+  let aChildElements = e.parentElement.children;
+
+  //Iterate through the array of child elements and reset class to empty
+  for (let i = 0; i < aChildElements.length; i++) {
+    aChildElements[i].classList = "";
+  }
+
+  //Add the class active to the clicked element
+  e.classList = "active";
+}
+
+/* ---------------- 26-4-2020 Mikkel Slut*/
