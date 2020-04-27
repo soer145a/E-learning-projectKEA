@@ -170,9 +170,8 @@ function answerQuiz(e) {
     }
   });
 }
-<<<<<<< HEAD
 let firstPage = mainArea.innerHTML;
-function navMovementHandler(direction) {
+function navMovementHandler(direction) {x
   placement = placement + direction;
   if (placement == 0) {
     placement = placement + 1;
@@ -283,7 +282,6 @@ function navMovementHandler(direction) {
     }
   }
 }
-=======
 
 /* ---------------- 26-4-2020 Mikkel Start*/
 
@@ -301,4 +299,3 @@ function toggleNav(e) {
 }
 
 /* ---------------- 26-4-2020 Mikkel Slut*/
->>>>>>> c3c9a03d6b0f929cc0e83b63b913390618b353c4
