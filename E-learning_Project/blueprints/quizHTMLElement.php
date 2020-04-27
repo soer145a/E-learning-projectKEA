@@ -30,6 +30,6 @@
     <p>::answer_4::</p>
   </div>
 </div>
-<?php
-include_once("../components/navigation.html");
-?>
+
+
+<!-- 27/04/20 - 15.35 - Daniel har fjernet navbuttons fra at blive indsat med dette blueprint -->

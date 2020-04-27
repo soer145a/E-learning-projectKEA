@@ -23,7 +23,7 @@
     <!-- <link rel="stylesheet" href="main.css" /> -->
     <link rel="stylesheet" href="normalize.css" />
     <link rel="stylesheet" href="index.css" />
-    <link rel="stylesheet" href="course.css" />
+    <link rel="stylesheet" href="course.css" /> <!-- 27/04/20 - 15.35 - Daniel har tilføjet ref til course.css -->
   </head>
   <body>
   <header>

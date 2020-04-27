@@ -1,5 +1,5 @@
 console.log("X");
-let mainArea = document.querySelector("#mainContent");
+let mainArea = document.querySelector("#divInjectContentHere");
 let infoHTMLBackup;
 let placement = 1;
 function editProfile() {
@@ -59,11 +59,12 @@ function showOptions(stringDivName) {
   dropdowns.forEach((item) => {
     item.classList.remove("show");
   });
-  if (
-    document.getElementById(stringDivName).classList.contains("show") == true
-  ) {
+  
+  if (document.getElementById(stringDivName).classList.contains("show"))  {
+    
     document.getElementById(stringDivName).classList.remove("show");
-  } else {
+  }
+  else {
     document.getElementById(stringDivName).classList.add("show");
   }
 }
