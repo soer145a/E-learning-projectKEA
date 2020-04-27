@@ -170,6 +170,7 @@ function answerQuiz(e) {
     }
   });
 }
+<<<<<<< HEAD
 let firstPage = mainArea.innerHTML;
 function navMovementHandler(direction) {
   placement = placement + direction;
@@ -282,3 +283,22 @@ function navMovementHandler(direction) {
     }
   }
 }
+=======
+
+/* ---------------- 26-4-2020 Mikkel Start*/
+
+function toggleNav(e) {
+  //Get all elements within Nav element
+  let aChildElements = e.parentElement.children;
+
+  //Iterate through the array of child elements and reset class to empty
+  for (let i = 0; i < aChildElements.length; i++) {
+    aChildElements[i].classList = "";
+  }
+
+  //Add the class active to the clicked element
+  e.classList = "active";
+}
+
+/* ---------------- 26-4-2020 Mikkel Slut*/
+>>>>>>> c3c9a03d6b0f929cc0e83b63b913390618b353c4
