@@ -1,16 +1,9 @@
 <?php
 // REAL LOGIN INFO
-<<<<<<< HEAD
 //$servername = 'soren-remboll.com.mysql';
 //$username = 'soren_remboll_com';
 //$password = 'KEA_webdev2020WaterBottle';
 //$dbname = 'soren_remboll_com';
-=======
-// $servername = 'soren-remboll.com.mysql';
-// $username = 'soren_remboll_com';
-// $password = 'KEA_webdev2020WaterBottle';
-// $dbname = 'soren_remboll_com';
->>>>>>> c3c9a03d6b0f929cc0e83b63b913390618b353c4
 //
 
 $servername = 'localhost';
