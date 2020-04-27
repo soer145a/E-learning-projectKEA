@@ -144,4 +144,17 @@ i.fa.fa-chevron-right {
   .wrongAnswer {
     background-color: red;
   }
+
+  .navActive {
+      border-left: 8px solid var(--color-six);
+  }
+
+  .navActive::before {
+    padding-top: 8px;
+    content: "\26AC";
+    margin-left: -10px;
+    padding-right: 10px;
+    color: var(--color-two);    
+}
+
   

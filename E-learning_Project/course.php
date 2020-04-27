@@ -29,12 +29,14 @@ include_once('components/compTop.php');
 
             $sData = json_decode($row['courseContent']);
 
+            // 27/04/20 - 17.15 - Daniel har indsat functionskaldet setActive.call(this) for at vise hvilket nav element der er aktivt
+
             echo '<button onclick="showOptions(\'contentOptions' . $row['courseID'] . '\')" class="btnDropdown">' . $row['courseName'] . ' <i class="fa fa-chevron-down" style="font-size:24px"></i></button>
             <div id="contentOptions' . $row['courseID'] . '" class="dropdown-content">
-                <a href="#" onclick="fetchIntroduction(\'' . $row['courseID'] . '\')">' . $sData->shortDescription . '</a>
-                <a href="#" onclick="fetchExample(\'' . $row['courseID'] . '\')">Example</a>
-                <a href="#" onclick="fetchSummery(\'' . $row['courseID'] . '\')">Summery</a>
-                <a href="#" onclick="fetchQuiz(\'' . $row['courseID'] . '\')">Quiz</a>
+                <a href="#" onclick="fetchIntroduction(\'' . $row['courseID'] . '\'); setActive.call(this)">' . $sData->shortDescription . '</a>
+                <a href="#" onclick="fetchExample(\'' . $row['courseID'] . '\'); setActive.call(this)">Example</a>
+                <a href="#" onclick="fetchSummery(\'' . $row['courseID'] . '\'); setActive.call(this)">Summery</a>
+                <a href="#" onclick="fetchQuiz(\'' . $row['courseID'] . '\'); setActive.call(this)">Quiz</a>
             </div>';
           }
         } else {
