@@ -30,3 +30,6 @@
     <p>::answer_4::</p>
   </div>
 </div>
+<?php
+include_once("../components/navigation.html");
+?>

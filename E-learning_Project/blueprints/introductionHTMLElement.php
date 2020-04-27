@@ -6,3 +6,6 @@
 <p>::insertp3::</p>
 <br /><br />
 <p>::insertp4::</p>
+<?php
+include_once("../components/navigation.html");
+?>
