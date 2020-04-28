@@ -18,17 +18,17 @@ include_once('components/compTop.php');
         <?php 
           if ($result->num_rows > 0) {
             // output data of each row
-            
+            $index = 2;
             while($row = $result->fetch_assoc() ) {
               
               $sData = json_decode($row['courseContent']);
               
                 echo '<button onclick="showOptions(\'contentOptions'.$row['courseID'].'\')" class="btnDropdown">'.$row['courseName'].' <i class="fa fa-chevron-down" style="font-size:24px"></i></button>
             <div id="contentOptions'.$row['courseID'].'" class="dropdown-content">
-                <a href="#" onclick="fetchIntroduction(\''.$row['courseID'].'\')">'.$sData->shortDescription.'</a>
-                <a href="#" onclick="fetchExample(\''.$row['courseID'].'\')">Example</a>
-                <a href="#" onclick="fetchSummery(\''.$row['courseID'].'\')">Summery</a>
-                <a href="#" onclick="fetchQuiz(\''.$row['courseID'].'\')">Quiz</a>
+                <a href="#" onclick="fetchIntroduction(\''.$row['courseID'].'\'); changePlacement('.$index++.')">'.$sData->shortDescription.'</a>
+                <a href="#" onclick="fetchExample(\''.$row['courseID'].'\'); changePlacement('.$index++.')">Example</a>
+                <a href="#" onclick="fetchSummery(\''.$row['courseID'].'\'); changePlacement('.$index++.')">Summery</a>
+                <a href="#" onclick="fetchQuiz(\''.$row['courseID'].'\'); changePlacement('.$index++.')">Quiz</a>
             </div>';
             }
         } else {

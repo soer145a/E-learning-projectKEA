@@ -282,6 +282,9 @@ function navMovementHandler(direction) {
     }
   }
 }
+function changePlacement(placeCounter) {
+  placement = placeCounter;
+}
 
 /* ---------------- 26-4-2020 Mikkel Start*/
 
