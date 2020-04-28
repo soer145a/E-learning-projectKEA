@@ -3,8 +3,8 @@
           $sName = $_SESSION['firstName'].' '.$_SESSION['lastName'];
           $htmlOutput = "Hi ".$sName." <br> <a href='logout.php'><p>Logout</p></a> <a href='profile.php'>My Profile</a>";
         }else{
-          $htmlOutput = "<a href='login.php'><p>Login</p></a>
-          <a href='signup.php'><p>Sign Up</p></a>
+          $htmlOutput = "<button class='btn-primary'>SIGN UP</button>
+          <button class='btn-tertiary'>LOG IN</button>
            ";
         }
         ?>
@@ -34,8 +34,7 @@
         <a  href="course.php" onclick="toggleNav(this)">COURSE</a>
       </nav>
       <div>
-        <button class="btn-primary">SIGN UP</button>
-        <button class="btn-tertiary">LOG IN</button>
+      <?=$htmlOutput?>
       </div>
     </header>
     <!-- <header>
@@ -49,7 +48,7 @@
         <div class="topNavItem">Content4</div>
         <div class="topNavItem">
         <div class="navItemContainer">
-        <?=$htmlOutput?>
+        
         
           
         </div>
