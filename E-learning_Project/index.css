@@ -7,12 +7,16 @@
   --color-four: #7a5fa3;
   --color-five: #4a3a63;
   --color-six: #57b38d;
+  --color-six-hover: #438A6D; /*27/04/20 - 15.55 - Daniel har tilføjet farve til green button hover state */
+  --color-one-hover: #7A5FA3; /*27/04/20 - 15.55 - Daniel har tilføjet farve til lilla button hover state */
+
 }
 
 h1 {
   font-family: var(--primary-font);
   font-weight: 400;
   font-size: 3em;
+   color: var(--color-two); /*27/04/20 - 15.35 - Daniel har tilføjet farve til h1 */
 }
 
 h2 {
@@ -31,27 +35,32 @@ p {
   font-weight: 400;
   font-size: 1.2em;
 }
-button {
-  font-family: var(--secondary-font);
-  font-weight: bold;
-  height: 42px;
-  width: 105px;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-}
 
 .btn-primary {
   background-color: var(--color-six);
   color: white;
 }
+
+.btn-primary:hover {
+  background-color: var(--color-six-hover); /*27/04/20 - 15.55 - Daniel har tilføjet farve til primary button hover state */
+  
+}
+
 .btn-secondary {
   background-color: var(--color-one);
   width: 140px;
   color: white;
 }
+
+
+
 .btn-tertiary {
   border: 2px solid black;
+}
+
+.btn-tertiary:hover {
+  color: white;
+  background-color: black; /*27/04/20 - 15.55 - Daniel har tilføjet farve til tertiary button hover state */
 }
 
 header {
@@ -65,9 +74,19 @@ header {
 
 a {
   font-family: var(--primary-font);
-  font-size: 2em;
   text-decoration: none;
   color: inherit;
+  cursor: pointer;
+}
+
+button {
+  font-family: var(--secondary-font);
+  font-weight: bold;
+  font-size: 1em;
+  height: 42px;
+  width: 105px;
+  border-radius: 5px;
+  border: none;
   cursor: pointer;
 }
 
@@ -81,6 +100,10 @@ nav {
   width: 250px;
   display: flex;
   justify-content: space-evenly;
+}
+
+nav a {
+  font-size: 2em;
 }
 
 header img {
@@ -106,6 +129,14 @@ header div:nth-child(3) {
   margin: 0;
 }
 
+#banner a:nth-of-type(1) {
+  justify-self: start;
+}
+#banner h1:nth-of-type(1)::after {
+  content: url(assets/Arrow-right.svg);
+  margin-left: 20px;
+}
+
 #background {
   height: 100%;
   width: 100%;
@@ -129,22 +160,30 @@ header div:nth-child(3) {
 
 main {
   margin: 0 10%;
+}
+
+#indexPage {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
-main h2,
-main h3 {
+#indexPage h2,
+#indexPage h3 {
   margin: 0;
 }
 
-main section {
+/* main h2,
+main h3 {
+  
+} */
+
+#indexPage section {
   flex-basis: 550px;
   height: 550px;
 }
 
-section .container {
+#indexPage section .container {
   border: 2px solid lightgray;
   background-color: white;
   border-radius: 10px;

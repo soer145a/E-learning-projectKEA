@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 include_once('DB_Connect/connection.php');
 $sql = "SELECT courseID,courseName,courseContent FROM courses";
@@ -7,12 +7,18 @@ $result = $conn->query($sql);
 
 include_once('components/compTop.php');
 ?>
-    <main id="courseMain">
-      <div id="mainContent">
-    <h2>Welcom to Databases 101</h2>
-    <br><br>
-    <p>Choose a topic to dive into, or start here at the bottom!</p>
-    <?php include_once('components/navigation.html')?>
+<!-- 27/04/20 - 15.35 - Daniel har indsat diverse div -->
+
+<main id="courseMain">  
+  <div id="sideContent">
+    <h1>Course: Learning relational databases</h1>
+    <div id="divContentContainer">
+      <div id="divContent">
+        <div id="divInjectContentHere">
+        </div>
+        <div id="divNavigationButtons">
+        <?php include_once('components/navigation.html') ?> <!-- 27/04/20 - 15.35 - Daniel har indsat next og back button comp her -->
+        </div>
       </div>
       <div id="sideContent">
         <?php 
@@ -30,15 +36,17 @@ include_once('components/compTop.php');
                 <a href="#" onclick="fetchSummery(\''.$row['courseID'].'\'); changePlacement('.$index++.')">Summery</a>
                 <a href="#" onclick="fetchQuiz(\''.$row['courseID'].'\'); changePlacement('.$index++.')">Quiz</a>
             </div>';
-            }
+          }
         } else {
-            echo "0 results";
+          echo "0 results";
         }
         $conn->close();
         ?>
-        
+
       </div>
-    </main>
-<?php 
+    </div>
+  </div>
+</main>
+<?php
 include_once('components/compBottom.php');
 ?>
