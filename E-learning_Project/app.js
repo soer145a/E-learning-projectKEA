@@ -59,12 +59,10 @@ function showOptions(stringDivName) {
   dropdowns.forEach((item) => {
     item.classList.remove("show");
   });
-  
-  if (document.getElementById(stringDivName).classList.contains("show"))  {
-    
+
+  if (document.getElementById(stringDivName).classList.contains("show")) {
     document.getElementById(stringDivName).classList.remove("show");
-  }
-  else {
+  } else {
     document.getElementById(stringDivName).classList.add("show");
   }
 }
@@ -77,8 +75,6 @@ function setActive() {
   });
   this.classList.add("navActive");
 }
-
-
 
 async function fetchIntroduction(ID) {
   console.log("FETCH INTRODUCTION ON COURSE" + ID);
@@ -184,7 +180,7 @@ function answerQuiz(e) {
   });
 }
 let firstPage = mainArea.innerHTML;
-function navMovementHandler(direction) {x
+function navMovementHandler(direction) {
   placement = placement + direction;
   if (placement == 0) {
     placement = placement + 1;

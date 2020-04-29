@@ -1,3 +1,2 @@
 <?php
-$getAllCustomers = "CALL getAllCustomers()";
-$getAllCustomerNames = "CALL getAllUsersNames()";
+$getUserProgress = "getUserProgress(::uID::)"

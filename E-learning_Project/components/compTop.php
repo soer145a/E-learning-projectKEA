@@ -1,10 +1,11 @@
 <?php
         if(isset($_SESSION['loginStatus'])){
           $sName = $_SESSION['firstName'].' '.$_SESSION['lastName'];
-          $htmlOutput = "Hi ".$sName." <br> <a href='logout.php'><p>Logout</p></a> <a href='profile.php'>My Profile</a>";
+          $htmlOutput = "<h3 id='loginName'>Hi ".$sName."</h3><a href='profile.php'><button class='btn-primary'>PROFILE</button></a>
+          <a href='logout.php'><button class='btn-tertiary'>LOG OUT</button></a>";
         }else{
-          $htmlOutput = "<button class='btn-primary'>SIGN UP</button>
-          <button class='btn-tertiary'>LOG IN</button>
+          $htmlOutput = "<a href='signup.php'><button class='btn-primary'>SIGN UP</button></a>
+          <a href='login.php'><button class='btn-tertiary'>LOG IN</button></a>
            ";
         }
         ?>
@@ -19,7 +20,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>BUILDING 23-4-2020</title>
+    <title>DB Academy</title>
     <!-- <link rel="stylesheet" href="main.css" /> -->
     <link rel="stylesheet" href="normalize.css" />
     <link rel="stylesheet" href="index.css" />
