@@ -1,5 +1,5 @@
 console.log("X");
-let mainArea = document.querySelector("#mainContent");
+let mainArea = document.querySelector("#injectContentHere");
 let infoHTMLBackup;
 let placement = 1;
 function editProfile() {

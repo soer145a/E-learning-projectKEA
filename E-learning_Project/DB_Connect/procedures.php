@@ -1,2 +1,2 @@
 <?php
-$getUserProgress = "getUserProgress(::uID::)"
+$getUserProgress = "CALL getUserProgress(::uID::)";
