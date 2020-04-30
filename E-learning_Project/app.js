@@ -1,3 +1,7 @@
+//* ---------------- 29-4-2020 Mikkel Start*/
+window.addEventListener("load", clearElementClass);
+/* ---------------- 29-4-2020 Mikkel Slut*/
+
 console.log("X");
 let mainArea = document.querySelector("#mainContent");
 let infoHTMLBackup;
@@ -286,19 +290,71 @@ function changePlacement(placeCounter) {
   placement = placeCounter;
 }
 
-/* ---------------- 26-4-2020 Mikkel Start*/
+/* ---------------- 29-4-2020 Mikkel Start*/
 
-function toggleNav(e) {
-  //Get all elements within Nav element
-  let aChildElements = e.parentElement.children;
+function setSessionData(e) {
+  //Get dataset on clicked element
+  let sClickedNavBtn = e.dataset.navtag;
+  console.log(sClickedNavBtn);
 
-  //Iterate through the array of child elements and reset class to empty
-  for (let i = 0; i < aChildElements.length; i++) {
-    aChildElements[i].classList = "";
-  }
-
-  //Add the class active to the clicked element
-  e.classList = "active";
+  //Store dataset value in sessionStorage
+  sessionStorage.setItem("chosenPage", sClickedNavBtn);
 }
 
-/* ---------------- 26-4-2020 Mikkel Slut*/
+function clearElementClass() {
+  //Get all elements within Nav element with dataset "data-navtag"
+  let aNavigationElements = document.querySelectorAll("[data-navtag]");
+  //Iterate through the array of child elements and reset class to empty
+  for (let i = 0; i < aNavigationElements.length; i++) {
+    aNavigationElements[i].classList = "";
+  }
+  retrieveSessionData();
+}
+
+function retrieveSessionData() {
+  //Set chosenPage to contain saved sessionData
+  let sChosenPage = sessionStorage.getItem("chosenPage");
+
+  //Get all elements with the dataset "data-navtag"
+  let aGetTopNavigationTabs = document.querySelectorAll("[data-navtag]");
+
+  if (sChosenPage === null) {
+    //If sChosenPage is null get the url
+    let sURL = window.location.href;
+
+    //Split the url into pieces divided by a /
+    let aSplitUrl = sURL.split("/");
+
+    //get the last element in the URL array, which will be the current page
+    let sGetLastElement = aSplitUrl[aSplitUrl.length - 1];
+
+    console.log(sGetLastElement);
+
+    //Split the string (pagename.php)
+    let aSplitElement = sGetLastElement.split(".");
+
+    //Get the first element in the array which will be without .php
+    let sGetFirstElement = aSplitElement[0];
+    console.log(sGetFirstElement);
+
+    //Iterate through the array
+    for (let i = 0; i < aGetTopNavigationTabs.length; i++) {
+      console.log(i);
+      //If there is a match between the page the user is on and a dataset name then apply the class active on that element
+      if (aGetTopNavigationTabs[i].dataset.navtag === sGetFirstElement) {
+        aGetTopNavigationTabs[i].classList = "active";
+        break;
+      }
+    }
+  } else {
+    for (let i = 0; i < aGetTopNavigationTabs.length; i++) {
+      //If there is a match between the sessionData and a dataset name then apply the class active on that element
+      if (aGetTopNavigationTabs[i].dataset.navtag === sChosenPage) {
+        aGetTopNavigationTabs[i].classList = "active";
+        break;
+      }
+    }
+  }
+}
+
+/* ---------------- 29-4-2020 Mikkel Slut*/
