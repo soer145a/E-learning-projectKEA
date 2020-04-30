@@ -7,16 +7,17 @@
   --color-four: #7a5fa3;
   --color-five: #4a3a63;
   --color-six: #57b38d;
-  --color-six-hover: #438A6D; /*27/04/20 - 15.55 - Daniel har tilføjet farve til green button hover state */
-  --color-one-hover: #7A5FA3; /*27/04/20 - 15.55 - Daniel har tilføjet farve til lilla button hover state */
-
+  --color-six-hover: #438a6d; /*27/04/20 - 15.55 - Daniel har tilføjet farve til green button hover state */
+  --color-one-hover: #7a5fa3; /*27/04/20 - 15.55 - Daniel har tilføjet farve til lilla button hover state */
 }
 
 h1 {
   font-family: var(--primary-font);
   font-weight: 400;
   font-size: 3em;
-   color: var(--color-two); /*27/04/20 - 15.35 - Daniel har tilføjet farve til h1 */
+  color: var(
+    --color-two
+  ); /*27/04/20 - 15.35 - Daniel har tilføjet farve til h1 */
 }
 
 h2 {
@@ -42,8 +43,9 @@ p {
 }
 
 .btn-primary:hover {
-  background-color: var(--color-six-hover); /*27/04/20 - 15.55 - Daniel har tilføjet farve til primary button hover state */
-  
+  background-color: var(
+    --color-six-hover
+  ); /*27/04/20 - 15.55 - Daniel har tilføjet farve til primary button hover state */
 }
 
 .btn-secondary {
@@ -51,8 +53,6 @@ p {
   width: 140px;
   color: white;
 }
-
-
 
 .btn-tertiary {
   border: 2px solid black;
@@ -71,7 +71,32 @@ header {
   height: 80px;
   align-items: center;
 }
-
+#loginName {
+  margin: 0;
+}
+#deleteModalWindow {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+  top: 0;
+  left: 0;
+}
+#deleteModalContent {
+  height: 40vh;
+  width: 50vw;
+  top: 25vh;
+  background-color: white;
+  border: solid black 1vw;
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+  left: 25vw;
+}
 a {
   font-family: var(--primary-font);
   text-decoration: none;

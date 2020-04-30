@@ -63,14 +63,23 @@ function showOptions(stringDivName) {
   dropdowns.forEach((item) => {
     item.classList.remove("show");
   });
-  if (
-    document.getElementById(stringDivName).classList.contains("show") == true
-  ) {
+
+  if (document.getElementById(stringDivName).classList.contains("show")) {
     document.getElementById(stringDivName).classList.remove("show");
   } else {
     document.getElementById(stringDivName).classList.add("show");
   }
 }
+
+// 27/04/20 - 17.15 - Daniel har indsat functionskaldet setActive.call(this) for at vise hvilket nav element der er aktivt
+function setActive() {
+  let actives = document.querySelectorAll(".navActive");
+  actives.forEach((item) => {
+    item.classList.remove("navActive");
+  });
+  this.classList.add("navActive");
+}
+
 async function fetchIntroduction(ID) {
   console.log("FETCH INTRODUCTION ON COURSE" + ID);
   placement = ID * 1 + 1;
