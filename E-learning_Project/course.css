@@ -38,12 +38,12 @@
   max-height: 600px;
 }
 
-#divInjectContentHere {
+#mainContent {
   overflow: auto;
   padding: 20px;
 }
 
-#divInjectContentHere img {
+#mainContent img {
   max-width: 100%;
   margin: auto;
   display: block;
