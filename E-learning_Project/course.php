@@ -14,13 +14,13 @@ include_once('components/compTop.php');
     <h1>Course: Learning relational databases</h1>
     <div id="divContentContainer">
       <div id="divContent">
-        <div id="divInjectContentHere">
+        <div id="mainContent">
         </div>
         <div id="divNavigationButtons">
         <?php include_once('components/navigation.html') ?> <!-- 27/04/20 - 15.35 - Daniel har indsat next og back button comp her -->
         </div>
       </div>
-      <div id="sideContent">
+      <div id="divNavigation">
         <?php 
           if ($result->num_rows > 0) {
             // output data of each row
