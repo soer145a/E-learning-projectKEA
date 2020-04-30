@@ -30,9 +30,9 @@
   <header>
       <img src="assets/logo.svg" alt="logo" />
       <nav>
-        <a href="index.php" class="active" onclick="toggleNav(this)">HOME</a>
-        <a  onclick="toggleNav(this)">SYLLABUS</a>
-        <a  href="course.php" onclick="toggleNav(this)">COURSE</a>
+        <a href="index.php" data-navtag="index" onclick="setSessionData(this)">HOME</a>
+        <a href="syllabus.php" data-navtag="syllabus" onclick="setSessionData(this)">SYLLABUS</a>
+        <a href="course.php" data-navtag="course" onclick="setSessionData(this)">COURSE</a>
       </nav>
       <div>
       <?=$htmlOutput?>
