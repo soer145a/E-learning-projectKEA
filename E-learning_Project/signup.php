@@ -36,26 +36,27 @@ include_once('components/compTop.php');
 ?>
 <main>
 
-<h1>Sign Up here!</h1>
+<!-- 04/05/20 - 12.50 - Daniel har lavet små ændringer til formen.  -->
+
 <div id="signUpArea">
-<form action="signup.php" method="post">
-<label for=""> <p>Username:</p>
-    <input type="text" name="uUsername" placeholder="Username">
+<form action="signup.php" method="post" id="frmSignUp">
+<h1>Sign up here</h1>
+<label for=""> <p>Username</p>
+    <input type="text" name="uUsername" placeholder="Type in a username">
 </label>
-<label for=""><p>Password:</p>
-    <input type="password" name="uPassword" placeholder="XXXXX">
+<label for=""><p>Password</p>
+    <input type="password" name="uPassword" placeholder="Type in a password">
 </label>
-<label><p>First Name:</p>
-    <input type="text" name="uFirstName" placeholder="John">
+<label><p>First name</p>
+    <input type="text" name="uFirstName" placeholder="Type in your first name">
 </label>
-<label><p>Last Name:</p>
-    <input type="text" name="uLastName" placeholder="Smith">
+<label><p>Last name</p>
+    <input type="text" name="uLastName" placeholder="Type in your last name">
 </label>
-<label><p>Email Address:</p>
-    <input type="email" name="uEmail" placeholder="john@smith.com">
+<label><p>Email address</p>
+    <input type="email" name="uEmail" placeholder="Type in your E-mail">
 </label>
- <br>
-<input type="submit" value="Sign Up!">
+<button type="submit">SIGN UP</button>
 </form>
 </div>
 

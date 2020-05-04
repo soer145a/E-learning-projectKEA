@@ -23,16 +23,17 @@ if(isset($_POST['uUsername'])&&isset($_POST['uPassword'])){
 include_once('components/compTop.php');
 ?>
 <main>
-    <h1>Login here!</h1>
+    <!-- 04/05/20 - 13.30 - Daniel har lavet små ændringer til formen.  -->
 <div id="loginMainContent">
-    <form action="login.php" method="post">
-        <label><p>Username:</p>
-            <input type="text" placeholder="Username Here!" name="uUsername">
+    <form id="frmLogIn" action="login.php" method="post">
+    <h1>Login</h1>
+        <label><p>Username</p>
+            <input type="text" placeholder="Type in your username" name="uUsername">
         </label>
-        <label><p>Password:</p>
-            <input type="password" name="uPassword">
+        <label><p>Password</p>
+            <input placeholder="Type in your password" type="password" name="uPassword">
         </label>
-        <input type="submit" value="Login">
+        <button type="submit">LOG IN</button>
     </form>
     </div>
 </main>
