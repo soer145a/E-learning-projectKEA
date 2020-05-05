@@ -25,6 +25,8 @@
     <link rel="stylesheet" href="normalize.css" />
     <link rel="stylesheet" href="index.css" />
     <link rel="stylesheet" href="course.css" /> <!-- 27/04/20 - 15.35 - Daniel har tilføjet ref til course.css -->
+    <link rel="stylesheet" href="signup.css" /> <!-- 04/05/20 - 12.35 - Daniel har tilføjet ref til signup.css -->
+    <link rel="stylesheet" href="login.css" /> <!-- 04/05/20 - 12.35 - Daniel har tilføjet ref til login.css -->
   </head>
   <body>
   <header>
@@ -38,21 +40,3 @@
       <?=$htmlOutput?>
       </div>
     </header>
-    <!-- <header>
-      <div id="logo">
-        <img src="" alt="" />
-      </div>
-      <nav id="topNav">
-        <div class="topNavItem active">Content1</div>
-        <div class="topNavItem">Content2</div>
-        <div class="topNavItem">Content3</div>
-        <div class="topNavItem">Content4</div>
-        <div class="topNavItem">
-        <div class="navItemContainer">
-        
-        
-          
-        </div>
-        </div>
-      </nav>
-    </header> -->

@@ -301,6 +301,27 @@ function changePlacement(placeCounter) {
   placement = placeCounter;
 }
 
+async function syllabusSearch() {
+  var searchWord = document.querySelector('#inputSyllabusSearch').value;
+  searchWord = searchWord.toLowerCase();
+  let connection = await fetch(`APIs/API-fetch-search.php`);
+  let jData = await connection.json();
+
+  var searchDiv = document.getElementById("divSearchResult");
+
+  if (jData.hasOwnProperty(searchWord)) {
+    var definition = jData[searchWord];
+    searchDiv.innerText = searchWord.toUpperCase() + ": " + definition;
+    searchDiv.classList.add("searchResultShow");
+  }
+  else {
+    searchDiv.innerText = "No definition found";
+    searchDiv.classList.add("searchResultShow");
+  }
+  console.log(searchDiv);
+
+}
+
 /* ---------------- 29-4-2020 Mikkel Start*/
 
 function setSessionData(e) {
