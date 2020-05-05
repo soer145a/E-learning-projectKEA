@@ -82,7 +82,8 @@ function setActive() {
 
 async function fetchIntroduction(ID) {
   console.log("FETCH INTRODUCTION ON COURSE" + ID);
-  placement = ID * 1 + 1;
+  updateProgressTable(ID, 1);
+
   console.log(placement);
   let connection = await fetch(
     `APIs/API-fetch-introductions.php?courseID=${ID}`
@@ -100,6 +101,7 @@ async function fetchIntroduction(ID) {
   mainArea.innerHTML = htmlPrint;
 }
 async function fetchExample(ID) {
+  updateProgressTable(ID, 2);
   console.log("FETCH EXAMPLE ON COURSE" + ID);
 
   let connection = await fetch(`APIs/API-fetch-examples.php?courseID=${ID}`);
@@ -126,7 +128,7 @@ async function fetchExample(ID) {
 }
 async function fetchSummery(ID) {
   console.log("FETCH SUMMERY ON COURSE" + ID);
-  placement = ID * 3 + 1;
+  updateProgressTable(ID, 3);
   let connection = await fetch(`APIs/API-fetch-summery.php?courseID=${ID}`);
   let sData = await connection.json();
   console.log(sData);
@@ -139,7 +141,7 @@ async function fetchSummery(ID) {
 }
 async function fetchQuiz(ID) {
   console.log("FETCH QUIZ ON COURSE" + ID);
-  placement = ID * 4 + 1;
+  updateProgressTable(ID, 4);
   let connection = await fetch(`APIs/API-fetch-quiz.php?courseID=${ID}`);
   let sData = await connection.json();
   let htmlBluePrintQuiz = await fetch(`blueprints/quizHTMLElement.php`);
@@ -367,3 +369,9 @@ function retrieveSessionData() {
 }
 
 /* ---------------- 29-4-2020 Mikkel Slut*/
+/*----------------- 04-4-2020 Søren Start */
+function updateProgressTable(courseID, topic) {
+  console.log(courseID, topic);
+  let connection = await fetch(`APIs/API-update-statustable.php?courseID=${courseID}&topic=${topic}`);
+}
+/*----------------- 04-4-2020 Søren Slut */
