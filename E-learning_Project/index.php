@@ -10,7 +10,7 @@ include_once('components/compTop.php');
 
 <div id="banner">
       <h1>Hello - Ready to learn about Relational Databases? Jump right in</h1>
-      <a href="course.php"><button class="btn-secondary">BEGIN COURSE</button></a>
+      <a href="course.php" data-navtag="course" onclick="setSessionData(this)"><button class="btn-secondary">BEGIN COURSE</button></a>
     </div>
     <span id="background">
       <img src="assets/Polygon 1.svg" alt="" />
@@ -27,7 +27,7 @@ include_once('components/compTop.php');
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
             aliquip ex ea commodo consequat.
           </p>
-          <a href="course.php">BEGIN COURSE</a>
+          <a href="course.php" data-navtag="course" onclick="setSessionData(this)">BEGIN COURSE</a>
         </div>
       </section>
       <section class="sectionwrapper">
