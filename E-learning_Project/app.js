@@ -300,7 +300,8 @@ function changePlacement(placeCounter) {
 }
 
 async function syllabusSearch() {
-  var searchWord = document.querySelector('#inputSyllabusSearch').value;
+  var searchBar = document.querySelector('#inputSyllabusSearch');
+  var searchWord = searchBar.value;
   searchWord = searchWord.toLowerCase();
   let connection = await fetch(`APIs/API-fetch-search.php`);
   let jData = await connection.json();
@@ -309,14 +310,14 @@ async function syllabusSearch() {
 
   if (jData.hasOwnProperty(searchWord)) {
     var definition = jData[searchWord];
-    searchDiv.innerText = searchWord.toUpperCase() + ": " + definition;
+    
+    searchDiv.innerHTML = searchWord.toUpperCase() + ": " + definition + " <br>";
     searchDiv.classList.add("searchResultShow");
   }
   else {
-    searchDiv.innerText = "No definition found";
+    searchDiv.innerHTML = "No definition found";
     searchDiv.classList.add("searchResultShow");
-  }
-  console.log(searchDiv);
+  } 
 
 }
 
