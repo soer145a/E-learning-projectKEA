@@ -120,8 +120,21 @@ i.fa.fa-chevron-right {
   height: 42px;
 }
 
-.navItem:hover {
-  background-color: var(--color-six-hover);
+.btn-search {   
+  border-radius: 5px;  
+  margin: 10px;
+  
+}
+
+input {
+  font-family: var(--secondary-font);  
+  background-color: white;
+  border: solid 2px rgba(230, 230, 230, 0.8);
+  border-radius: 5px;
+  height: 30px;
+  padding: 5px;
+  margin-left: 10px;
+  width: 250px;
 }
 
 #questionContainer {
@@ -162,4 +175,20 @@ i.fa.fa-chevron-right {
   margin-left: -10px;
   padding-right: 10px;
   color: var(--color-two);
+}
+
+.searchResult {
+  display: none;
+}
+
+.searchResultShow {
+  margin-top: 35px;
+  display: block;
+  border: solid 3px #e6e6e6;
+  border-radius: 10px;    
+  padding-top: 35px;
+  padding-left: 35px;
+  padding-bottom: 35px;
+  font-family: var(--secondary-font);
+  width: 62%;
 }

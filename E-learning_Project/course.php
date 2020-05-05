@@ -46,6 +46,8 @@ include_once('components/compTop.php');
       </div>
     </div>
   </div>
+  <div id="divSearchResult" class="searchResult">      
+  </div>
 </main>
 <?php
 include_once('components/compBottom.php');
