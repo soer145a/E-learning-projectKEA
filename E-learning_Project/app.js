@@ -302,7 +302,7 @@ function changePlacement(placeCounter) {
 }
 
 async function syllabusSearch() {
-  var searchBar = document.querySelector('#inputSyllabusSearch');
+  var searchBar = document.querySelector("#inputSyllabusSearch");
   var searchWord = searchBar.value;
   searchWord = searchWord.toLowerCase();
   let connection = await fetch(`APIs/API-fetch-search.php`);
@@ -312,15 +312,14 @@ async function syllabusSearch() {
 
   if (jData.hasOwnProperty(searchWord)) {
     var definition = jData[searchWord];
-    
-    searchDiv.innerHTML = searchWord.toUpperCase() + ": " + definition + " <br>";
+
+    searchDiv.innerHTML =
+      searchWord.toUpperCase() + ": " + definition + " <br>";
     searchDiv.classList.add("searchResultShow");
-  }
-  else {
+  } else {
     searchDiv.innerHTML = "No definition found";
     searchDiv.classList.add("searchResultShow");
-  } 
-
+  }
 }
 
 /* ---------------- 29-4-2020 Mikkel Start*/
@@ -392,8 +391,12 @@ function retrieveSessionData() {
 
 /* ---------------- 29-4-2020 Mikkel Slut*/
 /*----------------- 04-4-2020 Søren Start */
-function updateProgressTable(courseID, topic) {
+async function updateProgressTable(courseID, topic) {
   console.log(courseID, topic);
-  let connection = await fetch(`APIs/API-update-statustable.php?courseID=${courseID}&topic=${topic}`);
+  let connection = await fetch(
+    `APIs/API-update-statustable.php?courseID=${courseID}&topic=${topic}`
+  );
+  let sData = await connection.text();
+  console.log(sData);
 }
 /*----------------- 04-4-2020 Søren Slut */

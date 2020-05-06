@@ -1,9 +1,16 @@
 <?php
 include_once('../DB_Connect/connection.php');
-$sID = $_GET['courseID'];
+include_once('../DB_Connect/procedures.php');
+
+session_start();
+$userID = $_SESSION['userID'];
+$courseID = $_GET['courseID'];
 $sTopic = $_GET['topic'];
-$sql = "UPDATE `customerstatus` a 
-LEFT JOIN `customercourse` b
-ON a.`statusID` = b.`statusID`  
-SET a.statusVariabel = 1  
-WHERE b.customerID = '37' AND b.courseID = 2";
+
+$updateUserCourseTopic = str_replace('::topic::',$sTopic, $updateUserCourseTopic);
+$updateUserCourseTopic = str_replace('::userID::',$userID, $updateUserCourseTopic);
+$updateUserCourseTopic = str_replace('::courseID::',$courseID, $updateUserCourseTopic);
+
+$sql = $updateUserCourseTopic;
+$result = $conn->query($sql);
+echo $result;

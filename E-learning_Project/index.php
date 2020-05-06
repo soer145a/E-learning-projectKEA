@@ -1,10 +1,23 @@
 <?php 
 session_start();
 include_once('DB_Connect/connection.php');
-$sql = "SELECT courseID,courseName,courseContent FROM courses";
+include_once('DB_Connect/procedures.php');
+$getUserProgress = str_replace("::uID::",$_SESSION['userID'],$getUserProgress);
+$sql = $getUserProgress;
 $result = $conn->query($sql);
-
-
+$aProgressArray = [];
+  if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc() ) {
+        $newObj = new stdClass;
+        $newObj->status = $row['statusVariabel']; 
+        $newObj->courseName = $row['courseName'];
+        array_push($aProgressArray, $newObj);
+    }
+  } else {
+          echo "0 results";
+  }
+$conn->close();
 include_once('components/compTop.php');
 ?>
 
@@ -32,7 +45,23 @@ include_once('components/compTop.php');
       </section>
       <section class="sectionwrapper">
         <h2>MY PROGRESS</h2>
-        <div class="container"></div>
+        <div class="container">
+        <div id="totalProgress">
+        </div>
+        <div id="individualTopicProgress">
+          <?php 
+              foreach ($aProgressArray as $obj){
+                $courseName = $obj->courseName;
+                $progress = $obj->status;
+                echo "<div class='iProgressItem'>
+                <p>$courseName</p>
+                <p>$progress / 4</p>
+                </div>";
+              }     
+          ?>
+        </div>
+        
+        </div>
       </section>
     </main>
 

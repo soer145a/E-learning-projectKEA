@@ -215,3 +215,15 @@ main h3 {
   padding: 2%;
   height: 500px;
 }
+.iProgressItem {
+  margin: 0.5vw;
+  padding: 0.5vw;
+  border: solid 2px var(--color-six);
+}
+.iProgressItem p {
+  text-align: center;
+}
+#individualTopicProgress {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
