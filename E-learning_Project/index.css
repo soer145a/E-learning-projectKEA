@@ -227,3 +227,12 @@ main h3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
+svg {
+  height: 100px;
+  width: 100px;
+}
+.svgText {
+  font-family: var(--secondary-font);
+  font-weight: 400;
+  font-size: 0.3em;
+}
