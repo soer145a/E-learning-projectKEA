@@ -306,20 +306,24 @@ async function syllabusSearch() {
   var searchWord = searchBar.value;
   searchWord = searchWord.toLowerCase();
   let connection = await fetch(`APIs/API-fetch-search.php`);
-  let jData = await connection.json();
+  let jData = await connection.json();  
+  searchDiv = document.getElementById("divSearchResult");
+  searchDiv.innerHTML = "";
+  var definition = "";
 
-  var searchDiv = document.getElementById("divSearchResult");
 
-  if (jData.hasOwnProperty(searchWord)) {
-    var definition = jData[searchWord];
-
-    searchDiv.innerHTML =
-      searchWord.toUpperCase() + ": " + definition + " <br>";
-    searchDiv.classList.add("searchResultShow");
-  } else {
-    searchDiv.innerHTML = "No definition found";
-    searchDiv.classList.add("searchResultShow");
+  for (x in jData) {
+    if (x.includes(searchWord)) {
+      definition = jData[x];
+      console.log(x)
+      searchDiv.innerHTML += "<div><b>"+ x.toUpperCase()+": </b>" + definition.toUpperCase() + "</div>";
+      searchDiv.classList.add("searchResultShow");
+    }    
   }
+  if(searchWord.length < 1 || definition.length < 1){
+    searchDiv.innerHTML = "";
+    searchDiv.classList.remove("searchResultShow");
+  } 
 }
 
 /* ---------------- 29-4-2020 Mikkel Start*/
