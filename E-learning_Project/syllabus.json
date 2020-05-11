@@ -12,5 +12,6 @@
     "Foreign key": "An attribute in a table that acts as primary key in another table",
     "SQL": "Structured Query Language",
     "C.R.U.D": "Create, Read, Update & Delete",
-    "PHP": "Scripting language sutied for web-development"
+    "PHP": "Scripting language sutied for web-development",
+    "XAMPP": "A free and open-source cross-platform web server solution stack package"
 }

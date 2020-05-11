@@ -9,6 +9,7 @@
   display: grid;
   grid-template-columns: 65fr 35fr;
   max-height: 600px;
+  background-color: white;
 }
 
 .btnDropdown {
@@ -132,9 +133,10 @@ input {
   border: solid 2px rgba(230, 230, 230, 0.8);
   border-radius: 5px;
   height: 30px;
-  padding: 5px;
-  margin-left: 10px;
+  padding: 5px;  
   width: 250px;
+  margin: 10px;
+  
 }
 
 #questionContainer {
@@ -193,5 +195,6 @@ input {
   font-family: var(--secondary-font);
   width: 62%;
   line-height: 30px;  
+  background-color: white;
 }
 

@@ -72,12 +72,12 @@ function showOptions(stringDivName) {
 }
 
 // 27/04/20 - 17.15 - Daniel har indsat functionskaldet setActive.call(this) for at vise hvilket nav element der er aktivt
-function setActive() {
+function setActive(placeCounter) {
   let actives = document.querySelectorAll(".navActive");
   actives.forEach((item) => {
     item.classList.remove("navActive");
-  });
-  this.classList.add("navActive");
+  });  
+  document.getElementById(placeCounter).classList.add("navActive");
 }
 
 async function fetchIntroduction(ID) {
@@ -186,7 +186,7 @@ function answerQuiz(e) {
   });
 }
 let firstPage = mainArea.innerHTML;
-function navMovementHandler(direction) {
+function navMovementHandler(direction) {  
   placement = placement + direction;
   if (placement == 0) {
     placement = placement + 1;
@@ -196,109 +196,143 @@ function navMovementHandler(direction) {
   }
   if (placement >= 2 && placement <= 5) {
     let fakeID = 1;
+    let Options = "contentOptions" + fakeID; //Tilføjet af Daniel - 11/05/20 - 15.05 - Sørger for at den rette contentOptions div bliver vist når brugeren bruger next og back buttons til at navigere med
     switch (placement) {
-      case 2:
+      case 2:        
         fetchIntroduction(fakeID);
+        showOptions(Options); //Tilføjet af Daniel - 11/05/20 - 15.05 - Sørger for at den rette contentOptions div bliver vist når brugeren bruger next og back buttons til at navigere med
         break;
       case 3:
         fetchExample(fakeID);
+        showOptions(Options);
         break;
       case 4:
         fetchSummery(fakeID);
+        showOptions(Options);
         break;
       case 5:
         fetchQuiz(fakeID);
+        showOptions(Options);
         break;
     }
   }
   if (placement >= 6 && placement <= 9) {
     let fakeID = 2;
+    let Options = "contentOptions" + fakeID;
     switch (placement) {
       case 6:
         fetchIntroduction(fakeID);
+        showOptions(Options);
         break;
       case 7:
         fetchExample(fakeID);
+        showOptions(Options);
         break;
       case 8:
         fetchSummery(fakeID);
+        showOptions(Options);
         break;
       case 9:
         fetchQuiz(fakeID);
+        showOptions(Options);
         break;
     }
   }
   if (placement >= 10 && placement <= 13) {
     let fakeID = 3;
+    let Options = "contentOptions" + fakeID;
     switch (placement) {
       case 10:
         fetchIntroduction(fakeID);
+        showOptions(Options);
         break;
       case 11:
         fetchExample(fakeID);
+        showOptions(Options);
         break;
       case 12:
         fetchSummery(fakeID);
+        showOptions(Options);
         break;
       case 13:
         fetchQuiz(fakeID);
+        showOptions(Options);
         break;
     }
   }
   if (placement >= 14 && placement <= 17) {
     let fakeID = 4;
+    let Options = "contentOptions" + fakeID;
     switch (placement) {
       case 14:
         fetchIntroduction(fakeID);
+        showOptions(Options);
         break;
       case 15:
         fetchExample(fakeID);
+        showOptions(Options);
         break;
       case 16:
         fetchSummery(fakeID);
+        showOptions(Options);
         break;
       case 17:
         fetchQuiz(fakeID);
+        showOptions(Options);
         break;
     }
   }
   if (placement >= 18 && placement <= 21) {
     let fakeID = 5;
+    let Options = "contentOptions" + fakeID;
     switch (placement) {
       case 18:
         fetchIntroduction(fakeID);
+        showOptions(Options);
         break;
       case 19:
         fetchExample(fakeID);
+        showOptions(Options);
         break;
       case 20:
         fetchSummery(fakeID);
+        showOptions(Options);
         break;
       case 21:
         fetchQuiz(fakeID);
+        showOptions(Options);
         break;
     }
   }
   if (placement >= 22 && placement <= 25) {
     let fakeID = 6;
+    let Options = "contentOptions" + fakeID;
     switch (placement) {
       case 22:
         fetchIntroduction(fakeID);
+        showOptions(Options);
         break;
       case 23:
         fetchExample(fakeID);
+        showOptions(Options);
         break;
       case 24:
         fetchSummery(fakeID);
+        showOptions(Options);
         break;
       case 25:
         fetchQuiz(fakeID);
+        showOptions(Options);
         break;
     }
   }
+  setActive(placement);
 }
+
 function changePlacement(placeCounter) {
   placement = placeCounter;
+  
+  setActive(placement); //Tilføjet af Daniel - 11/05/20 - 15.05 - Sørger for at det rette navigations element får active class
 }
 
 async function syllabusSearch() {
@@ -311,11 +345,10 @@ async function syllabusSearch() {
   searchDiv.innerHTML = "";
   var definition = "";
 
-
   for (x in jData) {
     if (x.includes(searchWord)) {
       definition = jData[x];
-      console.log(x)
+      console.log(x);
       searchDiv.innerHTML += "<div><b>"+ x.toUpperCase()+": </b>" + definition.toUpperCase() + "</div>";
       searchDiv.classList.add("searchResultShow");
     }    
@@ -323,9 +356,12 @@ async function syllabusSearch() {
   if(searchWord.length < 1 || definition.length < 1){
     searchDiv.innerHTML = "";
     searchDiv.classList.remove("searchResultShow");
-  } 
+  }
+  if(searchWord.length > 1 && definition.length < 2){
+    searchDiv.innerHTML = "No result found";  
+    searchDiv.classList.add("searchResultShow");  
+  }
 }
-
 /* ---------------- 29-4-2020 Mikkel Start*/
 
 function setSessionData(e) {
