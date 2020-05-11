@@ -52,13 +52,22 @@ include_once('components/compTop.php');
         <div id="totalProgress">
         </div>
         <div id="individualTopicProgress">
+        
           <?php 
               foreach ($aProgressArray as $obj){
                 $courseName = $obj->courseName;
                 $progress = $obj->status;
+                $percentages = $progress * 100 / 4;
                 echo "<div class='iProgressItem'>
                 <p>$courseName</p>
-                <p>$progress / 4</p>
+                <svg height='20' width='20' viewBox='0 0 20 20'>
+          <circle r='10' cx='10' cy='10' fill='var(--color-five)'/>
+          <circle r='5' cx='10' cy='10' fill='transparent' stroke='var(--color-six)' stroke-dasharray='calc($percentages * 31.42 / 100) 31.42' stroke-width='10'
+          transform='rotate(-90) translate(-20)'/>
+          <circle r='8' cx='10' cy='10' fill='white'/>
+          <text x='5' y='11.5' class='svgText'>$progress / 4</text>
+        </svg>
+                
                 </div>";
               }     
           ?>
