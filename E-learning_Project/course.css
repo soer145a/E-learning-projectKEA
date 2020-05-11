@@ -186,9 +186,12 @@ input {
   display: block;
   border: solid 3px #e6e6e6;
   border-radius: 10px;    
-  padding-top: 35px;
-  padding-left: 35px;
-  padding-bottom: 35px;
+  padding-top: 20px;
+  padding-left: 15px;
+  padding-bottom: 20px;
+  padding-right: 15px;
   font-family: var(--secondary-font);
   width: 62%;
+  line-height: 30px;  
 }
+

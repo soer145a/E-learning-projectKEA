@@ -1,0 +1,8 @@
+#syllabusMainContent {
+    font-family: var(--secondary-font);
+    line-height: 30px;
+}
+
+#syllabusMainContent {
+    border-top: solid 2px black;
+}

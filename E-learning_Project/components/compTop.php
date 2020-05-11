@@ -2,10 +2,10 @@
         if(isset($_SESSION['loginStatus'])){
           $sName = $_SESSION['firstName'].' '.$_SESSION['lastName'];
           $htmlOutput = "<h3 id='loginName'>Hi ".$sName."</h3><a href='profile.php'><button class='btn-primary'>PROFILE</button></a>
-          <a href='logout.php'><button class='btn-tertiary'>LOG OUT</button></a>";
+          <a href='logout.php' data-navtag='index' onclick='setSessionData(this)'><button class='btn-tertiary'>LOG OUT</button></a>";
         }else{
-          $htmlOutput = "<a href='signup.php'><button class='btn-primary'>SIGN UP</button></a>
-          <a href='login.php'><button class='btn-tertiary'>LOG IN</button></a>
+          $htmlOutput = "<a href='signup.php' data-navtag='index' onclick='setSessionData(this)'><button class='btn-primary'>SIGN UP</button></a>
+          <a href='login.php' data-navtag='index' onclick='setSessionData(this)'><button class='btn-tertiary'>LOG IN</button></a>
            ";
         }
         ?>
@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="course.css" /> <!-- 27/04/20 - 15.35 - Daniel har tilføjet ref til course.css -->
     <link rel="stylesheet" href="signup.css" /> <!-- 04/05/20 - 12.35 - Daniel har tilføjet ref til signup.css -->
     <link rel="stylesheet" href="login.css" /> <!-- 04/05/20 - 12.35 - Daniel har tilføjet ref til login.css -->
+    <link rel="stylesheet" href="syllabus.css" /> <!-- 06/05/20 - 15.35 - Daniel har tilføjet ref til syllabus.css -->
   </head>
   <body>
   <header>
@@ -40,21 +41,3 @@
       <?=$htmlOutput?>
       </div>
     </header>
-    <!-- <header>
-      <div id="logo">
-        <img src="" alt="" />
-      </div>
-      <nav id="topNav">
-        <div class="topNavItem active">Content1</div>
-        <div class="topNavItem">Content2</div>
-        <div class="topNavItem">Content3</div>
-        <div class="topNavItem">Content4</div>
-        <div class="topNavItem">
-        <div class="navItemContainer">
-        
-        
-          
-        </div>
-        </div>
-      </nav>
-    </header> -->
