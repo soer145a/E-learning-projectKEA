@@ -63,10 +63,8 @@ include_once('components/compTop.php');
           transform='rotate(-90) translate(-20)'/>
           <circle r='8' cx='10' cy='10' fill='white'/>
           <text x='5' y='11.5' class='svgText'>$progress / 4</text>
-        </svg>
-                
-                </div>";
-              }     
+        </svg>        
+      </div>";}     
           ?>
         </div>
         
