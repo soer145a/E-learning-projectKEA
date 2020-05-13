@@ -104,12 +104,14 @@ a {
   cursor: pointer;
 }
 
+
+
 button {
   font-family: var(--secondary-font);
   font-weight: bold;
   font-size: 1em;
   height: 42px;
-  width: 105px;
+  width: 115px;
   border-radius: 5px;
   border: none;
   cursor: pointer;
@@ -148,32 +150,51 @@ header div:nth-child(3) {
 }
 
 #banner {
-  padding: 0 10%;
   background-color: var(--color-five);
+  background-image: url(/assets/Banner.svg);
   height: 100px;
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-rows: 1fr;
+  grid-template-columns: 10% repeat(8, 1fr) 10%;
   align-items: center;
   margin-bottom: 1%;
+  
+}
+
+#banner #bannerTxt {
+  grid-row: 1;
+  grid-column: 2/ span 8;
+  display: flex;
+  align-items: center;
 }
 
 #banner h1 {
   color: white;
   margin: 0;
+  margin-right:20px;
 }
 
-#banner a:nth-of-type(1) {
-  justify-self: start;
-}
-#banner h1:nth-of-type(1)::after {
+
+#banner #bannerTxt h1:nth-of-type(1)::after {
   content: url(assets/Arrow-right.svg);
   margin-left: 20px;
+}
+
+#banner img {
+  height: 100%;
+}
+
+#banner img:nth-of-type(1n+2) {
+  grid-column: 8 / span 9;
+  grid-row: 1;
+  justify-self: end;
 }
 
 #background {
   height: 100%;
   width: 100%;
   position: absolute;
+  pointer-events: none;
   z-index: -1;
 }
 
@@ -197,9 +218,9 @@ main {
 }
 
 #indexPage {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 5%;
 }
 
 #indexPage h2,
@@ -215,6 +236,20 @@ main h3 {
 #indexPage section {
   flex-basis: 550px;
   height: 550px;
+}
+
+#indexPage #my_progress .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#indexPage #my_progress .container h3 {
+  text-align:center;
+}
+
+#indexPage #my_progress .login_signup {
+  display: grid;
+  grid-row-gap: 5px;
 }
 
 #indexPage section .container {
