@@ -123,6 +123,10 @@ button {
   text-decoration-color: #57b38d;
 }
 
+.active:hover {    
+  text-decoration-color: var(--color-one-hover);
+}
+
 nav {
   width: 250px;
   display: flex;
@@ -134,8 +138,7 @@ nav a {
 }
 
 nav a:hover {
-  color: var(--color-two);
-  text-decoration-color:var(--color-two);
+  color: var(--color-one-hover);
 }
 
 header img {
