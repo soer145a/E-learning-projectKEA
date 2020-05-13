@@ -1,12 +1,10 @@
 <?php
-if (isset($_SESSION['loginStatus'])) {
-  $sName = $_SESSION['firstName'] . ' ' . $_SESSION['lastName'];
-  $htmlOutput = "<h3 id='loginName'>Hi " . $sName . "</h3><a href='profile.php'><button class='btn-primary'>PROFILE</button></a>
-          <a href='logout.php'><button class='btn-tertiary'>LOG OUT</button></a>";
-} else {
-  $htmlOutput = "<a href='signup.php'><button class='btn-primary'>SIGN UP</button></a>
-          <a href='login.php'><button class='btn-tertiary'>LOG IN</button></a>
-           ";
+        if(isset($_SESSION['loginStatus'])){
+          $htmlOutput = "<a href='profile.php' data-navtag='profile' onclick='setSessionData(this)'><button class='btn-primary'>PROFILE</button></a>
+          <a href='logout.php' data-navtag='index' onclick='setSessionData(this)'><button class='btn-tertiary'>LOG OUT</button></a>";
+        }else{
+          $htmlOutput = "<a href='signup.php' data-navtag='index' onclick='setSessionData(this)'><button class='btn-primary'>SIGN UP</button></a>
+          <a href='login.php' data-navtag='index' onclick='setSessionData(this)'><button class='btn-tertiary'>LOG IN</button></a>";
 }
 ?>
 <!DOCTYPE html>

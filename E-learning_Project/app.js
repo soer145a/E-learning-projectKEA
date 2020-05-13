@@ -421,6 +421,12 @@ function retrieveSessionData() {
   } else {
     for (let i = 0; i < aGetTopNavigationTabs.length; i++) {
       //If there is a match between the sessionData and a dataset name then apply the class active on that element
+      if (sChosenPage === "profile") {
+        for (let i = 0; i < aGetTopNavigationTabs.length; i++) {
+          aGetTopNavigationTabs[i].classList = "";
+        }
+        break;
+      }
       if (aGetTopNavigationTabs[i].dataset.navtag === sChosenPage) {
         aGetTopNavigationTabs[i].classList = "active";
         break;
