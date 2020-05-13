@@ -27,8 +27,7 @@
   padding-left: 15px;
 }
 
-.btnDropdown:hover,
-.btnDropdown:focus {
+.btnDropdown:hover, .btnDropdown:focus {
   background-color: #e6e6e6;
 }
 
@@ -84,11 +83,10 @@
   padding-left: 30px;
   font-family: var(--secondary-font);
   font-size: 14pt;
+  
 }
 
-i.fa.fa-chevron-right,
-i.fa.fa-chevron-down,
-i.fa.fa-chevron-up {
+i.fa.fa-chevron-right, i.fa.fa-chevron-down, i.fa.fa-chevron-up {
   float: right;
   padding-left: 10px;
 }
@@ -121,22 +119,20 @@ i.fa.fa-chevron-right {
   height: 42px;
 }
 
-.btn-search {   
-  border-radius: 5px;  
+.btn-search {
+  border-radius: 5px;
   margin: 10px;
-  
 }
 
 input {
-  font-family: var(--secondary-font);  
+  font-family: var(--secondary-font);
   background-color: white;
   border: solid 2px rgba(230, 230, 230, 0.8);
   border-radius: 5px;
   height: 30px;
-  padding: 5px;  
+  padding: 5px;
   width: 250px;
   margin: 10px;
-  
 }
 
 #questionContainer {
@@ -160,9 +156,11 @@ input {
 .greyAnswer {
   background-color: rgba(0, 0, 0, 0.4);
 }
+
 .correctAnswer {
   background-color: lightgreen;
 }
+
 .wrongAnswer {
   background-color: red;
 }
@@ -187,14 +185,19 @@ input {
   margin-top: 35px;
   display: block;
   border: solid 3px #e6e6e6;
-  border-radius: 10px;    
+  border-radius: 10px;
   padding-top: 20px;
   padding-left: 15px;
   padding-bottom: 20px;
   padding-right: 15px;
   font-family: var(--secondary-font);
   width: 62%;
-  line-height: 30px;  
+  line-height: 30px;
   background-color: white;
 }
 
+.fa-bookmark {
+  color: var(--color-two);
+  font-size: 30px;
+  float: right;
+}

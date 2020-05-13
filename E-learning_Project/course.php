@@ -5,28 +5,22 @@ include_once('DB_Connect/procedures.php');
 $sql = "SELECT courseID,courseName,courseContent FROM courses";
 $result = $conn->query($sql);
 
-$getUserProgress = str_replace("::uID::",$_SESSION['userID'],$getUserProgress);
+$getUserProgress = str_replace("::uID::", $_SESSION['userID'], $getUserProgress);
 $sqlUserProgress = $getUserProgress;
 $resultUserProgress = $conn->query($sqlUserProgress);
 $aProgressArray = [];
-  if ($resultUserProgress->num_rows > 0) {
-    // output data of each row
-    while($row = $resultUserProgress->fetch_assoc() ) {
-        $newObj = new stdClass;
-        $newObj->status = $row['statusVariabel'];
-        $newObj->courseName = $row['courseName'];
-        array_push($aProgressArray, $newObj);
-    }
-  } else {
-          echo "0 results";
+if ($resultUserProgress->num_rows > 0) {
+  // output data of each row
+  while ($row = $resultUserProgress->fetch_assoc()) {
+    $newObj = new stdClass;
+    $newObj->status = $row['statusVariabel'];
+    $newObj->courseName = $row['courseName'];
+    array_push($aProgressArray, $newObj);
   }
+} else {
+  echo "0 results";
+}
 
-  foreach ($aProgressArray as $obj){
-    $courseName = $obj->courseName;
-    $progress = $obj->status;
-  }
-
-$conn->close();
 include_once('components/compTop.php');
 
 ?>
@@ -47,9 +41,10 @@ include_once('components/compTop.php');
           <!-- 27/04/20 - 15.35 - Daniel har indsat next og back button comp her -->
         </div>
       </div>
+
       <div id="divNavigation">
         <?php
-        
+
         if ($result->num_rows > 0) {
           // output data of each row
           $index = 2;
@@ -68,15 +63,22 @@ include_once('components/compTop.php');
         } else {
           echo "0 results";
         }
+
         $conn->close();
         ?>
-        
+
       </div>
     </div>
   </div>
   <div id="divSearchResult" class="searchResult">
   </div>
 </main>
+
+
 <?php
 include_once('components/compBottom.php');
 ?>
+<script>
+  var obj = <?php echo json_encode($aProgressArray); ?>;
+  setBookmark(obj);
+</script>
