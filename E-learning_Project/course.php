@@ -13,7 +13,7 @@ $aProgressArray = [];
     // output data of each row
     while($row = $resultUserProgress->fetch_assoc() ) {
         $newObj = new stdClass;
-        $newObj->status = $row['statusVariabel']; 
+        $newObj->status = $row['statusVariabel'];
         $newObj->courseName = $row['courseName'];
         array_push($aProgressArray, $newObj);
     }
@@ -24,8 +24,7 @@ $aProgressArray = [];
   foreach ($aProgressArray as $obj){
     $courseName = $obj->courseName;
     $progress = $obj->status;
-  }     
-
+  }
 
 $conn->close();
 include_once('components/compTop.php');

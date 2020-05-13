@@ -91,7 +91,7 @@ async function fetchIntroduction(ID) {
   let sData = await connection.json();
   console.log(sData);
   let htmlBluePrintIntroduction = await fetch(
-    `blueprints/IntroductionHTMLElement.php`
+    `blueprints/introductionHTMLElement.php`
   );
   let introductionHtml = await htmlBluePrintIntroduction.text();
   let htmlPrint = introductionHtml.replace("::insertp1::", sData.para1);
