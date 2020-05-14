@@ -1,4 +1,4 @@
-//* ---------------- 29-4-2020 Mikkel Start*/
+/* ---------------- 29-4-2020 Mikkel Start*/
 window.addEventListener("load", clearElementClass);
 /* ---------------- 29-4-2020 Mikkel Slut*/
 
@@ -70,12 +70,64 @@ function showOptions(stringDivName) {
   }
 }
 
+function setBookmark(obj) {
+
+  var i = 0;
+  obj.forEach((item) => {
+
+    i++;
+
+    switch (item.courseName) {
+
+      case "Relational Database":
+        var childElements = document.getElementById("contentOptions" + i).children;
+        var childElement = childElements[item.status - 1];
+        childElement.insertAdjacentHTML('beforeend', '<i class="fa fa-bookmark"></i>');
+        break;
+      case "Normalization":
+        var childElements = document.getElementById("contentOptions" + i).children;
+        var childElement = childElements[item.status - 1];
+        childElement.insertAdjacentHTML('beforeend', '<i class="fa fa-bookmark"></i>');
+        break;
+      case "Entity Relationship Diagram (ERD)":
+        var childElements = document.getElementById("contentOptions" + i).children;
+        var childElement = childElements[item.status - 1];
+        childElement.insertAdjacentHTML('beforeend', '<i class="fa fa-bookmark"></i>');
+        break;
+      case "SQL and Datamanipulation":
+        var childElements = document.getElementById("contentOptions" + i).children;
+        var childElement = childElements[item.status - 1];
+        childElement.insertAdjacentHTML('beforeend', '<i class="fa fa-bookmark"></i>');
+        break;
+      case "Installation and XAMPP":
+        var childElements = document.getElementById("contentOptions" + i).children;
+        var childElement = childElements[item.status - 1];
+        childElement.insertAdjacentHTML('beforeend', '<i class="fa fa-bookmark"></i>');
+        break;
+      case "Connecting to the Web":
+        var childElements = document.getElementById("contentOptions" + i).children;
+        var childElement = childElements[item.status - 1];
+        childElement.insertAdjacentHTML('beforeend', '<i class="fa fa-bookmark"></i>');
+        break;
+    }
+
+
+  });
+
+  // let bookmarked = document.querySelectorAll(".bookmarked");
+  // bookmarked.forEach((item) => {
+  //   item.classList.remove("bookmarked");
+  // }); 
+  // var toBeBookmarked = document.getElementById($progress+1);
+  // toBeBookmarked.classList.add("bookmarked");
+}
+
 // 27/04/20 - 17.15 - Daniel har indsat functionskaldet setActive.call(this) for at vise hvilket nav element der er aktivt
 function setActive(placeCounter) {
   let actives = document.querySelectorAll(".navActive");
   actives.forEach((item) => {
     item.classList.remove("navActive");
-  });  
+  });
   document.getElementById(placeCounter).classList.add("navActive");
 }
 
@@ -185,7 +237,7 @@ function answerQuiz(e) {
   });
 }
 let firstPage = mainArea.innerHTML;
-function navMovementHandler(direction) {  
+function navMovementHandler(direction) {
   placement = placement + direction;
   if (placement == 0) {
     placement = placement + 1;
@@ -197,7 +249,7 @@ function navMovementHandler(direction) {
     let fakeID = 1;
     let Options = "contentOptions" + fakeID; //Tilføjet af Daniel - 11/05/20 - 15.05 - Sørger for at den rette contentOptions div bliver vist når brugeren bruger next og back buttons til at navigere med
     switch (placement) {
-      case 2:        
+      case 2:
         fetchIntroduction(fakeID);
         showOptions(Options); //Tilføjet af Daniel - 11/05/20 - 15.05 - Sørger for at den rette contentOptions div bliver vist når brugeren bruger next og back buttons til at navigere med
         break;
@@ -330,7 +382,7 @@ function navMovementHandler(direction) {
 
 function changePlacement(placeCounter) {
   placement = placeCounter;
-  
+
   setActive(placement); //Tilføjet af Daniel - 11/05/20 - 15.05 - Sørger for at det rette navigations element får active class
 }
 
@@ -340,7 +392,7 @@ async function glossarySearch() {
   var searchWord = searchBar.value;
   searchWord = searchWord.toLowerCase();
   let connection = await fetch(`APIs/API-fetch-search.php`);
-  let jData = await connection.json();  
+  let jData = await connection.json();
   searchDiv = document.getElementById("divSearchResult");
   searchDiv.innerHTML = "";
   var definition = "";
@@ -349,17 +401,17 @@ async function glossarySearch() {
     if (x.includes(searchWord)) {
       definition = jData[x];
       console.log(x);
-      searchDiv.innerHTML += "<div><b>"+ x.toUpperCase()+": </b>" + definition.toUpperCase() + "</div>";
+      searchDiv.innerHTML += "<div><b>" + x.toUpperCase() + ": </b>" + definition.toUpperCase() + "</div>";
       searchDiv.classList.add("searchResultShow");
-    }    
+    }
   }
-  if(searchWord.length < 1 || definition.length < 1){
+  if (searchWord.length < 1 || definition.length < 1) {
     searchDiv.innerHTML = "";
     searchDiv.classList.remove("searchResultShow");
   }
-  if(searchWord.length > 1 && definition.length < 2){
-    searchDiv.innerHTML = "No result found";  
-    searchDiv.classList.add("searchResultShow");  
+  if (searchWord.length > 1 && definition.length < 2) {
+    searchDiv.innerHTML = "No result found";
+    searchDiv.classList.add("searchResultShow");
   }
 }
 /* ---------------- 29-4-2020 Mikkel Start*/

@@ -5,8 +5,17 @@ $uFirstName = $_SESSION['firstName'];
 $uLastName = $_SESSION['lastName'];
 $uID = $_SESSION['userID'];
 if(isset($_POST['deleteUsername'])&&isset($_POST['deletePassword'])){
-    $sql = "DELETE FROM customers WHERE id=$uID";
-    $conn->query($sql);
+    include_once('DB_Connect/procedures.php');
+    $deleteAllUserData = str_replace("::uID::",$uID, $deleteAllUserData);
+    echo $deleteAllUserData;
+    $sql = $deleteAllUserData;
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+       echo "DELETED";
+      } else {
+        echo "ERROR";
+        exit();
+      }
     
     header('Location: logout.php');
     exit();
