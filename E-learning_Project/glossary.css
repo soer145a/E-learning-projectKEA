@@ -1,8 +1,8 @@
-#syllabusMainContent {
+#glossaryMainContent {
     font-family: var(--secondary-font);
     line-height: 30px;
 }
 
-#syllabusMainContent {
+#glossaryMainContent {
     border-top: solid 2px black;
 }

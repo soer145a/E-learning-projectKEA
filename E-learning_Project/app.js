@@ -2,7 +2,6 @@
 window.addEventListener("load", clearElementClass);
 /* ---------------- 29-4-2020 Mikkel Slut*/
 
-console.log("X");
 let mainArea = document.querySelector("#mainContent");
 let infoHTMLBackup;
 let placement = 1;
@@ -91,7 +90,7 @@ async function fetchIntroduction(ID) {
   let sData = await connection.json();
   console.log(sData);
   let htmlBluePrintIntroduction = await fetch(
-    `blueprints/IntroductionHTMLElement.php`
+    `blueprints/introductionHTMLElement.php`
   );
   let introductionHtml = await htmlBluePrintIntroduction.text();
   let htmlPrint = introductionHtml.replace("::insertp1::", sData.para1);
@@ -335,8 +334,9 @@ function changePlacement(placeCounter) {
   setActive(placement); //Tilføjet af Daniel - 11/05/20 - 15.05 - Sørger for at det rette navigations element får active class
 }
 
-async function syllabusSearch() {
-  var searchBar = document.querySelector("#inputSyllabusSearch");
+async function glossarySearch() {
+  console.log("glossarySearch kørt");
+  var searchBar = document.querySelector("#inputGlossarySearch");
   var searchWord = searchBar.value;
   searchWord = searchWord.toLowerCase();
   let connection = await fetch(`APIs/API-fetch-search.php`);

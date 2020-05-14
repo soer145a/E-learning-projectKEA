@@ -2,13 +2,13 @@
 session_start();
 include_once('components/compTop.php');
 
-$sData = file_get_contents('syllabus.json');
+$sData = file_get_contents('glossary.json');
 $jData = json_decode($sData);
 
-$divWithSyllabus = "";
+$divWithGlossary = "";
 
 foreach ($jData as $key => $value) {
-    $divWithSyllabus .= "<div><b>$key:</b> $value</div>";
+    $divWithGlossary .= "<div><b>$key:</b> $value</div>";
 }
 
 ?>
@@ -19,9 +19,9 @@ foreach ($jData as $key => $value) {
 <main>
     <!-- 04/05/20 - 13.30 - Daniel har lavet små ændringer til formen.  -->
 
-    <div id="syllabusMainContent">
-        <h1>Syllabus</h1>
-        <?= $divWithSyllabus ?>
+    <div id="glossaryMainContent">
+        <h1>GLOSSARY</h1>
+        <?= $divWithGlossary ?>
     </div>
 </main>
 <?php
