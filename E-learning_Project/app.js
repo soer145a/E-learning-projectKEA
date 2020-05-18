@@ -71,53 +71,72 @@ function showOptions(stringDivName) {
 }
 
 function setBookmark(obj) {
-
   var i = 0;
   obj.forEach((item) => {
-
     i++;
 
     switch (item.courseName) {
-
       case "Relational Database":
-        var childElements = document.getElementById("contentOptions" + i).children;
+        var childElements = document.getElementById("contentOptions" + i)
+          .children;
         var childElement = childElements[item.status - 1];
-        childElement.insertAdjacentHTML('beforeend', '<i class="fa fa-bookmark"></i>');
+        childElement.insertAdjacentHTML(
+          "beforeend",
+          '<i class="fa fa-bookmark"></i>'
+        );
         break;
       case "Normalization":
-        var childElements = document.getElementById("contentOptions" + i).children;
+        var childElements = document.getElementById("contentOptions" + i)
+          .children;
         var childElement = childElements[item.status - 1];
-        childElement.insertAdjacentHTML('beforeend', '<i class="fa fa-bookmark"></i>');
+        childElement.insertAdjacentHTML(
+          "beforeend",
+          '<i class="fa fa-bookmark"></i>'
+        );
         break;
       case "Entity Relationship Diagram (ERD)":
-        var childElements = document.getElementById("contentOptions" + i).children;
+        var childElements = document.getElementById("contentOptions" + i)
+          .children;
         var childElement = childElements[item.status - 1];
-        childElement.insertAdjacentHTML('beforeend', '<i class="fa fa-bookmark"></i>');
+        childElement.insertAdjacentHTML(
+          "beforeend",
+          '<i class="fa fa-bookmark"></i>'
+        );
         break;
       case "SQL and Datamanipulation":
-        var childElements = document.getElementById("contentOptions" + i).children;
+        var childElements = document.getElementById("contentOptions" + i)
+          .children;
         var childElement = childElements[item.status - 1];
-        childElement.insertAdjacentHTML('beforeend', '<i class="fa fa-bookmark"></i>');
+        childElement.insertAdjacentHTML(
+          "beforeend",
+          '<i class="fa fa-bookmark"></i>'
+        );
         break;
       case "Installation and XAMPP":
-        var childElements = document.getElementById("contentOptions" + i).children;
+        var childElements = document.getElementById("contentOptions" + i)
+          .children;
         var childElement = childElements[item.status - 1];
-        childElement.insertAdjacentHTML('beforeend', '<i class="fa fa-bookmark"></i>');
+        childElement.insertAdjacentHTML(
+          "beforeend",
+          '<i class="fa fa-bookmark"></i>'
+        );
         break;
       case "Connecting to the Web":
-        var childElements = document.getElementById("contentOptions" + i).children;
+        var childElements = document.getElementById("contentOptions" + i)
+          .children;
         var childElement = childElements[item.status - 1];
-        childElement.insertAdjacentHTML('beforeend', '<i class="fa fa-bookmark"></i>');
+        childElement.insertAdjacentHTML(
+          "beforeend",
+          '<i class="fa fa-bookmark"></i>'
+        );
         break;
     }
-
-
   });
 
   // let bookmarked = document.querySelectorAll(".bookmarked");
   // bookmarked.forEach((item) => {
   //   item.classList.remove("bookmarked");
-  // }); 
+  // });
   // var toBeBookmarked = document.getElementById($progress+1);
   // toBeBookmarked.classList.add("bookmarked");
 }
@@ -141,15 +160,8 @@ async function fetchIntroduction(ID) {
   );
   let sData = await connection.json();
   console.log(sData);
-  let htmlBluePrintIntroduction = await fetch(
-    `blueprints/introductionHTMLElement.php`
-  );
-  let introductionHtml = await htmlBluePrintIntroduction.text();
-  let htmlPrint = introductionHtml.replace("::insertp1::", sData.para1);
-  htmlPrint = htmlPrint.replace("::insertp2::", sData.para2);
-  htmlPrint = htmlPrint.replace("::insertp3::", sData.para3);
-  htmlPrint = htmlPrint.replace("::insertp4::", sData.para4);
-  mainArea.innerHTML = htmlPrint;
+
+  mainArea.innerHTML = sData;
 }
 async function fetchExample(ID) {
   updateProgressTable(ID, 2);
@@ -158,24 +170,7 @@ async function fetchExample(ID) {
   let connection = await fetch(`APIs/API-fetch-examples.php?courseID=${ID}`);
   let sData = await connection.json();
   console.log(sData);
-  let htmlBluePrintExample = await fetch(`blueprints/exampleHTMLElement.php`);
-  let exampleHtml = await htmlBluePrintExample.text();
-  htmlPrint = exampleHtml.replace(
-    "::example_headline1::",
-    sData.example_headline1
-  );
-  htmlPrint = htmlPrint.replace(
-    "::example_headline2::",
-    sData.example_headline2
-  );
-  htmlPrint = htmlPrint.replace("::example_image1::", sData.example_image1);
-  htmlPrint = htmlPrint.replace("::example_image2::", sData.example_image2);
-  htmlPrint = htmlPrint.replace(
-    "::example_explanation::",
-    sData.example_explanation
-  );
-
-  mainArea.innerHTML = htmlPrint;
+  mainArea.innerHTML = sData;
 }
 async function fetchSummery(ID) {
   console.log("FETCH SUMMERY ON COURSE" + ID);
@@ -183,12 +178,7 @@ async function fetchSummery(ID) {
   let connection = await fetch(`APIs/API-fetch-summery.php?courseID=${ID}`);
   let sData = await connection.json();
   console.log(sData);
-  let htmlBluePrintSummery = await fetch(`blueprints/summeryHTMLElement.php`);
-  let summeryHtml = await htmlBluePrintSummery.text();
-  let htmlPrint = summeryHtml.replace("::information::", sData.information);
-  htmlPrint = htmlPrint.replace("::summery_image1::", sData.summery_image1);
-  htmlPrint = htmlPrint.replace("::explanation::", sData.explanation);
-  mainArea.innerHTML = htmlPrint;
+  mainArea.innerHTML = sData;
 }
 async function fetchQuiz(ID) {
   console.log("FETCH QUIZ ON COURSE" + ID);
@@ -401,7 +391,12 @@ async function glossarySearch() {
     if (x.includes(searchWord)) {
       definition = jData[x];
       console.log(x);
-      searchDiv.innerHTML += "<div><b>" + x.toUpperCase() + ": </b>" + definition.toUpperCase() + "</div>";
+      searchDiv.innerHTML +=
+        "<div><b>" +
+        x.toUpperCase() +
+        ": </b>" +
+        definition.toUpperCase() +
+        "</div>";
       searchDiv.classList.add("searchResultShow");
     }
   }
@@ -498,3 +493,89 @@ async function updateProgressTable(courseID, topic) {
   console.log(sData);
 }
 /*----------------- 04-4-2020 Søren Slut */
+function validate() {
+  let oForm = event.target;
+  console.log(oForm);
+  let check = 0;
+  if (oForm.tagName == "INPUT") {
+    var sValidateType = oForm.getAttribute("data-validate");
+    console.log(sValidateType);
+    oForm.classList = "";
+    switch (sValidateType) {
+      case "string":
+        var sData = oForm.value;
+        var iMin = oForm.getAttribute("data-min");
+        var iMax = oForm.getAttribute("data-max");
+        console.log("Validate: String");
+        if (sData.length < iMin || sData.length > iMax) {
+          oForm.classList.add("invalid");
+          check++;
+        }
+        if (oForm.value == "") {
+          oForm.classList.remove("invalid");
+        }
+        break;
+      case "email":
+        var sData = oForm.value;
+        var regEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        console.log("Validate: String");
+        if (!regEmail.test(sData)) {
+          oForm.classList.add("invalid");
+          check++;
+        }
+        if (oForm.value == "") {
+          oForm.classList.remove("invalid");
+        }
+        break;
+    }
+  }
+  let aValidateElements = oForm.querySelectorAll("[data-validate]");
+
+  for (let i = 0; i < aValidateElements.length; i++) {
+    aValidateElements[i].classList = "";
+
+    let sValidateType = aValidateElements[i].getAttribute("data-validate");
+    console.log(sValidateType);
+    switch (sValidateType) {
+      case "string":
+        var sData = aValidateElements[i].value;
+        var iMin = aValidateElements[i].getAttribute("data-min");
+        var iMax = aValidateElements[i].getAttribute("data-max");
+        console.log("Validate: String");
+        if (sData.length < iMin || sData.length > iMax) {
+          aValidateElements[i].classList.add("invalid");
+          check++;
+        }
+        break;
+      case "integer":
+        console.log("Validate: Integer");
+        var sData = parseInt(aValidateElements[i].value);
+        if (/^\d+$/.test(sData) !== true) {
+          console.log("FALSE");
+          aValidateElements[i].classList.add("invalid");
+          break;
+        }
+        var iMin = parseInt(aValidateElements[i].getAttribute("data-min"));
+        var iMax = parseInt(aValidateElements[i].getAttribute("data-max"));
+        if (sData < iMin || sData > iMax) {
+          aValidateElements[i].classList.add("invalid");
+          check++;
+        }
+        break;
+      case "email":
+        var sData = aValidateElements[i].value;
+        var regEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        console.log("Validate: String");
+        if (!regEmail.test(sData)) {
+          aValidateElements[i].classList.add("invalid");
+          check++;
+        }
+        break;
+    }
+  }
+  if (check != 0) {
+    return false;
+  } else {
+    return true;
+  }
+}
