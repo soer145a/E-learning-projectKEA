@@ -73,21 +73,25 @@ include_once('components/compTop.php');
           ?>
         <div id="totalProgress">
           <?php
-          $amountOfCourses = 0;
-          $totalProgress = 0;
-           foreach ($aProgressArray as $obj){$amountOfCourses++; $totalProgress = $totalProgress + $obj->status;}
-           $totalDivider = $amountOfCourses * 4;
-           $percentages = $totalProgress / $totalDivider * 100;
-           $percentages = round($percentages);
+          
+           if(isset($_SESSION['loginStatus'])){
+            $amountOfCourses = 0;
+            $totalProgress = 0;
+             foreach ($aProgressArray as $obj){$amountOfCourses++; $totalProgress = $totalProgress + $obj->status;}
+             $totalDivider = $amountOfCourses * 4;
+             $percentages = $totalProgress / $totalDivider * 100;
+             $percentages = round($percentages);
+             echo "<h2>Total Progress!</h2>
+             <svg height='20' width='20' viewBox='0 0 20 20'>
+               <circle r='10' cx='10' cy='10' fill='var(--color-five)'/>
+               <circle r='5' cx='10' cy='10' fill='transparent' stroke='var(--color-six)' stroke-dasharray='calc(<?=$percentages?> * 31.42 / 100) 31.42' stroke-width='10'
+               transform='rotate(-90) translate(-20)'/>
+               <circle r='8' cx='10' cy='10' fill='white'/>
+               <text x='5' y='11.5' class='svgText'>$percentages%</text>
+             </svg>";
+           }
           ?>
-                          <h2>Total Progress!</h2>
-                          <svg height='20' width='20' viewBox='0 0 20 20'>
-                            <circle r='10' cx='10' cy='10' fill='var(--color-five)'/>
-                            <circle r='5' cx='10' cy='10' fill='transparent' stroke='var(--color-six)' stroke-dasharray='calc(<?=$percentages?> * 31.42 / 100) 31.42' stroke-width='10'
-                            transform='rotate(-90) translate(-20)'/>
-                            <circle r='8' cx='10' cy='10' fill='white'/>
-                            <text x='5' y='11.5' class='svgText'><?=$percentages?>%</text>
-                          </svg>
+                          
                         
           </div>
         <div id="individualTopicProgress">
