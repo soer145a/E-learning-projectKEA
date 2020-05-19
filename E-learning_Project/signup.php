@@ -24,10 +24,10 @@ if (isset($_POST['uUsername']) && isset($_POST['uPassword'])) {
       $iMessage = $inputArray[0];
     $aStatusCode = explode(":",$iMessage);
     if($aStatusCode[0] == 1){
-        $_SESSION['uEmailError'] = "<p>ERROR - Email Already in use</p>"; 
+        $_SESSION['uEmailError'] = "<p style='color:red'>ERROR - Email Already in use</p>"; 
     }
     if($aStatusCode[1]==2){
-        $_SESSION['uUsernameError'] = "<p>ERROR - Username already in use</p>";
+        $_SESSION['uUsernameError'] = "<p style='color:red'>ERROR - Username already in use</p>";
     }
     if($aStatusCode[2]==3){
         /* IN CASE WE NEED A SUCESS TRIGGER */
