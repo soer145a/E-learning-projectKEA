@@ -29,7 +29,7 @@ include_once('components/compTop.php');
 
 ?>
 <!-- 27/04/20 - 15.35 - Daniel har indsat diverse div -->
-<span id="background">
+<span id="background" class="margin-top">
   <img src="assets/Polygon 1.svg" alt="" />
   <img src="assets/Polygon 2.svg" alt="" />
 </span>

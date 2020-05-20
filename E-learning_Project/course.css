@@ -1,5 +1,5 @@
 #courseMain {
-  border-top: solid 2px black;
+  border-top: solid 2px var(--color-five);
 }
 
 #divContentContainer {
@@ -27,7 +27,8 @@
   padding-left: 15px;
 }
 
-.btnDropdown:hover, .btnDropdown:focus {
+.btnDropdown:hover,
+.btnDropdown:focus {
   background-color: #e6e6e6;
 }
 
@@ -83,10 +84,11 @@
   padding-left: 30px;
   font-family: var(--secondary-font);
   font-size: 14pt;
-  
 }
 
-i.fa.fa-chevron-right, i.fa.fa-chevron-down, i.fa.fa-chevron-up {
+i.fa.fa-chevron-right,
+i.fa.fa-chevron-down,
+i.fa.fa-chevron-up {
   float: right;
   padding-left: 10px;
 }

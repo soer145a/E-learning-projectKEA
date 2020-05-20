@@ -1,8 +1,8 @@
 #glossaryMainContent {
-    font-family: var(--secondary-font);
-    line-height: 30px;
+  font-family: var(--secondary-font);
+  line-height: 30px;
 }
 
 #glossaryMainContent {
-    border-top: solid 2px black;
+  border-top: solid 2px var(--color-five);
 }

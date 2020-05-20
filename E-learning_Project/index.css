@@ -194,6 +194,10 @@ header div:nth-child(3) {
   z-index: -1;
 }
 
+.margin-top {
+  margin-top: 5%;
+}
+
 #background > * {
   position: absolute;
   z-index: -1;

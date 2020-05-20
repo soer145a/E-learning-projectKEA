@@ -12,7 +12,7 @@ foreach ($jData as $key => $value) {
 }
 
 ?>
-<span id="background">
+<span id="background" class="margin-top">
     <img src="assets/Polygon 1.svg" alt="" />
     <img src="assets/Polygon 2.svg" alt="" />
 </span>

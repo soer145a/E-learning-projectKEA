@@ -24,6 +24,7 @@
   <link rel="stylesheet" href="signup.css" /> <!-- 04/05/20 - 12.35 - Daniel har tilføjet ref til signup.css -->
   <link rel="stylesheet" href="login.css" /> <!-- 04/05/20 - 12.35 - Daniel har tilføjet ref til login.css -->
   <link rel="stylesheet" href="glossary.css" /> <!-- 06/05/20 - 15.35 - Daniel har tilføjet ref til syllabus.css -->
+  <link rel="stylesheet" href="admin.css" /> <!-- 19/05/20 - 19.09 - Mikkek har tilføjet ref til admin.css -->
 </head>
 
 <body>
