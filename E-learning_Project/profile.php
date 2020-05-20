@@ -10,13 +10,6 @@ if(isset($_POST['deleteUsername'])&&isset($_POST['deletePassword'])){
     echo $deleteAllUserData;
     $sql = $deleteAllUserData;
     $result = $conn->query($sql);
-    if ($result->num_rows > 0) {
-       echo "DELETED";
-      } else {
-        echo "ERROR";
-        exit();
-      }
-    
     header('Location: logout.php');
     exit();
 }
