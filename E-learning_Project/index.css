@@ -8,17 +8,19 @@
   --color-five: #4a3a63;
   --color-six: #57b38d;
   --color-seven: #cc291e;
-  --color-six-hover: #438a6d; /*27/04/20 - 15.55 - Daniel har tilføjet farve til green button hover state */
-  --color-one-hover: #7a5fa3; /*27/04/20 - 15.55 - Daniel har tilføjet farve til lilla button hover state */
+  --color-seven-hover: #a3241b;
+  --color-six-hover: #438a6d;
+  /*27/04/20 - 15.55 - Daniel har tilføjet farve til green button hover state */
+  --color-one-hover: #7a5fa3;
+  /*27/04/20 - 15.55 - Daniel har tilføjet farve til lilla button hover state */
 }
 
 h1 {
   font-family: var(--primary-font);
   font-weight: 400;
   font-size: 3em;
-  color: var(
-    --color-two
-  ); /*27/04/20 - 15.35 - Daniel har tilføjet farve til h1 */
+  color: var( --color-two);
+  /*27/04/20 - 15.35 - Daniel har tilføjet farve til h1 */
 }
 
 h2 {
@@ -26,6 +28,7 @@ h2 {
   font-weight: 400;
   font-size: 2.3em;
 }
+
 h3 {
   font-family: var(--primary-font);
   font-weight: 400;
@@ -44,9 +47,8 @@ p {
 }
 
 .btn-primary:hover {
-  background-color: var(
-    --color-six-hover
-  ); /*27/04/20 - 15.55 - Daniel har tilføjet farve til primary button hover state */
+  background-color: var( --color-six-hover);
+  /*27/04/20 - 15.55 - Daniel har tilføjet farve til primary button hover state */
 }
 
 .btn-secondary {
@@ -61,12 +63,25 @@ p {
 
 .btn-tertiary:hover {
   color: white;
-  background-color: black; /*27/04/20 - 15.55 - Daniel har tilføjet farve til tertiary button hover state */
+  background-color: black;
+  /*27/04/20 - 15.55 - Daniel har tilføjet farve til tertiary button hover state */
 }
 
 .btn-quaternary {
   background-color: var(--color-seven);
   color: white;
+}
+
+.btn-quaternary:hover {
+  background-color: var(--color-seven-hover);
+  color: white;
+}
+
+.btn-close {
+  color: black;
+  background-color: transparent;
+  float: right;
+  font-size: 30px;
 }
 
 header {
@@ -77,9 +92,11 @@ header {
   height: 80px;
   align-items: center;
 }
+
 #loginName {
   margin: 0;
 }
+
 #deleteModalWindow {
   width: 100vw;
   height: 100vh;
@@ -91,18 +108,7 @@ header {
   top: 0;
   left: 0;
 }
-#deleteModalContent {
-  height: 40vh;
-  width: 50vw;
-  top: 25vh;
-  background-color: white;
-  border: solid black 1vw;
-  position: absolute;
-  opacity: 0;
-  pointer-events: none;
-  transition: 0.3s;
-  left: 25vw;
-}
+
 a {
   font-family: var(--primary-font);
   text-decoration: none;
@@ -204,7 +210,7 @@ header div:nth-child(3) {
   margin-top: 5%;
 }
 
-#background > * {
+#background>* {
   position: absolute;
   z-index: -1;
 }
@@ -214,6 +220,7 @@ header div:nth-child(3) {
   right: 0;
   width: 50%;
 }
+
 #background img:nth-child(2) {
   bottom: 15%;
   left: 0;
@@ -229,8 +236,7 @@ main {
   grid-column-gap: 5%;
 }
 
-#indexPage h2,
-#indexPage h3 {
+#indexPage h2, #indexPage h3 {
   margin: 0;
 }
 
@@ -249,6 +255,7 @@ main h3 {
   justify-content: center;
   align-items: center;
 }
+
 #indexPage #my_progress .container h3 {
   text-align: center;
 }
@@ -265,27 +272,33 @@ main h3 {
   padding: 2%;
   height: 500px;
 }
+
 .iProgressItem {
   margin: 0.5vw;
   padding: 0.5vw;
   border: solid 2px var(--color-six);
 }
+
 .iProgressItem p {
   text-align: center;
 }
+
 #individualTopicProgress {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
+
 svg {
   height: 100px;
   width: 100px;
 }
+
 .svgText {
   font-family: var(--secondary-font);
   font-weight: 400;
   font-size: 0.3em;
 }
+
 #totalProgress svg {
   width: 400px;
   height: 400px;
