@@ -1,0 +1,11 @@
+p {
+    font-weight: 600;
+}
+
+#pFirstName, #pLastName, #pEmail, #pUsername, #pPassword {
+    font-weight: 400;
+}
+
+button {
+    
+}
