@@ -7,6 +7,7 @@
   --color-four: #7a5fa3;
   --color-five: #4a3a63;
   --color-six: #57b38d;
+  --color-seven: #cc291e;
   --color-six-hover: #438a6d; /*27/04/20 - 15.55 - Daniel har tilføjet farve til green button hover state */
   --color-one-hover: #7a5fa3; /*27/04/20 - 15.55 - Daniel har tilføjet farve til lilla button hover state */
 }
@@ -61,6 +62,11 @@ p {
 .btn-tertiary:hover {
   color: white;
   background-color: black; /*27/04/20 - 15.55 - Daniel har tilføjet farve til tertiary button hover state */
+}
+
+.btn-quaternary {
+  background-color: var(--color-seven);
+  color: white;
 }
 
 header {
