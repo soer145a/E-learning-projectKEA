@@ -203,3 +203,7 @@ input {
   font-size: 30px;
   float: right;
 }
+
+pre {
+  background-color: #E6E7E8;
+}
