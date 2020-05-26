@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Teko:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="node_modules/froala-editor/css/froala_editor.pkgd.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="node_modules/froala-editor/css/plugins/image.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="admin.css" />
+    <link rel="stylesheet" href="index.css" />
+    <title>Create Topic</title>
+  </head>
+
+  <body>
+    <main id="edit">
+      <h1>Create new topic</h1>
+      <div id="sectionwrapper">
+        <section>
+          <nav>
+            <button
+              class="active_tab"
+              data-activetab="shortDescription"
+              onclick="switchActiveEditTab(this)"
+            >
+              Short description
+            </button>
+            <button
+              data-activetab="introduction"
+              onclick="switchActiveEditTab(this)"
+            >
+              Introduction
+            </button>
+            <button
+              data-activetab="example"
+              onclick="switchActiveEditTab(this)"
+            >
+              Example
+            </button>
+            <button
+              data-activetab="summery"
+              onclick="switchActiveEditTab(this)"
+            >
+              Summery
+            </button>
+            <button data-activetab="quiz" onclick="switchActiveEditTab(this)">
+              Quiz
+            </button>
+            <div>
+              <a href="edit_course.php"
+                ><button class="btn-quaternary">CANCEL</button></a
+              >
+              <button class="btn-primary">SAVE CONTENT</button>
+            </div>
+          </nav>
+          <!-- <span></span> -->
+        </section>
+        <section>
+          <div id="quiz" style="display: none;">
+            <label for="">Quiz question:</label>
+            <input
+              data-quiz="question"
+              type="text"
+              placeholder="Type in your quiz question"
+            />
+            <label for="">Enter the correct answer:</label>
+            <input
+              data-quiz="answer_1"
+              type="text"
+              placeholder="Type in the correct answer"
+            />
+            <label for="">Enter a wrong answer:</label>
+            <input
+              data-quiz="answer_2"
+              type="text"
+              placeholder="Type in a wrong answer"
+            />
+            <label for="">Enter a wrong answer:</label>
+            <input
+              data-quiz="answer_3"
+              type="text"
+              placeholder="Type in a wrong answer"
+            />
+            <label for="">Enter a wrong answer:</label>
+            <input
+              data-quiz="answer_4"
+              type="text"
+              placeholder="Type in a wrong answer"
+            />
+          </div>
+          <div id="froala-editor"></div>
+        </section>
+      </div>
+    </main>
+
+    <script
+      type="text/javascript"
+      src="node_modules/froala-editor/js/froala_editor.pkgd.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="node_modules/froala-editor/js/plugins/image.min.js"
+    ></script>
+    <script src="app.js"></script>
+    <script>
+      initEditor();
+    </script>
+  </body>
+</html>

@@ -10,20 +10,12 @@ include_once('components/compTop.php');
       <div id="sectionwrapper">
         <section>
           <!-- THE BELOW DIV AND ITS CHILDREN SHOULD BE CREATED FOR EACH OF COURSE AND THE CONTENT -->
-          <a href=""
+          <a href="edit_course.php"
             ><div class="course">
               <div></div>
               <div><h3>[COURSE NAME]</h3></div>
             </div>
           </a>
-          <div class="course">
-            <div></div>
-            <div><h3>[COURSE NAME]</h3></div>
-          </div>
-          <div class="course">
-            <div></div>
-            <div><h3>[COURSE NAME]</h3></div>
-          </div>
           <div class="course">
             <div></div>
             <div><h3>[COURSE NAME]</h3></div>

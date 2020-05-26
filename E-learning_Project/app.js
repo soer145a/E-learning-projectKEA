@@ -1,3 +1,40 @@
+// 25-05-2020 - Mikkel Start
+let showModalWindow = 0;
+let editor;
+let oTopicData = {
+  shortDescription: "",
+  introduction: "",
+  example: "",
+  summery: "",
+  quiz: {
+    question: "",
+    answer_1: "",
+    answer_2: "",
+    answer_3: "",
+    answer_4: "",
+  },
+};
+
+function initEditor() {
+  editor = new FroalaEditor("#froala-editor", {
+    toolbarButtons: [
+      [
+        "bold",
+        "italic",
+        "underline",
+        "paragraphFormat",
+        "formatOL",
+        "formatUL",
+      ],
+      ["insertHTML", "undo", "redo", "html", "insertLink", "insertImage"],
+    ],
+    imageUploadURL: "./uploads/api-upload-image.php",
+    height: "calc(50vh - 42px)",
+  });
+}
+
+// 25-05-2020 - Mikkel Slut
+
 /* ---------------- 29-4-2020 Mikkel Start*/
 window.addEventListener("load", clearElementClass);
 /* ---------------- 29-4-2020 Mikkel Slut*/
@@ -429,7 +466,29 @@ function clearElementClass() {
   }
   retrieveSessionData();
 }
+// 24-05-2020 - Mikkel start
+function cleanUpURL() {
+  let sURL = window.location.href;
 
+  //Split the url into pieces divided by a /
+  let aSplitUrl = sURL.split("/");
+
+  //get the last element in the URL array, which will be the current page
+  let sGetLastElement = aSplitUrl[aSplitUrl.length - 1];
+
+  console.log(sGetLastElement);
+
+  //Split the string (pagename.php)
+  let aSplitElement = sGetLastElement.split(".");
+
+  //Get the first element in the array which will be without .php
+  let sGetFirstElement = aSplitElement[0];
+
+  console.log("cleanUpURL", sGetFirstElement);
+
+  return sGetFirstElement;
+}
+// 24-05-2020 - Mikkel slut
 function retrieveSessionData() {
   //Set chosenPage to contain saved sessionData
   let sChosenPage = sessionStorage.getItem("chosenPage");
@@ -438,29 +497,13 @@ function retrieveSessionData() {
   let aGetTopNavigationTabs = document.querySelectorAll("[data-navtag]");
 
   if (sChosenPage === null) {
-    //If sChosenPage is null get the url
-    let sURL = window.location.href;
-
-    //Split the url into pieces divided by a /
-    let aSplitUrl = sURL.split("/");
-
-    //get the last element in the URL array, which will be the current page
-    let sGetLastElement = aSplitUrl[aSplitUrl.length - 1];
-
-    console.log(sGetLastElement);
-
-    //Split the string (pagename.php)
-    let aSplitElement = sGetLastElement.split(".");
-
-    //Get the first element in the array which will be without .php
-    let sGetFirstElement = aSplitElement[0];
-    console.log(sGetFirstElement);
+    let currentPage = cleanUpURL();
 
     //Iterate through the array
     for (let i = 0; i < aGetTopNavigationTabs.length; i++) {
       console.log(i);
       //If there is a match between the page the user is on and a dataset name then apply the class active on that element
-      if (aGetTopNavigationTabs[i].dataset.navtag === sGetFirstElement) {
+      if (aGetTopNavigationTabs[i].dataset.navtag === currentPage) {
         aGetTopNavigationTabs[i].classList = "active";
         break;
       }
@@ -579,3 +622,83 @@ function validate() {
     return true;
   }
 }
+
+// 23-05-2020 - Mikkel Start
+
+function showModal() {
+  showModalWindow = !showModalWindow;
+
+  if (!showModalWindow) {
+    document.querySelector(".modalBackground").style.display = "none";
+    return;
+  }
+  document.querySelector(".modalBackground").style.display = "flex";
+}
+
+function switchActiveEditTab(e) {
+  //Save current text inside editor
+  saveTopicText();
+
+  //Get all navigation children elements
+  let aNavigationElements = e.parentNode.children;
+
+  //Iterate through array of elements and remove the class active_tab if present
+  for (let i = 0; i < aNavigationElements.length; i++) {
+    aNavigationElements[i].classList.remove("active_tab");
+  }
+  //add the class active_tab on the clicked element
+  e.classList.add("active_tab");
+
+  setEditorHTML(e);
+}
+
+function setEditorHTML(e) {
+  if (e.dataset.activetab === "quiz") {
+    document.querySelector("#froala-editor").style.display = "none";
+    document.querySelector("#quiz").style.display = "grid";
+    let aQuizElementChildren = document.querySelector("#quiz").children;
+    for (let i = 0; i < aQuizElementChildren.length; i++) {
+      if (aQuizElementChildren[i].localName === "input") {
+        aQuizElementChildren[i].value =
+          oTopicData.quiz[aQuizElementChildren[i].dataset.quiz];
+        console.log(oTopicData.quiz[aQuizElementChildren[i].dataset.quiz]);
+      }
+    }
+  } else {
+    document.querySelector("#froala-editor").style.display = "block";
+    document.querySelector("#quiz").style.display = "none";
+    editor.html.set(oTopicData[e.dataset.activetab]);
+  }
+}
+
+function saveTopicText() {
+  let currentTab = document.querySelector(".active_tab").dataset.activetab;
+  let txt = editor.html.get();
+  let aObjectProperties = Object.keys(oTopicData);
+
+  if (currentTab === "quiz") {
+    saveQuizData();
+  } else {
+    for (let i = 0; i < aObjectProperties.length; i++) {
+      if (currentTab === aObjectProperties[i]) {
+        oTopicData[currentTab] = txt;
+      }
+    }
+  }
+  console.log(oTopicData);
+}
+
+function saveQuizData() {
+  console.log("saveQuizData kørt");
+  let aQuizElementChildren = document.querySelector("#quiz").children;
+
+  for (let i = 0; i < aQuizElementChildren.length; i++) {
+    if (aQuizElementChildren[i].localName === "input") {
+      oTopicData.quiz[aQuizElementChildren[i].dataset.quiz] =
+        aQuizElementChildren[i].value;
+    }
+  }
+  console.log(oTopicData);
+}
+
+//27-05-2020 - Mikkel Slut

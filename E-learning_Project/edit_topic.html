@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Teko:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="node_modules/froala-editor/css/froala_editor.pkgd.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="node_modules/froala-editor/css/plugins/image.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="admin.css" />
+    <link rel="stylesheet" href="index.css" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <main id="edit">
+      <h1>Edit topic - [TOPIC NAME]</h1>
+      <div id="sectionwrapper">
+        <section>
+          <nav>
+            <button class="active_tab" onclick="switchActiveEditTab(this)">
+              Short description
+            </button>
+            <button onclick="switchActiveEditTab(this)">Introduction</button>
+            <button onclick="switchActiveEditTab(this)">Example</button>
+            <button onclick="switchActiveEditTab(this)">Summery</button>
+            <button onclick="switchActiveEditTab(this)">Quiz</button>
+            <div>
+              <a href="edit_course.php"
+                ><button class="btn-quaternary">CANCEL</button></a
+              >
+              <button class="btn-primary">SAVE CONTENT</button>
+            </div>
+          </nav>
+          <!-- <span></span> -->
+        </section>
+        <section>
+          <div id="froala-editor"></div>
+        </section>
+      </div>
+    </main>
+    <script
+      type="text/javascript"
+      src="node_modules/froala-editor/js/froala_editor.pkgd.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="node_modules/froala-editor/js/plugins/image.min.js"
+    ></script>
+    <script src="app.js"></script>
+    <script>
+      initEditor();
+    </script>
+  </body>
+</html>
