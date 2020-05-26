@@ -35,6 +35,12 @@ h3 {
   font-size: 1.5em;
 }
 
+h4 {
+  font-family: var(--primary-font);
+  font-weight: 400;
+  font-size: 1.3em;
+}
+
 p {
   font-family: var(--secondary-font);
   font-weight: 400;
