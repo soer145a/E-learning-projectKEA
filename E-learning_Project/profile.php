@@ -1,6 +1,7 @@
 <?php
 session_start();
 include_once('DB_Connect/connection.php');
+
 $uFirstName = $_SESSION['firstName'];
 $uLastName = $_SESSION['lastName'];
 $uID = $_SESSION['userID'];
@@ -33,17 +34,19 @@ include_once('components/compTop.php');
    
 </div>
 <div id="deleteModalContent">
-        <button onclick="closeDeleteModal()">X</button>
-        <p>Are you sure you want to delete?</p>
+        
+        <h1>DELETE ACCOUNT</h1>
+        <p>Are you sure you want to permanently delete your profile?</p>
         <p>Type your username and password below to delete</p>
-        <form action="profile.php" method="post">
+        <form id="frmDeleteUser" action="profile.php" method="post">
         <label><p>Username:</p>
             <input type="text" name="deleteUsername">
         </label>
         <label><p>Password:</p>
             <input type="password" name="deletePassword">
         </label> <br>
-        <input type="submit" value="PERMANENTLY DELETE!">
+        <button class="btn-primary" type="submit">DELETE</button>
+        <button type="button" class="btn-quaternary" onclick="closeDeleteModal()">CANCEL</button>
     </form>
     </div>
 <div id="profileInfo">
@@ -56,8 +59,8 @@ include_once('components/compTop.php');
 <p>password: <span id="pPassword"><?php $iPasswordLenght = strlen($row['password']); for ($i=0; $i < $iPasswordLenght; $i++){echo '*';} ?></p>
 <input id="hiddenPassword" type="hidden" value="<?=$row['password']?>">
 <input id="hiddenID" type="hidden" value="<?=$row['id']?>">
-<button onclick="editProfile()">EDIT</button>
-<button onclick="openDeleteModal()">Delete My Account</button>
+<button class="btn-primary" onclick="editProfile()">EDIT</button>
+<button class="btn-quaternary" onclick="openDeleteModal()">DELETE</button>
 </div>
 </div>
 </main>

@@ -16,7 +16,7 @@ function editProfile() {
   let uID = document.querySelector("#hiddenID").value;
   document.querySelector(
     "#profileContent"
-  ).innerHTML = `<form action="profile.php" method="post">
+  ).innerHTML = `<form id="frmEditProfile" action="profile.php" method="post">
   <label><p>NEW First Name:</p>
       <input type="text" name="uFirstName" placeholder="John" value="${uFirstName}">
   </label>
@@ -36,8 +36,8 @@ function editProfile() {
   <input type="hidden" name="uID"  value="${uID}">
 
    <br>
-  <input type="submit" value="Save!">
-  <button onclick="cancelEditing(); return false;">Cancel</button>
+  <button class="btn-primary" type="submit" >SAVE</button>
+  <button class="btn-quaternary" onclick="cancelEditing(); return false;">Cancel</button>
   </form>`;
   console.log(infoHTMLBackup);
 }
