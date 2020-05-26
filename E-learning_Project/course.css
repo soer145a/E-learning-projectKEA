@@ -41,6 +41,7 @@
 
 #mainContent {
   overflow: auto;
+  overflow-x: auto;
   padding: 20px;
 }
 
@@ -202,4 +203,8 @@ input {
   color: var(--color-two);
   font-size: 30px;
   float: right;
+}
+
+pre {
+  background-color: #E6E7E8;
 }

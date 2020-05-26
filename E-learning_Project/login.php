@@ -6,7 +6,7 @@ if (isset($_POST['uUsername']) && isset($_POST['uPassword'])) {
     $username = $_POST['uUsername'];
     $password = $_POST['uPassword'];
     if($password == $secretPassword && $username == $secretUsername){
-        header('Location: adminPage.php');
+        header('Location: admin.php');
     }
     $sql = "SELECT * FROM customers WHERE username = '$username' AND password = '$password'";
     $result = $conn->query($sql);
