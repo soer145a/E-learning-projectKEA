@@ -45,7 +45,7 @@ include_once('components/compTop.php');
           ?>
         </section>
         <section>
-          <a href="create_topic.html">
+          <a href="create_topic.php">
             <button class="btn-primary">CREATE TOPIC</button>
           </a>
         </section>
