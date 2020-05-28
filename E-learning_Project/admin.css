@@ -196,16 +196,19 @@
   border-bottom: none;
 }
 
-#quiz {
+#quiz,
+#topicName {
   display: grid;
   grid-row-gap: 10px;
 }
 
-#quiz label {
+#quiz label,
+#topicName label {
   font-family: var(--primary-font);
   font-size: 1.2em;
 }
 
-#quiz input {
+#quiz input,
+#topicName input {
   font-family: var(--secondary-font);
 }

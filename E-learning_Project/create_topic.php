@@ -1,28 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Teko:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="node_modules/froala-editor/css/froala_editor.pkgd.min.css"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link
-      href="node_modules/froala-editor/css/plugins/image.min.css"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link rel="stylesheet" href="admin.css" />
-    <link rel="stylesheet" href="index.css" />
-    <title>Create Topic</title>
-  </head>
+<?php 
+include_once('components/compTop.php');
+?>
 
-  <body>
+<span id="background" class="margin-top">
+      <img src="assets/Polygon 1.svg" alt="" />
+      <img src="assets/Polygon 2.svg" alt="" />
+</span>
     <main id="edit">
       <h1>Create new topic</h1>
       <div id="sectionwrapper">
@@ -30,6 +13,12 @@
           <nav>
             <button
               class="active_tab"
+              data-activetab="topicName"
+              onclick="switchActiveEditTab(this)"
+            >
+              Topic title
+            </button>
+            <button
               data-activetab="shortDescription"
               onclick="switchActiveEditTab(this)"
             >
@@ -60,12 +49,18 @@
               <a href="edit_course.php"
                 ><button class="btn-quaternary">CANCEL</button></a
               >
-              <button class="btn-primary">SAVE CONTENT</button>
+              <button onclick="saveNewTopic()" class="btn-primary">
+                SAVE CONTENT
+              </button>
             </div>
           </nav>
           <!-- <span></span> -->
         </section>
         <section>
+          <div id="topicName">
+            <label for="">Topic title:</label>
+            <input type="text" placeholder="Type in the topic title" />
+          </div>
           <div id="quiz" style="display: none;">
             <label for="">Quiz question:</label>
             <input
@@ -98,22 +93,14 @@
               placeholder="Type in a wrong answer"
             />
           </div>
-          <div id="froala-editor"></div>
+          <div id="froala-editor" style="display: none;"></div>
         </section>
       </div>
     </main>
-
-    <script
-      type="text/javascript"
-      src="node_modules/froala-editor/js/froala_editor.pkgd.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="node_modules/froala-editor/js/plugins/image.min.js"
-    ></script>
-    <script src="app.js"></script>
-    <script>
+    
+<?php
+include_once('components/compBottom.php');
+?>
+<script>
       initEditor();
-    </script>
-  </body>
-</html>
+</script>

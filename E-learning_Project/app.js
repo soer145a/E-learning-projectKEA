@@ -476,15 +476,11 @@ function cleanUpURL() {
   //get the last element in the URL array, which will be the current page
   let sGetLastElement = aSplitUrl[aSplitUrl.length - 1];
 
-  console.log(sGetLastElement);
-
   //Split the string (pagename.php)
   let aSplitElement = sGetLastElement.split(".");
 
   //Get the first element in the array which will be without .php
   let sGetFirstElement = aSplitElement[0];
-
-  console.log("cleanUpURL", sGetFirstElement);
 
   return sGetFirstElement;
 }
@@ -625,14 +621,16 @@ function validate() {
 
 // 23-05-2020 - Mikkel Start
 
-function showModal() {
+function showModal(e) {
+  console.log(e.parentElement.dataset.id);
   showModalWindow = !showModalWindow;
-
   if (!showModalWindow) {
     document.querySelector(".modalBackground").style.display = "none";
     return;
   }
   document.querySelector(".modalBackground").style.display = "flex";
+  document.querySelector(".modalWindow").dataset.id =
+    e.parentElement.dataset.id;
 }
 
 function switchActiveEditTab(e) {
@@ -655,6 +653,7 @@ function switchActiveEditTab(e) {
 function setEditorHTML(e) {
   if (e.dataset.activetab === "quiz") {
     document.querySelector("#froala-editor").style.display = "none";
+    document.querySelector("#topicName").style.display = "none";
     document.querySelector("#quiz").style.display = "grid";
     let aQuizElementChildren = document.querySelector("#quiz").children;
     for (let i = 0; i < aQuizElementChildren.length; i++) {
@@ -664,9 +663,14 @@ function setEditorHTML(e) {
         console.log(oTopicData.quiz[aQuizElementChildren[i].dataset.quiz]);
       }
     }
+  } else if (e.dataset.activetab === "topicName") {
+    document.querySelector("#froala-editor").style.display = "none";
+    document.querySelector("#topicName").style.display = "grid";
+    document.querySelector("#quiz").style.display = "none";
   } else {
     document.querySelector("#froala-editor").style.display = "block";
     document.querySelector("#quiz").style.display = "none";
+    document.querySelector("#topicName").style.display = "none";
     editor.html.set(oTopicData[e.dataset.activetab]);
   }
 }
@@ -701,4 +705,91 @@ function saveQuizData() {
   console.log(oTopicData);
 }
 
-//27-05-2020 - Mikkel Slut
+async function saveNewTopic() {
+  saveTopicText();
+  let data = new FormData();
+  console.log(data);
+  console.log(oTopicData);
+  let sTopicName = document.querySelector("#topicName input").value;
+  data.append("topicContent", JSON.stringify(oTopicData));
+  data.append("topicName", sTopicName);
+
+  let connection = await fetch("APIs/API-create-topic.php", {
+    method: "POST",
+    body: data,
+  });
+
+  console.log(connection.text());
+
+  window.location.replace("edit_course.php");
+}
+
+async function updateTopic(topicId) {
+  saveTopicText();
+  let data = new FormData();
+  console.log(data);
+  console.log(oTopicData);
+  let sTopicName = document.querySelector("#topicName input").value;
+  data.append("topicContent", JSON.stringify(oTopicData));
+  data.append("topicName", sTopicName);
+
+  //the api needs to update an existing topic
+  let connection = await fetch("APIs/API-update-topic.php?topicID=" + topicId, {
+    method: "POST",
+    body: data,
+  });
+
+  let response = await connection.text();
+
+  console.log(response);
+
+  window.location.replace("edit_course.php");
+}
+
+async function fetchTopicContent(id) {
+  console.log("COURSE" + id);
+
+  const jTopic = await fetch("APIs/API-fetch-topic.php?topicID=" + id);
+
+  let oTopic = await jTopic.json();
+  console.log(oTopic);
+
+  setTopicObjectProperties(oTopic);
+}
+
+function setTopicObjectProperties(oTopic) {
+  console.log("setTopicObjectProperties");
+
+  let oTopicContent = oTopic.topicContent;
+  let sTopicName = oTopic.topicName;
+
+  let aObjectKeys = Object.keys(oTopicContent);
+
+  console.log(aObjectKeys);
+
+  for (let i = 0; i < aObjectKeys.length; i++) {
+    oTopicData[aObjectKeys[i]] = oTopic.topicContent[aObjectKeys[i]];
+  }
+
+  setTopicTitle(sTopicName);
+}
+
+function setTopicTitle(sTopicName) {
+  //This will simply fill out the topic title with the parameter given.
+  document.querySelector("#topicName input").value = sTopicName;
+  document.querySelector("#edit h1").textContent = `Edit topic - ${sTopicName}`;
+}
+
+async function deleteTopic(e) {
+  console.log("deleteTopic");
+  let id = e.parentElement.parentElement.dataset.id;
+  console.log(id);
+
+  const jTopic = await fetch("APIs/API-delete-topic.php?topicID=" + id);
+
+  let oTopic = await jTopic.text();
+
+  console.log(oTopic);
+}
+
+//28-05-2020 - Mikkel Slut

@@ -16,6 +16,16 @@
   <!-- <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet"> -->
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Teko:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link
+      href="node_modules/froala-editor/css/froala_editor.pkgd.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="node_modules/froala-editor/css/plugins/image.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
   <title>DB Academy</title>
   <!-- <link rel="stylesheet" href="main.css" /> -->
   <link rel="stylesheet" href="normalize.css" />
