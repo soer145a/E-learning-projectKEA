@@ -790,6 +790,11 @@ async function deleteTopic(e) {
   let oTopic = await jTopic.text();
 
   console.log(oTopic);
+  reloadPage();
+}
+
+function reloadPage() {
+  window.location.reload();
 }
 
 //28-05-2020 - Mikkel Slut

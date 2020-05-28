@@ -6,8 +6,8 @@ $topicID = $_GET["topicID"];
 
 $deleteTopic = str_replace("::uID::",$topicID, $deleteTopic);
 
-echo $deleteTopic;
+// echo $deleteTopic;
 
-// $sql = $deleteTopic;
+$sql = $deleteTopic;
 
-// $result = $conn->query($sql);
+$result = $conn->query($sql);
