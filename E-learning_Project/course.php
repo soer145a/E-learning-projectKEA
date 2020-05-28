@@ -39,8 +39,6 @@ include_once('components/compTop.php');
     <div id="divContentContainer">
       <div id="divContent">
         <div id="mainContent">
-<<<<<<< HEAD
-=======
           <h2>To start a course:</h2>
           <br>
           <p>Use the navigation to the right</p>
@@ -48,7 +46,6 @@ include_once('components/compTop.php');
           <p>OR</p>
           <br>
           <p>Use the next button to start from the begining</p>
->>>>>>> 20b04a88d70a41dc2923a903baca9a51b8465afc
         </div>
         <div id="divNavigationButtons">
           <?php include_once('components/navigation.html') ?>
