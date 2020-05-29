@@ -65,10 +65,10 @@ include_once('components/compTop.php');
 
             echo '<button onclick="showOptions(\'contentOptions' . $row['courseID'] . '\')" class="btnDropdown">' . $row['courseName'] . ' <i class="fa fa-chevron-down" style="font-size:24px"></i></button>
             <div id="contentOptions' . $row['courseID'] . '" class="dropdown-content">
-                <a href="#" id="' . $index . '" onclick="fetchIntroduction(\'' . $row['courseID'] . '\'); changePlacement(' . $index++ . ');">' . $sData->shortDescription . '</a>
-                <a href="#" id="' . $index . '" onclick="fetchExample(\'' . $row['courseID'] . '\'); changePlacement(' . $index++ . ');">Example</a>
-                <a href="#" id="' . $index . '" onclick="fetchSummery(\'' . $row['courseID'] . '\'); changePlacement(' . $index++ . ');">Summery</a>
-                <a href="#" id="' . $index . '" onclick="fetchQuiz(\'' . $row['courseID'] . '\'); changePlacement(' . $index++ . ');">Quiz</a>
+                <a id="' . $index . '" onclick="fetchIntroduction(\'' . $row['courseID'] . '\'); changePlacement(' . $index++ . ');">' . $sData->shortDescription . '</a>
+                <a id="' . $index . '" onclick="fetchExample(\'' . $row['courseID'] . '\'); changePlacement(' . $index++ . ');">Example</a>
+                <a id="' . $index . '" onclick="fetchSummery(\'' . $row['courseID'] . '\'); changePlacement(' . $index++ . ');">Summery</a>
+                <a id="' . $index . '" onclick="fetchQuiz(\'' . $row['courseID'] . '\'); changePlacement(' . $index++ . ');">Quiz</a>
             </div>';
           }
         } else {

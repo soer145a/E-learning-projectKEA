@@ -45,6 +45,10 @@
   padding: 20px;
 }
 
+#mainContent pre {
+  white-space: pre-wrap;
+}
+
 #mainContent img {
   max-width: 100%;
   margin: auto;
@@ -206,5 +210,5 @@ input {
 }
 
 pre {
-  background-color: #E6E7E8;
+  background-color: #e6e7e8;
 }

@@ -28,7 +28,7 @@ function initEditor() {
       ],
       ["insertHTML", "undo", "redo", "html", "insertLink", "insertImage"],
     ],
-    imageUploadURL: "./uploads/api-upload-image.php",
+    imageUploadURL: "tmp/API-upload-image.php",
     height: "calc(50vh - 42px)",
   });
 }
@@ -719,23 +719,42 @@ function saveQuizData() {
   console.log(oTopicData);
 }
 
-async function saveNewTopic() {
-  saveTopicText();
-  let data = new FormData();
-  console.log(data);
+function replaceImgURLInText() {
+  console.log("kører denne");
+  let sIntroduction = oTopicData.introduction;
   console.log(oTopicData);
+  // console.log(sIntroduction);
+  let sUpdatedIntroduction = sIntroduction.replace(/tmp/g, "images");
+  sUpdatedIntroduction = sUpdatedIntroduction.replace(/\"/g, "&quot;");
+  // console.log(sUpdatedIntroduction);
+  oTopicData.introduction = sUpdatedIntroduction;
+  console.log(oTopicData);
+}
+
+function saveNewTopic() {
+  saveTopicText();
+  replaceImgURLInText();
+
+  fetchCreateTopicApi();
+
+  // window.location.replace("edit_course.php");
+}
+
+async function fetchCreateTopicApi() {
+  console.log("Denne er i funktionen fetchCreateTopicApi", oTopicData);
+
+  let data = new FormData();
   let sTopicName = document.querySelector("#topicName input").value;
   data.append("topicContent", JSON.stringify(oTopicData));
   data.append("topicName", sTopicName);
 
+  console.log(JSON.stringify(oTopicData));
   let connection = await fetch("APIs/API-create-topic.php", {
     method: "POST",
     body: data,
   });
 
   console.log(connection.text());
-
-  window.location.replace("edit_course.php");
 }
 
 async function updateTopic(topicId) {
