@@ -654,6 +654,7 @@ function setEditorHTML(e) {
   if (e.dataset.activetab === "quiz") {
     document.querySelector("#froala-editor").style.display = "none";
     document.querySelector("#topicName").style.display = "none";
+    document.querySelector("#shortDescription").style.display = "none";
     document.querySelector("#quiz").style.display = "grid";
     let aQuizElementChildren = document.querySelector("#quiz").children;
     for (let i = 0; i < aQuizElementChildren.length; i++) {
@@ -666,11 +667,20 @@ function setEditorHTML(e) {
   } else if (e.dataset.activetab === "topicName") {
     document.querySelector("#froala-editor").style.display = "none";
     document.querySelector("#topicName").style.display = "grid";
+    document.querySelector("#shortDescription").style.display = "none";
     document.querySelector("#quiz").style.display = "none";
+  } else if (e.dataset.activetab === "shortDescription") {
+    document.querySelector("#froala-editor").style.display = "none";
+    document.querySelector("#topicName").style.display = "none";
+    document.querySelector("#shortDescription").style.display = "grid";
+    document.querySelector("#quiz").style.display = "none";
+    document.querySelector("#shortDescription input").value =
+      oTopicData.shortDescription;
   } else {
     document.querySelector("#froala-editor").style.display = "block";
     document.querySelector("#quiz").style.display = "none";
     document.querySelector("#topicName").style.display = "none";
+    document.querySelector("#shortDescription").style.display = "none";
     editor.html.set(oTopicData[e.dataset.activetab]);
   }
 }
@@ -682,6 +692,10 @@ function saveTopicText() {
 
   if (currentTab === "quiz") {
     saveQuizData();
+  } else if (currentTab === "shortDescription") {
+    oTopicData[currentTab] = document.querySelector(
+      "#shortDescription input"
+    ).value;
   } else {
     for (let i = 0; i < aObjectProperties.length; i++) {
       if (currentTab === aObjectProperties[i]) {

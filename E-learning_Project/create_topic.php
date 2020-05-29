@@ -54,12 +54,15 @@ include_once('components/compTop.php');
               </button>
             </div>
           </nav>
-          <!-- <span></span> -->
         </section>
         <section>
           <div id="topicName">
             <label for="">Topic title:</label>
             <input type="text" placeholder="Type in the topic title" />
+          </div>
+          <div id="shortDescription" style="display: none;">
+            <label for="">Short Description:</label>
+            <input type="text" placeholder="Type in a short description for the topic" />
           </div>
           <div id="quiz" style="display: none;">
             <label for="">Quiz question:</label>
