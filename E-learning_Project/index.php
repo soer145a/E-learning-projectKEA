@@ -51,7 +51,7 @@ include_once('components/compTop.php');
         <div class="container">
           <h3>Relational Databases</h3>
           <p>
-          >A relational database is a database consisting of two or more tables that each are related to one or more of the other tables in the database. They create relationships between one another by referring to columns, also called attributes, in different tables.
+          A relational database is a database consisting of two or more tables that each are related to one or more of the other tables in the database. They create relationships between one another by referring to columns, also called attributes, in different tables.
           </p>
           <a href="course.php" data-navtag="course" onclick="setSessionData(this)">BEGIN COURSE</a>
         </div>
