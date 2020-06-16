@@ -17,7 +17,7 @@ h1 {
   font-family: var(--primary-font);
   font-weight: 400;
   font-size: 3em;
-  color: var( --color-two);
+  color: var(--color-two);
   /*27/04/20 - 15.35 - Daniel har tilføjet farve til h1 */
 }
 
@@ -51,7 +51,7 @@ p {
 }
 
 .btn-primary:hover {
-  background-color: var( --color-six-hover);
+  background-color: var(--color-six-hover);
   /*27/04/20 - 15.55 - Daniel har tilføjet farve til primary button hover state */
 }
 
@@ -218,7 +218,7 @@ header div:nth-child(3) {
   margin-top: 5%;
 }
 
-#background>* {
+#background > * {
   position: absolute;
   z-index: -1;
 }
@@ -244,7 +244,8 @@ main {
   grid-column-gap: 5%;
 }
 
-#indexPage h2, #indexPage h3 {
+#indexPage h2,
+#indexPage h3 {
   margin: 0;
 }
 
@@ -258,10 +259,22 @@ main h3 {
   height: 550px;
 }
 
+#indexPage #learn .container {
+  display: grid;
+  grid-template-rows: min-content min-content min-content;
+}
+
+#indexPage #learn a {
+  margin-top: 5%;
+  justify-self: center;
+}
+
 #indexPage #my_progress .container {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+  overflow: auto;
 }
 
 #indexPage #my_progress .container h3 {
@@ -310,4 +323,54 @@ svg {
 #totalProgress svg {
   width: 400px;
   height: 400px;
+}
+
+/* FEEDBACK ANIMATION */
+
+.checkbox_background {
+  z-index: 50;
+  position: absolute;
+  background-color: grey;
+  height: 100vh;
+  width: 100vw;
+  opacity: 0.3;
+}
+.check_circle {
+  z-index: 51;
+  background-color: white;
+  position: absolute;
+  left: 45vw;
+  top: 45vh;
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: space-around;
+  box-shadow: 1px 1px 10px grey;
+}
+.check_box {
+  width: 42px;
+  height: 21px;
+  transform: rotate(-45deg);
+  position: relative;
+  margin: 25px;
+  animation: mymove 800ms;
+  animation-fill-mode: forwards;
+}
+
+@keyframes mymove {
+  0% {
+    height: 0px;
+    border-bottom: solid 10px white;
+    border-left: solid 10px white;
+  }
+
+  50% {
+    height: 21px;
+  }
+
+  100% {
+    border-left: solid 10px green;
+    border-bottom: solid 10px green;
+  }
 }

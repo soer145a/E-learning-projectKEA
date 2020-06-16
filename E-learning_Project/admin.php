@@ -16,10 +16,6 @@ include_once('components/compTop.php');
               <div><h3>[COURSE NAME]</h3></div>
             </div>
           </a>
-          <div class="course">
-            <div></div>
-            <div><h3>[COURSE NAME]</h3></div>
-          </div>
         </section>
         <section>
           <button class="btn-primary">CREATE COURSE</button>

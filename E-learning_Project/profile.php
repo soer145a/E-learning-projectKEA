@@ -29,7 +29,11 @@ $result = $conn->query($sql);
 $row = $result->fetch_assoc();
 include_once('components/compTop.php');
 ?>
-<main>
+ <span id="background">
+      <img src="assets/Polygon 1.svg" alt="" />
+      <img src="assets/Polygon 2.svg" alt="" />
+</span>
+<main id="profile">
 <div id="deleteModalWindow" onclick="closeDeleteModal()">
    
 </div>

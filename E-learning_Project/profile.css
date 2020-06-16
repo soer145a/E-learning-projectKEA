@@ -1,3 +1,7 @@
+#profile {
+    border-top: solid 2px var(--color-five);
+}
+
 #pFirstName, #pLastName, #pEmail, #pUsername, #pPassword {
     font-weight: 400;
     font-family: var(--primary-font);

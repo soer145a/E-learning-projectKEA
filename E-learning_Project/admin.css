@@ -197,18 +197,21 @@
 }
 
 #quiz,
-#topicName {
+#topicName,
+#shortDescription {
   display: grid;
   grid-row-gap: 10px;
 }
 
 #quiz label,
-#topicName label {
+#topicName label,
+#shortDescription label {
   font-family: var(--primary-font);
   font-size: 1.2em;
 }
 
 #quiz input,
-#topicName input {
+#topicName input,
+#shortDescription input {
   font-family: var(--secondary-font);
 }

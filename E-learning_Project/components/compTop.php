@@ -40,7 +40,7 @@
 
 <body>
   <header>
-    <a href="index.php">
+    <a href="index.php" data-navtag="logo" onclick="setSessionData(this)">
       <img src="assets/logo.svg" alt="logo" />
     </a>
     <nav>
