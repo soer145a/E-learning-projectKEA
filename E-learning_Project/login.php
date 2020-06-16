@@ -19,8 +19,8 @@ if (isset($_POST['uUsername']) && isset($_POST['uPassword'])) {
             $_SESSION['firstName'] = $row['firstname'];
             $_SESSION['lastName'] = $row['lastname'];
             $_SESSION['userID'] = $row['id'];
-            header('Location: index.php');
-            exit();
+            // header('Location: index.php');
+            // exit();
         }
     }
     $conn->close();
@@ -41,7 +41,7 @@ include_once('components/compTop.php');
                 <p>Username</p>
                 <input type="text" placeholder="Type in your username" name="uUsername">
             </label>
-            <label>
+            <label> 
                 <p>Password</p>
                 <input placeholder="Type in your password" type="password" name="uPassword">
             </label>

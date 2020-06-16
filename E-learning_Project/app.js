@@ -32,11 +32,11 @@ function initEditor() {
     imageUploadURL: "tmp/API-upload-image.php",
     height: "calc(50vh - 42px)",
     events: {
-    'image.uploaded': function (response) {
-      let aSubstrings = response.split('tmp/');
-      aUploadedImages.push(aSubstrings[1]);
-    }
-  },
+      "image.uploaded": function (response) {
+        let aSubstrings = response.split("tmp/");
+        aUploadedImages.push(aSubstrings[1]);
+      },
+    },
   });
 }
 
@@ -493,6 +493,7 @@ async function updateProgressTable(courseID, topic) {
 }
 /*----------------- 04-4-2020 Søren Slut */
 function validate() {
+  event.preventDefault();
   let oForm = event.target;
   console.log(oForm);
   let check = 0;
@@ -680,12 +681,11 @@ function saveQuizData() {
 }
 
 function updateImageData() {
-  
   let sIntroduction = oTopicData.introduction;
   let sExample = oTopicData.example;
   let sSummery = oTopicData.summery;
- 
- //Change image URL, change tmp folder to images
+
+  //Change image URL, change tmp folder to images
   let sUpdatedIntroduction = sIntroduction.replace(/\.\/tmp/g, "images");
   let sUpdatedExample = sExample.replace(/\.\/tmp/g, "images");
   let sUpdatedSummery = sSummery.replace(/\.\/tmp/g, "images");
@@ -701,10 +701,9 @@ function updateImageData() {
   oTopicData.summery = sUpdatedSummery;
 
   //Match all uploaded images in tmp folder with those actually in saved oTopicData
-
 }
 
-function findSavedImages(){
+function findSavedImages() {
   //
   let sIntroduction = oTopicData.introduction;
   let sExample = oTopicData.example;
@@ -713,7 +712,7 @@ function findSavedImages(){
   let sConcatenatedString = sIntroduction.concat(sExample, sSummery);
 
   //Find all images in HTML string
-  let aSubstrings = sConcatenatedString.split('<img src=');
+  let aSubstrings = sConcatenatedString.split("<img src=");
 
   console.log(aSubstrings);
 
@@ -732,20 +731,14 @@ function findSavedImages(){
   }
 
   console.log(aSavedImages);
-
-
-
-  let aImagesToBeMoved = [];
-
   moveImagesWithAPI(aSavedImages);
-
 }
 
 async function moveImagesWithAPI(images) {
   let data = new FormData();
-  
+
   data.append("images", JSON.stringify(images));
-  
+
   let connection = await fetch("APIs/API-move-images.php", {
     method: "POST",
     body: data,
@@ -754,14 +747,34 @@ async function moveImagesWithAPI(images) {
   console.log(connection.text());
 }
 
-function saveNewTopic() {
+function saveNewTopic(e) {
   saveTopicText();
   updateImageData();
   findSavedImages();
-  
   fetchCreateTopicApi();
 
-  // window.location.replace("edit_course.php");
+  feedbackAnimation(e);
+}
+
+function updateTopic(e, topicId) {
+  saveTopicText();
+  updateImageData();
+  findSavedImages();
+  fetchUpdateTopicApi(topicId);
+
+  feedbackAnimation(e);
+}
+
+function feedbackAnimation(e) {
+  let redirectPage = e.dataset.redirect;
+  console.log("feedbackAnimation", redirectPage);
+  let saveIcon =
+    '<div class="checkbox_background"></div><div class="check_circle"><div class="check_box"></div></div>';
+  document.querySelector("body").insertAdjacentHTML("afterbegin", saveIcon);
+
+  document.querySelector(".check_box").onanimationend = function () {
+    window.location.replace(redirectPage + ".php");
+  };
 }
 
 async function fetchCreateTopicApi() {
@@ -781,8 +794,7 @@ async function fetchCreateTopicApi() {
   console.log(connection.text());
 }
 
-async function updateTopic(topicId) {
-  saveTopicText();
+async function fetchUpdateTopicApi(topicId) {
   let data = new FormData();
   console.log(data);
   console.log(oTopicData);
@@ -799,8 +811,6 @@ async function updateTopic(topicId) {
   let response = await connection.text();
 
   console.log(response);
-
-  window.location.replace("edit_course.php");
 }
 
 async function fetchTopicContent(id) {

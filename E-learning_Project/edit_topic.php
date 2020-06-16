@@ -60,7 +60,7 @@ include_once('components/compTop.php');
               <a href="edit_course.php"
                 ><button class="btn-quaternary">CANCEL</button></a
               >
-              <button onclick="updateTopic(<?php echo $id?>)" class="btn-primary">
+              <button data-redirect="edit_course" onclick="updateTopic(this, <?php echo $id?>)" class="btn-primary">
                 SAVE CONTENT
               </button>
             </div>
@@ -73,7 +73,7 @@ include_once('components/compTop.php');
           </div>
           <div id="shortDescription" style="display: none;">
             <label for="">Short Description:</label>
-            <input type="text" placeholder="Type in a short description for the topic" />
+            <input type="text" placeholder="Type in a short description" />
           </div>
           <div id="quiz" style="display: none;">
             <label for="">Quiz question:</label>
