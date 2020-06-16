@@ -65,3 +65,7 @@
 #frmSignUp input:focus {
   background-color: lightblue;
 }
+
+.margin-top {
+  margin-top: 5%;
+}

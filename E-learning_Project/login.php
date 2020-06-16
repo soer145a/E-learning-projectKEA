@@ -6,6 +6,7 @@ if (isset($_POST['uUsername']) && isset($_POST['uPassword'])) {
     $username = $_POST['uUsername'];
     $password = $_POST['uPassword'];
     if($password == $secretPassword && $username == $secretUsername){
+        $_SESSION['admin'] = 'true';
         header('Location: admin.php');
     }
     $sql = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
@@ -26,7 +27,7 @@ if (isset($_POST['uUsername']) && isset($_POST['uPassword'])) {
 }
 include_once('components/compTop.php');
 ?>
-<span id="background">
+<span id="background" class="margin-top">
     <img src="assets/Polygon 1.svg" alt="" />
     <img src="assets/Polygon 2.svg" alt="" />
 </span>

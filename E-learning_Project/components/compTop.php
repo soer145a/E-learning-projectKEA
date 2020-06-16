@@ -1,10 +1,17 @@
 <?php
-        if(isset($_SESSION['loginStatus'])){
-          $htmlOutput = "<a href='profile.php' data-navtag='profile' onclick='setSessionData(this)'><button class='btn-primary'>PROFILE</button></a>
+if (isset($_SESSION['loginStatus'])) {
+  $htmlOutput = "<a href='profile.php' data-navtag='profile' onclick='setSessionData(this)'><button class='btn-primary'>PROFILE</button></a>
           <a href='logout.php' data-navtag='index' onclick='setSessionData(this)'><button class='btn-tertiary'>LOG OUT</button></a>";
-        }else{
-          $htmlOutput = "<a href='signup.php' data-navtag='index' onclick='setSessionData(this)'><button class='btn-primary'>SIGN UP</button></a>
+} else {
+  $htmlOutput = "<a href='signup.php' data-navtag='index' onclick='setSessionData(this)'><button class='btn-primary'>SIGN UP</button></a>
           <a href='login.php' data-navtag='index' onclick='setSessionData(this)'><button class='btn-tertiary'>LOG IN</button></a>";
+}
+
+if (isset($_SESSION['admin'])) {
+  $adminNav = "<a href='admin.php' data-navtag='admin' onclick='setSessionData(this)'>ADMIN</a>";
+  $htmlOutput = "<a href='logout.php' data-navtag='index' onclick='setSessionData(this)'><button class='btn-tertiary'>LOG OUT</button></a>";
+} else {
+  $adminNav = "";
 }
 ?>
 <!DOCTYPE html>
@@ -16,16 +23,8 @@
   <!-- <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet"> -->
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Teko:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link
-      href="node_modules/froala-editor/css/froala_editor.pkgd.min.css"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link
-      href="node_modules/froala-editor/css/plugins/image.min.css"
-      rel="stylesheet"
-      type="text/css"
-    />
+  <link href="node_modules/froala-editor/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
+  <link href="node_modules/froala-editor/css/plugins/image.min.css" rel="stylesheet" type="text/css" />
   <title>DB Academy</title>
   <!-- <link rel="stylesheet" href="main.css" /> -->
   <link rel="stylesheet" href="normalize.css" />
@@ -48,6 +47,7 @@
       <a href="index.php" data-navtag="index" onclick="setSessionData(this)">HOME</a>
       <a href="glossary.php" data-navtag="glossary" onclick="setSessionData(this)">GLOSSARY</a>
       <a href="course.php" data-navtag="course" onclick="setSessionData(this)">COURSE</a>
+      <?php echo $adminNav; ?>
     </nav>
     <div>
       <?= $htmlOutput ?>
