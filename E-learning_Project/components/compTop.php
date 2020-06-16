@@ -36,6 +36,7 @@
   <link rel="stylesheet" href="glossary.css" /> <!-- 06/05/20 - 15.35 - Daniel har tilføjet ref til syllabus.css -->
   <link rel="stylesheet" href="admin.css" /> <!-- 19/05/20 - 19.09 - Mikkel har tilføjet ref til admin.css -->
   <link rel="stylesheet" href="profile.css" /> <!-- 20/05/20 - 19.09 - Daniel har tilføjet ref til profile.css -->
+  <link rel="stylesheet" href="statistics.css"> <!-- 10/6/20 Søren tilføjer ny css fil til reporting af databasen -->
 </head>
 
 <body>

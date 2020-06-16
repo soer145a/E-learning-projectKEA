@@ -14,7 +14,7 @@ if(isset($_SESSION['loginStatus'])) {
     while($row = $result->fetch_assoc() ) {
         $newObj = new stdClass;
         $newObj->status = $row['statusVariabel']; 
-        $newObj->courseName = $row['courseName'];
+        $newObj->courseName = $row['topicName'];
         array_push($aProgressArray, $newObj);
     }
   } else {

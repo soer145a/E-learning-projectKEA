@@ -260,8 +260,8 @@ main h3 {
 }
 
 #indexPage #learn .container {
-  display: grid;
-  grid-template-rows: min-content min-content min-content;
+    display: grid;
+    grid-template-rows: min-content min-content min-content;
 }
 
 #indexPage #learn a {

@@ -1,0 +1,59 @@
+#chartArea {
+  width: 50vw;
+  height: 30vw;
+  background-color: white;
+  position: absolute;
+  border: solid 3px #e6e6e6;
+  bottom: 5vw;
+  right: 5vw;
+  grid-template-columns: repeat(6, 1fr);
+  display: grid;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+#chartHeadline {
+  position: absolute;
+  right: 42.5vw;
+  top: 9.5vw;
+}
+#chartArea .chartUnit {
+  position: relative;
+  top: 1vw;
+  left: 2vw;
+}
+#chartArea .chartUnit .barChart {
+  width: 70px;
+  height: 400px;
+  transform: rotate(180deg);
+  background-color: var(--color-five);
+  border: solid 2px black;
+}
+#chartArea .chartUnit .barChart .barPercentage {
+  width: 100%;
+  background-color: var(--color-six);
+  color: black;
+  transform: rotate(180deg);
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.4em;
+  font-family: var(--primary-font);
+  border-top: solid black 4px;
+}
+#chartArea .chartUnit .barText {
+  transform: translate(0px, 40px) rotate(35deg);
+  font-size: 0.8em;
+}
+#loggedInArea {
+  width: 30vw;
+  height: 30vw;
+  background-color: white;
+  position: absolute;
+  border: solid 3px #e6e6e6;
+  bottom: 5vw;
+  left: 5vw;
+  text-align: center;
+}
+#loggedInArea svg {
+  height: 20vw;
+  width: 20vw;
+}

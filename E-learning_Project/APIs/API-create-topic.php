@@ -7,6 +7,6 @@ $sTopicName = $_POST['topicName'];
 echo $sTopicName;
 echo $sTopicContent; 
 
-$sql = "INSERT INTO courses (courseName,courseContent)
+$sql = "INSERT INTO topics (topicName,topicontent)
 VALUES ('$sTopicName', '$sTopicContent')";
 $result = $conn->query($sql);
