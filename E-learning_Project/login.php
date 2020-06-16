@@ -19,8 +19,8 @@ if (isset($_POST['uUsername']) && isset($_POST['uPassword'])) {
             $_SESSION['firstName'] = $row['firstname'];
             $_SESSION['lastName'] = $row['lastname'];
             $_SESSION['userID'] = $row['id'];
-            // header('Location: index.php');
-            // exit();
+            header('Location: index.php');
+            exit();
         }
     }
     $conn->close();

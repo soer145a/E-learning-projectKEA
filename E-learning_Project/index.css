@@ -146,14 +146,10 @@ button {
 }
 
 header nav {
-
   width: fit-content;
   display: grid;
-  grid-template-columns: repeat(4,auto);
+  grid-template-columns: repeat(4, auto);
   grid-column-gap: 5px;
-  /* width: 250px;
-  display: flex;
-  justify-content: space-evenly; */
 }
 
 header nav a {
@@ -265,8 +261,8 @@ main h3 {
 }
 
 #indexPage #learn .container {
-    display: grid;
-    grid-template-rows: min-content min-content min-content;
+  display: grid;
+  grid-template-rows: min-content min-content min-content;
 }
 
 #indexPage #learn a {
