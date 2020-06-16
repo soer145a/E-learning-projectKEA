@@ -1,15 +1,16 @@
 #chartArea {
-  width: 50vw;
+  width: 45vw;
   height: 30vw;
   background-color: white;
   position: absolute;
-  border: solid 3px #e6e6e6;
+  border: solid 2px lightgray;
   bottom: 5vw;
-  right: 5vw;
+  right: 10vw;
   grid-template-columns: repeat(6, 1fr);
   display: grid;
   overflow-x: scroll;
   overflow-y: hidden;
+  border-radius: 10px;
 }
 #chartHeadline {
   position: absolute;
@@ -44,16 +45,23 @@
   font-size: 0.8em;
 }
 #loggedInArea {
+  border-radius: 10px;;
   width: 30vw;
   height: 30vw;
   background-color: white;
   position: absolute;
-  border: solid 3px #e6e6e6;
-  bottom: 5vw;
-  left: 5vw;
+  border: solid 2px lightgray;
+  bottom: 5vw;  
   text-align: center;
 }
 #loggedInArea svg {
   height: 20vw;
   width: 20vw;
+}
+.margin-top {
+  margin-top: 5%;
+}
+
+#statistics {
+  border-top: solid 2px var(--color-five);
 }
