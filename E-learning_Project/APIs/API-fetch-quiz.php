@@ -1,6 +1,6 @@
 <?php
 session_start();
-echo $_SESSION['loginStatus'];
+
 if(isset($_SESSION['loginStatus'])){
     $sql = "UPDATE loginreporting SET InLogged = InLogged + 1 WHERE reportingID = 1";
 }else{
