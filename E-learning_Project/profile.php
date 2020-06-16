@@ -21,15 +21,19 @@ if(isset($_POST['uFirstName'])){
     $uUsername = $_POST['uUsername'];
     $uPassword = $_POST['uPassword'];
     $uID = $_POST['uID'];
-    $sql = "UPDATE customers SET firstname='$uFirstName', lastname='$uLastName', email='$uEmail', username='$uUsername', password='$uPassword'  WHERE id=$uID";
+    $sql = "UPDATE users SET firstname='$uFirstName', lastname='$uLastName', email='$uEmail', username='$uUsername', password='$uPassword'  WHERE id=$uID";
     $conn->query($sql);
 }
-$sql = "SELECT * FROM customers WHERE id=$uID";
+$sql = "SELECT * FROM users WHERE id=$uID";
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
 include_once('components/compTop.php');
 ?>
-<main>
+ <span id="background">
+      <img src="assets/Polygon 1.svg" alt="" />
+      <img src="assets/Polygon 2.svg" alt="" />
+</span>
+<main id="profile">
 <div id="deleteModalWindow" onclick="closeDeleteModal()">
    
 </div>

@@ -5,7 +5,7 @@ $sID = $_GET['topicID'];
 $sTopicName = $_POST['topicName'];
 $sTopicContent = $_POST['topicContent'];
 
-$sql = "UPDATE courses SET courseName='$sTopicName', courseContent='$sTopicContent'WHERE courseID=$sID";
+$sql = "UPDATE topics SET topicName='$sTopicName', topicContent='$sTopicContent'WHERE topicID=$sID";
 
 $result = $conn->query($sql);
 

@@ -1,7 +1,7 @@
 <?php 
 include_once('DB_Connect/connection.php');
 
-$sql = "SELECT * FROM courses";
+$sql = "SELECT * FROM topics";
 
 $result = $conn->query($sql);
 
@@ -34,9 +34,9 @@ include_once('components/compTop.php');
         <section>
         <?php 
             for($i = 0; $i < $result->num_rows; $i++) {
-              echo '<div class="topic" data-id="'.$oTopics->$i["courseID"].'">
-                      <h3>'.$oTopics->$i["courseName"].'</h3>
-                      <a href="edit_topic.php?id='.$oTopics->$i["courseID"].'">
+              echo '<div class="topic" data-id="'.$oTopics->$i["topicID"].'">
+                      <h3>'.$oTopics->$i["topicName"].'</h3>
+                      <a href="edit_topic.php?id='.$oTopics->$i["topicID"].'">
                         <button class="btn-primary">EDIT</button>
                       </a>
                       <button class="btn-quaternary" onclick="showModal(this)">DELETE</button>

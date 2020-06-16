@@ -2,7 +2,7 @@
 session_start();
 include_once('DB_Connect/connection.php');
 include_once('DB_Connect/procedures.php');
-$sql = "SELECT courseID,courseName,courseContent FROM courses";
+$sql = "SELECT topicID,topicName,topicContent FROM topics";
 $result = $conn->query($sql);
 
 if (isset($_SESSION['loginStatus'])) {
@@ -15,7 +15,7 @@ if (isset($_SESSION['loginStatus'])) {
     while ($row = $resultUserProgress->fetch_assoc()) {
       $newObj = new stdClass;
       $newObj->status = $row['statusVariabel'];
-      $newObj->courseName = $row['courseName'];
+      $newObj->courseName = $row['topicName'];
       array_push($aProgressArray, $newObj);
     }
   } else {
@@ -61,14 +61,14 @@ include_once('components/compTop.php');
           $index = 2;
           while ($row = $result->fetch_assoc()) {
 
-            $sData = json_decode($row['courseContent']);
+            $sData = json_decode($row['topicContent']);
 
-            echo '<button onclick="showOptions(\'contentOptions' . $row['courseID'] . '\')" class="btnDropdown">' . $row['courseName'] . ' <i class="fa fa-chevron-down" style="font-size:24px"></i></button>
-            <div id="contentOptions' . $row['courseID'] . '" class="dropdown-content">
-                <a id="' . $index . '" onclick="fetchIntroduction(\'' . $row['courseID'] . '\'); changePlacement(' . $index++ . ');">' . $sData->shortDescription . '</a>
-                <a id="' . $index . '" onclick="fetchExample(\'' . $row['courseID'] . '\'); changePlacement(' . $index++ . ');">Example</a>
-                <a id="' . $index . '" onclick="fetchSummery(\'' . $row['courseID'] . '\'); changePlacement(' . $index++ . ');">Summery</a>
-                <a id="' . $index . '" onclick="fetchQuiz(\'' . $row['courseID'] . '\'); changePlacement(' . $index++ . ');">Quiz</a>
+            echo '<button onclick="showOptions(\'contentOptions' . $row['topicID'] . '\')" class="btnDropdown">' . $row['topicName'] . ' <i class="fa fa-chevron-down" style="font-size:24px"></i></button>
+            <div id="contentOptions' . $row['topicID'] . '" class="dropdown-content">
+                <a id="' . $index . '" onclick="fetchIntroduction(\'' . $row['topicID'] . '\'); changePlacement(' . $index++ . ');">' . $sData->shortDescription . '</a>
+                <a id="' . $index . '" onclick="fetchExample(\'' . $row['topicID'] . '\'); changePlacement(' . $index++ . ');">Example</a>
+                <a id="' . $index . '" onclick="fetchSummery(\'' . $row['topicID'] . '\'); changePlacement(' . $index++ . ');">Summery</a>
+                <a id="' . $index . '" onclick="fetchQuiz(\'' . $row['topicID'] . '\'); changePlacement(' . $index++ . ');">Quiz</a>
             </div>';
           }
         } else {

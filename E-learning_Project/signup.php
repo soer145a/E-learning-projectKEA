@@ -62,7 +62,7 @@ include_once('components/compTop.php');
             <h1>Sign up here</h1>
             <label for="">
                 <p>Username (Between 2 and 50 characters)</p>
-                <input type="text" name="uUsername" placeholder="Type in a username" data-validate="string" data-min="2" data-max="50" oninput="validate()">
+                <input autofocus type="text" name="uUsername" placeholder="Type in a username" data-validate="string" data-min="2" data-max="50" oninput="validate()">
                 <?=$_SESSION['uUsernameError']?>
             </label>
             <label for="">

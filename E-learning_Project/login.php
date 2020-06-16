@@ -8,7 +8,7 @@ if (isset($_POST['uUsername']) && isset($_POST['uPassword'])) {
     if($password == $secretPassword && $username == $secretUsername){
         header('Location: admin.php');
     }
-    $sql = "SELECT * FROM customers WHERE username = '$username' AND password = '$password'";
+    $sql = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {

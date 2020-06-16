@@ -1,6 +1,7 @@
 // 25-05-2020 - Mikkel Start
 let showModalWindow = 0;
 let editor;
+let aUploadedImages = [];
 let oTopicData = {
   shortDescription: "",
   introduction: "",
@@ -30,6 +31,12 @@ function initEditor() {
     ],
     imageUploadURL: "tmp/API-upload-image.php",
     height: "calc(50vh - 42px)",
+    events: {
+    'image.uploaded': function (response) {
+      let aSubstrings = response.split('tmp/');
+      aUploadedImages.push(aSubstrings[1]);
+    }
+  },
   });
 }
 
@@ -513,6 +520,10 @@ function retrieveSessionData() {
         }
         break;
       }
+      if (sChosenPage === "logo") {
+        document.querySelector("[data-navtag=index]").classList = "active";
+        break;
+      }
       if (aGetTopNavigationTabs[i].dataset.navtag === sChosenPage) {
         aGetTopNavigationTabs[i].classList = "active";
         break;
@@ -719,22 +730,86 @@ function saveQuizData() {
   console.log(oTopicData);
 }
 
-function replaceImgURLInText() {
-  console.log("kører denne");
+function updateImageData() {
+  
   let sIntroduction = oTopicData.introduction;
-  console.log(oTopicData);
-  // console.log(sIntroduction);
-  let sUpdatedIntroduction = sIntroduction.replace(/tmp/g, "images");
-  sUpdatedIntroduction = sUpdatedIntroduction.replace(/\"/g, "&quot;");
-  // console.log(sUpdatedIntroduction);
+  let sExample = oTopicData.example;
+  let sSummery = oTopicData.summery;
+ 
+ //Change image URL, change tmp folder to images
+  let sUpdatedIntroduction = sIntroduction.replace(/\.\/tmp/g, "images");
+  let sUpdatedExample = sExample.replace(/\.\/tmp/g, "images");
+  let sUpdatedSummery = sSummery.replace(/\.\/tmp/g, "images");
+
+  //Change all "" in text to &quot; so database will accept image path
+  sUpdatedIntroduction = sUpdatedIntroduction.replace(/\"/g, "");
+  sUpdatedExample = sUpdatedExample.replace(/\"/g, "");
+  sUpdatedSummery = sUpdatedSummery.replace(/\"/g, "");
+
+  //Update oTopicData with new string
   oTopicData.introduction = sUpdatedIntroduction;
-  console.log(oTopicData);
+  oTopicData.example = sUpdatedExample;
+  oTopicData.summery = sUpdatedSummery;
+
+  //Match all uploaded images in tmp folder with those actually in saved oTopicData
+
+}
+
+function findSavedImages(){
+  //
+  let sIntroduction = oTopicData.introduction;
+  let sExample = oTopicData.example;
+  let sSummery = oTopicData.summery;
+
+  let sConcatenatedString = sIntroduction.concat(sExample, sSummery);
+
+  //Find all images in HTML string
+  let aSubstrings = sConcatenatedString.split('<img src=');
+
+  console.log(aSubstrings);
+
+  //All saved images
+  let aSavedImages = [];
+
+  //Loop through the array of substrings
+  for (let i = 0; i < aSubstrings.length; i++) {
+    //If a substring starts with "uploads/" then it's an image
+    if (aSubstrings[i].startsWith("images/")) {
+      console.log("is img");
+      //Clean up the substring, so it only consists of the image file name and extension.
+      //Then push the image to an array
+      aSavedImages.push(aSubstrings[i].slice(7, 51));
+    }
+  }
+
+  console.log(aSavedImages);
+
+
+
+  let aImagesToBeMoved = [];
+
+  moveImagesWithAPI(aSavedImages);
+
+}
+
+async function moveImagesWithAPI(images) {
+  let data = new FormData();
+  
+  data.append("images", JSON.stringify(images));
+  
+  let connection = await fetch("APIs/API-move-images.php", {
+    method: "POST",
+    body: data,
+  });
+
+  console.log(connection.text());
 }
 
 function saveNewTopic() {
   saveTopicText();
-  replaceImgURLInText();
-
+  updateImageData();
+  findSavedImages();
+  
   fetchCreateTopicApi();
 
   // window.location.replace("edit_course.php");

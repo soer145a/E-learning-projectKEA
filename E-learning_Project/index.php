@@ -14,7 +14,7 @@ if(isset($_SESSION['loginStatus'])) {
     while($row = $result->fetch_assoc() ) {
         $newObj = new stdClass;
         $newObj->status = $row['statusVariabel']; 
-        $newObj->courseName = $row['courseName'];
+        $newObj->courseName = $row['topicName'];
         array_push($aProgressArray, $newObj);
     }
   } else {
@@ -49,11 +49,11 @@ include_once('components/compTop.php');
       <section id="learn"class="sectionwrapper">
         <h2>LEARN</h2>
         <div class="container">
-          <h3>Relational Databases</h3>
+          <h3>Learn about relational databases</h3>
           <p>
           A relational database is a database consisting of two or more tables that each are related to one or more of the other tables in the database. They create relationships between one another by referring to columns, also called attributes, in different tables.
           </p>
-          <a href="course.php" data-navtag="course" onclick="setSessionData(this)">BEGIN COURSE</a>
+          <a href="course.php" data-navtag="course" onclick="setSessionData(this)"><button class="btn-secondary">BEGIN COURSE</button></a>
         </div>
       </section>
       <section id="my_progress" class="sectionwrapper">

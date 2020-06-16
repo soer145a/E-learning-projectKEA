@@ -258,10 +258,22 @@ main h3 {
   height: 550px;
 }
 
+#indexPage #learn .container {
+    display: grid;
+    grid-template-rows: min-content min-content min-content;
+}
+
+#indexPage #learn a {
+  margin-top: 5%;
+  justify-self: center;
+}
+
 #indexPage #my_progress .container {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+  overflow: auto;
 }
 
 #indexPage #my_progress .container h3 {
