@@ -146,9 +146,14 @@ button {
 }
 
 header nav {
-  width: 250px;
+
+  width: fit-content;
+  display: grid;
+  grid-template-columns: repeat(4,auto);
+  grid-column-gap: 5px;
+  /* width: 250px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-evenly; */
 }
 
 header nav a {

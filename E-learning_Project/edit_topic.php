@@ -1,5 +1,8 @@
 <?php 
-
+session_start();
+if ($_SESSION['admin'] != 'true'){
+  header('Location: index.php');
+}
 $id = $_GET["id"];
 
 include_once('components/compTop.php');
@@ -11,6 +14,11 @@ include_once('components/compTop.php');
     </span>
     <main id="edit">
       <h1>Edit topic - [TOPIC NAME]</h1>
+      <div>
+      <a class="adminNav" href="admin.php">Course Overview &#8250;</a>
+      <a class="adminNav" href="edit_course.php">Edit Course &#8250;</a>
+      <a class="adminNav" href="" style="text-decoration: underline;">Edit Topic</a>
+      </div>
       <div id="sectionwrapper">
         <section>
           <nav>

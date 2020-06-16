@@ -1,5 +1,10 @@
 <?php 
+session_start();
+if ($_SESSION['admin'] != 'true'){
+  header('Location: index.php');
+}
 include_once('components/compTop.php');
+echo "<script> sessionStorage.setItem('chosenPage','admin') </script>";
 ?>
     <span id="background" class="margin-top">
       <img src="assets/Polygon 1.svg" alt="" />
@@ -7,6 +12,9 @@ include_once('components/compTop.php');
     </span>
     <main id="admin">
       <h1>Courses</h1>
+      <div>
+      <a class="adminNav" href="admin.php" style="text-decoration: underline;">Course Overview</a>
+      </div>
       <div id="sectionwrapper">
         <section>
           <!-- THE BELOW DIV AND ITS CHILDREN SHOULD BE CREATED FOR EACH OF COURSE AND THE CONTENT -->

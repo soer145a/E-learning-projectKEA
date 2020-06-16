@@ -29,7 +29,7 @@ $result = $conn->query($sql);
 $row = $result->fetch_assoc();
 include_once('components/compTop.php');
 ?>
- <span id="background">
+ <span id="background" class="margin-top">
       <img src="assets/Polygon 1.svg" alt="" />
       <img src="assets/Polygon 2.svg" alt="" />
 </span>
@@ -69,5 +69,6 @@ include_once('components/compTop.php');
 </div>
 </main>
 <?php
+$_SESSION['firstName'] = $uFirstName;
 include_once('components/compBottom.php');
 ?>

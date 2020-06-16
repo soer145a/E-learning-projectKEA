@@ -57,3 +57,7 @@
 #frmLogIn button:hover {
     background-color: var(--color-six-hover);
 }
+
+.margin-top {
+    margin-top: 5%;
+  }

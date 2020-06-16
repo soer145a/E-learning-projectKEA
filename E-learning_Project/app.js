@@ -115,67 +115,16 @@ function showOptions(stringDivName) {
 }
 
 function setBookmark(obj) {
+
   var i = 0;
+
   obj.forEach((item) => {
     i++;
-
-    switch (item.courseName) {
-      case "Relational Database":
-        var childElements = document.getElementById("contentOptions" + i)
-          .children;
-        var childElement = childElements[item.status - 1];
-        childElement.insertAdjacentHTML(
-          "beforeend",
-          '<i class="fa fa-bookmark"></i>'
-        );
-        break;
-      case "Normalization":
-        var childElements = document.getElementById("contentOptions" + i)
-          .children;
-        var childElement = childElements[item.status - 1];
-        childElement.insertAdjacentHTML(
-          "beforeend",
-          '<i class="fa fa-bookmark"></i>'
-        );
-        break;
-      case "Entity Relationship Diagram (ERD)":
-        var childElements = document.getElementById("contentOptions" + i)
-          .children;
-        var childElement = childElements[item.status - 1];
-        childElement.insertAdjacentHTML(
-          "beforeend",
-          '<i class="fa fa-bookmark"></i>'
-        );
-        break;
-      case "SQL and Datamanipulation":
-        var childElements = document.getElementById("contentOptions" + i)
-          .children;
-        var childElement = childElements[item.status - 1];
-        childElement.insertAdjacentHTML(
-          "beforeend",
-          '<i class="fa fa-bookmark"></i>'
-        );
-        break;
-      case "Installation and XAMPP":
-        var childElements = document.getElementById("contentOptions" + i)
-          .children;
-        var childElement = childElements[item.status - 1];
-        childElement.insertAdjacentHTML(
-          "beforeend",
-          '<i class="fa fa-bookmark"></i>'
-        );
-        break;
-      case "Connecting to the Web":
-        var childElements = document.getElementById("contentOptions" + i)
-          .children;
-        var childElement = childElements[item.status - 1];
-        childElement.insertAdjacentHTML(
-          "beforeend",
-          '<i class="fa fa-bookmark"></i>'
-        );
-        break;
-    }
+    var childElements = document.getElementById("contentOptions" + i).children;
+    var childElement = childElements[item.status - 1];
+    childElement.insertAdjacentHTML("beforeend",'<i class="fa fa-bookmark"></i>');
   });
+}
 
   // let bookmarked = document.querySelectorAll(".bookmarked");
   // bookmarked.forEach((item) => {
@@ -183,7 +132,7 @@ function setBookmark(obj) {
   // });
   // var toBeBookmarked = document.getElementById($progress+1);
   // toBeBookmarked.classList.add("bookmarked");
-}
+
 
 // 27/04/20 - 17.15 - Daniel har indsat functionskaldet setActive.call(this) for at vise hvilket nav element der er aktivt
 function setActive(placeCounter) {

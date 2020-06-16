@@ -1,4 +1,8 @@
 <?php 
+session_start();
+if ($_SESSION['admin'] != 'true'){
+  header('Location: index.php');
+}
 include_once('components/compTop.php');
 ?>
 
@@ -8,6 +12,11 @@ include_once('components/compTop.php');
 </span>
     <main id="edit">
       <h1>Create new topic</h1>
+      <div>
+      <a class="adminNav" href="admin.php">Course Overview &#8250;</a>
+      <a class="adminNav" href="edit_course.php">Edit Course &#8250;</a>
+      <a class="adminNav" href="create_topic.php" style="text-decoration: underline;">Create Topic</a>
+      </div>
       <div id="sectionwrapper">
         <section>
           <nav>

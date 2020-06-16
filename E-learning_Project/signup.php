@@ -49,7 +49,7 @@ if (isset($_POST['uUsername']) && isset($_POST['uPassword'])) {
 <?php
 include_once('components/compTop.php');
 ?>
-<span id="background">
+<span id="background" class="margin-top">
     <img src="assets/Polygon 1.svg" alt="" />
     <img src="assets/Polygon 2.svg" alt="" />
 </span>

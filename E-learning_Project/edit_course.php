@@ -1,4 +1,8 @@
 <?php 
+session_start();
+if ($_SESSION['admin'] != 'true'){
+  header('Location: index.php');
+}
 include_once('DB_Connect/connection.php');
 
 $sql = "SELECT * FROM topics";
@@ -30,6 +34,10 @@ include_once('components/compTop.php');
     </span>
     <main id="topic">
       <h1>Course Topics</h1>
+      <div>
+      <a class="adminNav" href="admin.php">Course Overview &#8250;</a>
+      <a class="adminNav" href="edit_course.php" style="text-decoration: underline;">Edit Course</a>
+      </div>
       <div id="sectionwrapper">
         <section>
         <?php 

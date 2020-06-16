@@ -16,6 +16,11 @@
   border-radius: 10px;
 }
 
+
+.adminNav:hover {
+  text-decoration: underline;
+}
+
 #admin #sectionwrapper section,
 #topic #sectionwrapper section {
   overflow: auto;
