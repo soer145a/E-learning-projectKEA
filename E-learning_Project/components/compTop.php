@@ -9,7 +9,8 @@ if (isset($_SESSION['loginStatus'])) {
 
 if (isset($_SESSION['admin'])) {
   $adminNav = "<a href='admin.php' data-navtag='admin' onclick='setSessionData(this)'>ADMIN</a>";
-  $htmlOutput = "<a href='logout.php' data-navtag='index' onclick='setSessionData(this)'><button class='btn-tertiary'>LOG OUT</button></a>";
+  $htmlOutput = "<a href='statistics.php'><button class='btn-primary'>STATISTICS</button></a>
+  <a href='logout.php' data-navtag='index' onclick='setSessionData(this)'><button class='btn-tertiary'>LOG OUT</button></a>";
 } else {
   $adminNav = "";
 }

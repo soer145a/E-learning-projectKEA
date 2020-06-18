@@ -11,24 +11,29 @@ $sql = "SELECT * FROM loginreporting";
 $resultL = $conn->query($sql);
 if ($resultL->num_rows > 0) {
     // output data of each row
-    while($row = $resultL->fetch_assoc() ) {
+    while ($row = $resultL->fetch_assoc()) {
         $pLoggedIn = $row['InLogged'];
         $pNonLogged = $row['nonLogged'];
     }
 } else {
-        echo "0 results";
+    echo "0 results";
 }
 
-
 include_once('components/compTop.php');
+echo "<script> sessionStorage.setItem('chosenPage','admin') </script>";
 ?>
- <span id="background">
-      <img src="assets/Polygon 1.svg" alt="" />
-      <img src="assets/Polygon 2.svg" alt="" />
+<span id="background" class="margin-top">
+    <img src="assets/Polygon 1.svg" alt="" />
+    <img src="assets/Polygon 2.svg" alt="" />
 </span>
 <main id="statistics">
-<div id="loggedInArea">
-    <?php
+    <h1>Statistics</h1>
+    <div>
+        <a class="adminNav" href="admin.php">Course Overview &#8250;</a>
+        <a class="adminNav" href="statistics.php" style="text-decoration: underline;">Statistics</a>
+    </div>
+    <div id="loggedInArea">
+        <?php
         $total = $pLoggedIn + $pNonLogged;
         $percentages = $pLoggedIn / $total * 100;
         $percentages = round($percentages);
@@ -40,19 +45,19 @@ include_once('components/compTop.php');
           <circle r='8' cx='10' cy='10' fill='white'/>
           <text x='5' y='11.5' class='svgText'>$percentages%</text>
         </svg>"
-    ?>
-</div>
-<h2 id="chartHeadline">Average user Progress</h2>  
-<div id="chartArea">
-    <?php
-    $iDVNumber = 25;
-    if ($result->num_rows > 0) {
-        // output data of each row
-        while($row = $result->fetch_assoc() ) {
-            $sTopicName = $row['topicName'];
-            $iInputNumber = $row['average'];
-            $calcPercentages = $iDVNumber * $iInputNumber / 100*100;
-            echo "<div class='chartUnit'>
+        ?>
+    </div>
+    <h2 id="chartHeadline">Average user Progress</h2>
+    <div id="chartArea">
+        <?php
+        $iDVNumber = 25;
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while ($row = $result->fetch_assoc()) {
+                $sTopicName = $row['topicName'];
+                $iInputNumber = $row['average'];
+                $calcPercentages = $iDVNumber * $iInputNumber / 100 * 100;
+                echo "<div class='chartUnit'>
             <div class='barChart'>
                 <div class='barPercentage' style='height: $calcPercentages%'> $calcPercentages%</div>
             </div>
@@ -60,13 +65,13 @@ include_once('components/compTop.php');
                 <p>$sTopicName</p>
             </div>
         </div>";
+            }
+        } else {
+            echo "0 results";
         }
-      } else {
-              echo "0 results";
-      }
-    
-    ?>
-</div>
+
+        ?>
+    </div>
 
 </main>
 <?php
