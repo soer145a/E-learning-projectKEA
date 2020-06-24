@@ -30,15 +30,16 @@ echo "<script> sessionStorage.setItem('chosenPage','admin') </script>";
     <h1>Statistics</h1>
     <div>
         <a class="adminNav" href="admin.php">Course Overview &#8250;</a>
-        <a class="adminNav" href="statistics.php" style="text-decoration: underline;">Statistics</a>
+        <a class="adminNav active" href="statistics.php" style="text-decoration: underline;">Statistics</a>
     </div>
-    <div id="loggedInArea">
+    <section>
+        <h2>% of Requests from logged in users</h2>
+        <div id="loggedInArea">
         <?php
         $total = $pLoggedIn + $pNonLogged;
         $percentages = $pLoggedIn / $total * 100;
         $percentages = round($percentages);
-        echo "<h2>% of Requests from logged in users</h2>
-        <svg height='20' width='20' viewBox='0 0 20 20'>
+        echo "<svg height='20' width='20' viewBox='0 0 20 20'>
           <circle r='10' cx='10' cy='10' fill='var(--color-five)'/>
           <circle r='5' cx='10' cy='10' fill='transparent' stroke='var(--color-six)' stroke-dasharray='calc($percentages * 31.42 / 100) 31.42' stroke-width='10'
           transform='rotate(-90) translate(-20)'/>
@@ -46,9 +47,11 @@ echo "<script> sessionStorage.setItem('chosenPage','admin') </script>";
           <text x='5' y='11.5' class='svgText'>$percentages%</text>
         </svg>"
         ?>
-    </div>
-    <h2 id="chartHeadline">Average user Progress</h2>
-    <div id="chartArea">
+        </div>
+    </section>
+    <section>
+        <h2 id="chartHeadline">Average user Progress</h2>
+        <div id="chartArea">
         <?php
         $iDVNumber = 25;
         if ($result->num_rows > 0) {
@@ -71,8 +74,8 @@ echo "<script> sessionStorage.setItem('chosenPage','admin') </script>";
         }
 
         ?>
-    </div>
-
+        </div>
+    </section>
 </main>
 <?php
 include_once('components/compBottom.php');

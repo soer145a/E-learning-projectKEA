@@ -13,7 +13,7 @@ echo "<script> sessionStorage.setItem('chosenPage','admin') </script>";
     <main id="admin">
       <h1>Courses</h1>
       <div>
-      <a class="adminNav" href="admin.php" style="text-decoration: underline;">Course Overview</a>
+      <a class="adminNav active" href="admin.php">Course Overview</a>
       </div>
       <div id="sectionwrapper">
         <section>
@@ -21,7 +21,7 @@ echo "<script> sessionStorage.setItem('chosenPage','admin') </script>";
           <a href="edit_course.php"
             ><div class="course">
               <div></div>
-              <div><h3>[COURSE NAME]</h3></div>
+              <div><h3>Relational Databases</h3></div>
             </div>
           </a>
         </section>

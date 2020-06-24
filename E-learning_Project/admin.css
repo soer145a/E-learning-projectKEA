@@ -16,7 +16,6 @@
   border-radius: 10px;
 }
 
-
 .adminNav:hover {
   text-decoration: underline;
 }
@@ -219,4 +218,30 @@
 #topicName input,
 #shortDescription input {
   font-family: var(--secondary-font);
+}
+#admin > div:nth-of-type(1),
+#topic > div:nth-of-type(1),
+#edit > div:nth-of-type(1) {
+  margin-bottom: 1%;
+}
+
+#admin > div:nth-of-type(1) a,
+#topic > div:nth-of-type(1) a,
+#edit > div:nth-of-type(1) a {
+  font-size: 2em;
+}
+
+#admin > div:nth-of-type(1) a:hover,
+#topic > div:nth-of-type(1) a:hover,
+#edit > div:nth-of-type(1) a:hover {
+  color: var(--color-one-hover);
+  text-decoration-color: var(--color-one-hover);
+}
+
+#admin .active,
+#topic .active,
+#edit .active {
+  color: #57b38d;
+  text-decoration: underline;
+  text-decoration-color: #57b38d;
 }

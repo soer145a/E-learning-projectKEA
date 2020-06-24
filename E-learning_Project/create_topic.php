@@ -15,7 +15,7 @@ include_once('components/compTop.php');
       <div>
       <a class="adminNav" href="admin.php">Course Overview &#8250;</a>
       <a class="adminNav" href="edit_course.php">Edit Course &#8250;</a>
-      <a class="adminNav" href="create_topic.php" style="text-decoration: underline;">Create Topic</a>
+      <a class="adminNav active" href="create_topic.php" >Create Topic</a>
       </div>
       <div id="sectionwrapper">
         <section>
