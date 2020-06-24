@@ -115,23 +115,23 @@ function showOptions(stringDivName) {
 }
 
 function setBookmark(obj) {
-
-  var i = 0;
+   i = 0;
 
   obj.forEach((item) => {
     i++;
     var childElements = document.getElementById("contentOptions" + i).children;
     var childElement = childElements[item.status - 1];
-    childElement.insertAdjacentHTML("beforeend",'<i class="fa fa-bookmark"></i>');
+    console.log(childElement);
+    childElement.insertAdjacentHTML("beforeend", '<i class="fa fa-bookmark"></i>');
   });
 }
 
-  // let bookmarked = document.querySelectorAll(".bookmarked");
-  // bookmarked.forEach((item) => {
-  //   item.classList.remove("bookmarked");
-  // });
-  // var toBeBookmarked = document.getElementById($progress+1);
-  // toBeBookmarked.classList.add("bookmarked");
+// let bookmarked = document.querySelectorAll(".bookmarked");
+// bookmarked.forEach((item) => {
+//   item.classList.remove("bookmarked");
+// });
+// var toBeBookmarked = document.getElementById($progress+1);
+// toBeBookmarked.classList.add("bookmarked");
 
 
 // 27/04/20 - 17.15 - Daniel har indsat functionskaldet setActive.call(this) for at vise hvilket nav element der er aktivt

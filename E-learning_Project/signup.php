@@ -37,9 +37,9 @@ if (isset($_POST['uUsername']) && isset($_POST['uPassword'])) {
         $_SESSION['firstName'] = $_POST['uFirstName'];
         $_SESSION['lastName'] = $_POST['uLastName'];
         $_SESSION['userID'] = $inputArray[1]; 
-        // header('Location: index.php');
+        header('Location: index.php');
         $conn->close();
-        // exit();
+        exit();
     }}
     
     
@@ -58,7 +58,7 @@ include_once('components/compTop.php');
 
     <!-- 04/05/20 - 12.50 - Daniel har lavet små ændringer til formen.  -->
     <div id="signUpArea">
-        <form action="signup.php" method="post" id="frmSignUp" onsubmit=" return validate()">
+        <form action="signup.php" method="post" id="frmSignUp" onsubmit="return validate()">
             <h1>Sign up here</h1>
             <label for="">
                 <p>Username (Between 2 and 50 characters)</p>
@@ -82,7 +82,7 @@ include_once('components/compTop.php');
                 <input type="text" name="uEmail" placeholder="Type in your E-mail" data-validate="email" oninput="validate()">
                 <?=$_SESSION['uEmailError']?>
             </label>
-            <button type="submit" data-redirect="index" onclick="feedbackAnimation(this)" >SIGN UP</button>
+            <button type="submit" data-redirect="index" >SIGN UP</button>
         </form>
     </div>
 
