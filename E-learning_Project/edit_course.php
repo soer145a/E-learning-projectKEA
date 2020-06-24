@@ -36,7 +36,7 @@ include_once('components/compTop.php');
       <h1>Course Topics</h1>
       <div>
       <a class="adminNav" href="admin.php">Course Overview &#8250;</a>
-      <a class="adminNav" href="edit_course.php" style="text-decoration: underline;">Edit Course</a>
+      <a class="adminNav active" href="edit_course.php">Edit Course</a>
       </div>
       <div id="sectionwrapper">
         <section>
