@@ -37,9 +37,9 @@ if (isset($_POST['uUsername']) && isset($_POST['uPassword'])) {
         $_SESSION['firstName'] = $_POST['uFirstName'];
         $_SESSION['lastName'] = $_POST['uLastName'];
         $_SESSION['userID'] = $inputArray[1]; 
-        // header('Location: index.php');
+         //header('Location: index.php');
         $conn->close();
-        // exit();
+         //exit();
     }}
     
     
